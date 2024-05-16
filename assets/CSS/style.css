@@ -31,6 +31,7 @@ body {
   border-top: #b0d314;
   border-left: #b0d314;
   border-bottom: #b0d314;
+  background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpapers.com%2Fzoo-background&psig=AOvVaw2jQSAnqVY0B6YyHKa281cW&ust=1715890658470000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPjtvfu8kIYDFQAAAAAdAAAAABA3);
 }
 
 
@@ -71,7 +72,6 @@ body {
   display: flex;
   justify-content: center;
 
-
   height: 700px;
   width: 100%;
   background-color: aliceblue;
@@ -81,21 +81,23 @@ body {
 }
 
 #card_card {
-  height: 200px;
+  height: 400px;
   display: flex;
   width: 450px;
-  font-family: cursive;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 #card_body {
   background: -webkit-linear-gradient(to right, lightcyan, #ddf3a9);
   background: linear-gradient(to right, lightcyan, #dae4b5);
+ 
 }
 
 #list_modal {
   background-color: #0db437;
   background: -webkit-linear-gradient(to right, rgb(136, 194, 167), #0db437);
   background: linear-gradient(to right, rgb(12, 151, 151), #dae4b5);
+ 
 }
 
 #img_modal {
@@ -126,10 +128,12 @@ body {
 #barre_horizontale2 {
   background: -webkit-linear-gradient(to right, rgb(251, 253, 252), #cddbd1);
   background: linear-gradient(to right, rgb(241, 243, 224), #fafcfa);
+
 }
 
 #section_spectacle_soins {
   background-color: coral;
+
 }
 
 #card_soinsVet {

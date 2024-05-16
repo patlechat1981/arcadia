@@ -15,7 +15,7 @@ try{
 $bdd = new PDO('mysql:host=localhost;dbname=Zoo_arcadia;charset=utf8','root','');}
 catch(Exception $e){die('Erreur : '.$e->getmessage());}
 
-$requete =$bdd->query('SELECT * FROM animaux');
+$requete =$bdd->query('SELECT * FROM animaux_card');
 ?>
 
 </head>
@@ -53,7 +53,7 @@ $requete =$bdd->query('SELECT * FROM animaux');
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item text-warning" href="./PAGES/spectacle.html"> Les Spectacles & Activitées</a></li>
                                 
-                                <li><a class="dropdown-item text-primary " href="#">Reservation </a></li>
+                                <li><a class="dropdown-item text-primary " href="#">Tous nos Animau</a></li>
 
 
                         </li>
@@ -228,68 +228,69 @@ $requete =$bdd->query('SELECT * FROM animaux');
         </section>
 
 <!-- fin de la barre ecrit Animaux du mois -->
-        <section class="section_main ">
+        <section class="section_main row" style="width: 35rem; min-height: 70%;" >
 <?php
 foreach ($requete as $row) {
+$row>4
+  
 ?>
- 
 
             <!--debut des cards 1-->
 
-            <div class="card m-3 border border-light border-5 " id='card_card' style="width: 33rem;">
-                <img src="<?php echo $row['images-A']  ?>" id="img_modal" class="card-img-top "
+            <div class="card m-3 border border-light border-5 col col-4  " id="card_card" style="width: 35rem; height: 500px;">
+                <img src="<?php echo $row['images_animaux']  ?>" id="img_modal" class="card-img-top "
                     alt="...">
-                <div class="card-body " id="card_body" style="border: 2px solid rgb(134, 241, 157);">
+                <div class="card-body " id="card_body" style="border: 2px solid rgb(134, 241, 157);  ">
                 <h4 class="card-title">
                     <b class="text-success">
                         <?php
-                            echo $row['nom-A'];
+                            echo $row['nom_animaux'];
                         ?>
                     </b>
                 </h4>
-                <p class="card-text">
-                        Les milans royaux sont facilement reconnaissables, notamment en vol. En effet leur queue est
-                        relativement longue et de forme triangulaire et leurs ailes sont dotés de grandes taches
-                        blanches visibles du dessous.......<!--  Son corps est de couleur brune et sa tête grise, son bec jaune,
-                        long et crochu lui permet de facilement déchirer la chair des proies qu’il consomme. Il existe
-                        un léger dimorphisme sexuel, les femelles étant quelque peu plus grandes que les mâles. -->
-                    </p>
+               
                 </div>
                 <ul class="list-group list-group-flush" id="list_modal">
-                    <li class="list-group-item" id="list_modal"><b>Moyenne d'Age :</b> 8 à 14 ans <br><b>Poids Moyen
-                            :</b> 2.4kg </li>
+                    <li class="list-group-item" id="list_modal"><b>Moyenne d'Age :</b> <?php echo $row['moyenne_age'];
+                     
+                        ?> <br><b>Poids Moyen
+                            :</b> <?php
+                            echo $row['poids_moyen'];
+                        ?> </li>
 
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modal_animaux_<?php echo $row['id-Animaux'];?>">
+                        data-bs-target="#modal_animaux_<?php echo $row['id_animaux'];?>">
                         Galleries video
                     </button>
 
                     <!-- Modal -->
 
                     <!--  debut Modal 1 -->
-                    <div class="modal fade" id="modal_animaux_<?php echo $row['id-Animaux'];?>" data-bs-backdrop="static" data-bs-keyboard="false"
+                    <div class="modal fade" id="modal_animaux_<?php echo $row['id_animaux'];?>" data-bs-backdrop="static" data-bs-keyboard="false"
                         tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="modal_animaux_
                                     <?php
-                                        echo $row['id-Animaux'];
+                                        echo $row['id_animaux'];
                                     ?>
                                     "><b class="text-success">
                                      <?php
-                                        echo $row['nom-A'];
+                                        echo $row['nom_animaux'];
                                     ?>
                                     </b></h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body ">
-                                    <iframe width="560" class="w-100" height="315"
-                                        src="https://www.youtube.com/embed/4y7mqNzDfdY?si=Sl8pRN5wePjTFQ0y"
+                                  <!--   <iframe width="560" class="w-100" height="315"
+                                        src="   <?php
+                                        echo $row['video_animaux'];
+                                    ?>"
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
@@ -393,10 +394,10 @@ foreach ($requete as $row) {
 
                     <!-- Right -->
                     <div>
-                        <a href="" class="text-white me-4">
+                        <a href="" class="text-primary me-4">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="" class="text-white me-4">
+                        <a href="" class="text-succee me-4">
                             <i class="fab fa-twitter"></i>
                         </a>
                         <a href="" class="text-white me-4">
