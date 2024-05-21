@@ -30,13 +30,13 @@ if (empty($_GET['id'])) {
     $requete -> bindParam(':id_habitat', $id_habitat, PDO::PARAM_INT);
     $requete -> execute();
 
-    
-    $image_habitat = $requete->fetch()['images_habitat'];
-    $habitat_color = $requete->fetch()['color'];
+    $animaux = $requete->fetchAll();
+    $image_habitat = $animaux[0]['images_habitat'];
+    $habitat_color = $animaux[0]['color'];
 }
 ?>
 
-</head> 
+</head>
 
 <body>
 
@@ -124,7 +124,7 @@ if (empty($_GET['id'])) {
 <!-- fin de la barre ecrit Animaux du mois -->
         <section class="section_main "style="  font-family: cursive;display:flex;flex-direction: row;flex-wrap: wrap">
             <?php
-                foreach ($requete as $row) {
+                foreach ($animaux as $row) {
             ?>
 
             <!--debut des cards 1-->

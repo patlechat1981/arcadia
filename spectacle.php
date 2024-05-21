@@ -64,21 +64,7 @@ $requete -> execute();
                         <a href="" class="text-primary nav-link mx-4 fw-bold ">Contactez-nous</a>
                     </li>
                    
-                    <li class="nav-item dropdown mx-3  ">
-                        <a class=" nav-link dropdown-toggle btn btn-outline-warning border border-1 border-warning"
-                            href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Nos animaux
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item text-warning" href="http://localhost/ZOOARCARDIA/PAGES/savane">Animaux de Savane</a></li>
-                            <li><a class="dropdown-item text-success" href="http://localhost/ZOOARCARDIA/PAGES/jungle">Animaux de la Jungle</a></li>
-                            <li><a class="dropdown-item text-secondary" href="http://localhost/ZOOARCARDIA/PAGES/marais">Animaux des marais</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item " href="http://localhost/ZOOARCARDIA/touslesanimaux">Tous les animaux</a></li>
-                        </ul>
-                    </li>
+                    
                     
                                 
                        
