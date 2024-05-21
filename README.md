@@ -5,7 +5,7 @@ prossima tappa
 
 sito:
 Apri il programma wamp e accedi a
-http://locallhost/ZOOARCARDIA/
+http://localhost/ZOOARCARDIA/
 
 database:
 http://localhost/phpmyadmin/index.php

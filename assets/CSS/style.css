@@ -76,8 +76,9 @@ body {
   width: 100%;
   background-color: aliceblue;
 
-  background: -webkit-linear-gradient(to right, lightcyan, #ddf3a9);
-  background: linear-gradient(to right, lightcyan, #dae4b5);
+  background: -webkit-linear-gradient(to right, lightcyan, #aee6f0);
+  background: linear-gradient(to right, lightcyan, #53a4e7);
+
 }
 
 #card_card {
@@ -89,8 +90,8 @@ body {
 
 #card_body {
   background: -webkit-linear-gradient(to right, lightcyan, #ddf3a9);
-  background: linear-gradient(to right, lightcyan, #dae4b5);
- 
+  background: linear-gradient(to right, lightcyan, #b5e4c5);
+
 }
 
 #list_modal {
