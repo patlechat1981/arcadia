@@ -58,8 +58,11 @@
 
                                     <li>
                                         <a class="dropdown-item text-warning" href="/ZOOARCARDIA/spectacle.php?id=<?php echo $serv['id_service'];?>"><?php echo $serv['nom_service'] ?></a>
+                                        
                                     </li>
                                 <?php   } ?>
+                                <li><a class="dropdown-item text-success" href=" http://localhost/ZOOARCARDIA/PAGES/veterinaire.html"> Véterinaires</a></li>
+
                         </li>
                     
                     </ul>
@@ -89,6 +92,7 @@
                             <li><a class="dropdown-item " href="http://localhost/ZOOARCARDIA/touslesanimaux">Tous les animaux</a></li>
                         </ul>
                     </li>
+                    
                     <li class="nav-item dropdown  " style="margin-left: 110px;">
                         <a class="nav-link dropdown-toggle btn btn-outline-success border border-1 border-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Access membres
@@ -239,8 +243,8 @@
 
                 <!--debut des cards 1-->
 
-                <div class="card m-3 border border-light border-5  " id="card_card" style="width: 35rem; height: 500px;">
-                    <img src="<?php echo $row['images_animal']  ?>" id="img_modal" class="card-img-top " alt="...">
+                <div class="card m-3 border border-light border-5  " id="card_card" style="width: 35rem; height: 450px;">
+                    <img  src="<?php echo $row['images_animal']  ?>" id="img_modal" class="card-img-top " alt="...">
                     <div class="card-body " id="card_body" style="border: 2px solid rgb(134, 241, 157);  ">
                         <h4 class="card-title">
                             <b class="text-success">
@@ -266,10 +270,10 @@
                         <!-- Modal -->
 
                         <!--  debut Modal 1 -->
-                        <div class="modal fade" id="modal_animal_<?php echo $row['id_animal']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
+                        <div  class="modal fade" id="modal_animal_<?php echo $row['id_animal']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
                             <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
+                                <div class="modal-content " style="min-width: 600px";>
+                                    <div class="modal-header ">
                                         <h1 class="modal-title fs-5" id="modal_animal_
                                     <?php
                                     echo $row['id_animal'];
@@ -279,8 +283,10 @@
                                                 echo $row['nom_animal'];
                                                 ?>
                                             </b></h1>
+                                            
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
+                                     <div class="m-auto" style="margin:auto"> <div class="m-auto"><?php echo $row['video_galleries'];?></div></div>
                                     <div class="modal-body ">
                                         <!--   <iframe width="560" class="w-100" height="315"
                                         src="   <?php
@@ -412,14 +418,14 @@
                                 <!-- Links -->
                                 <h6 class="text-uppercase fw-bold">Découvrir</h6>
                                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 90px; background-color: #327dc4; height: 4px" />
-                                <p>
-                                    <a href="http://localhost/ZOOARCARDIA/PAGES/savane.php" class="text-warning text-decoration-none">Animaux de la savane</a>
+                               <p>
+                                    <a href="http://localhost/ZOOARCARDIA/touslesanimaux?id=1" class="text-warning text-decoration-none">Animaux de la savane</a>
                                 </p>
                                 <p>
-                                    <a href="http://localhost/ZOOARCARDIA/PAGES/jungle.php" class="text-success text-decoration-none">Animaux de la jungle</a>
+                                    <a href="http://localhost/ZOOARCARDIA/touslesanimaux?id=2" class="text-success text-decoration-none">Animaux de la jungle</a>
                                 </p>
                                 <p>
-                                    <a href="http://localhost/ZOOARCARDIA/PAGES/marais.php" class="text-secondary text-decoration-none">Animaux de marais</a>
+                                    <a href="http://localhost/ZOOARCARDIA/touslesanimaux?id=3" class="text-secondary text-decoration-none">Animaux de marais</a>
                                 </p>
 
                             </div>
