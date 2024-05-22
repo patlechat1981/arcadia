@@ -31,9 +31,9 @@
         $requete->execute(array($nick, $com, $animal));
 
         if (empty($_GET['id'])) {
-            header('Location: '.$_SERVER['SCRIPT_NAME']);
+            header('Location: ' . $_SERVER['SCRIPT_NAME']);
         } else {
-            header('Location: '.$_SERVER['SCRIPT_NAME'] .  "?id=" . $_GET['id']);
+            header('Location: ' . $_SERVER['SCRIPT_NAME'] .  "?id=" . $_GET['id']);
         }
         die();
     }
@@ -218,9 +218,6 @@
 
 
 
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_commentaires_<?php echo $row['id_animal']; ?>">
-                            commentaires
-                        </button>
 
                         <!-- Modal -->
 
@@ -276,9 +273,9 @@
                         <h3 style=" margin-bottom: 20px;margin-top:20px "><b class="text-success">Etat animal : </b> <b class="fs-5"><?php echo $row['etat_animal']; ?></b></h3>
 
                         </h4>
-                        <h3 style=" margin-bottom: 20px;  "><b class="text-primary"> Habitat : </b> <b class="fs-5"><?php echo $row['nom_habitat']; ?></b> </h3>
+                        <h3 style=" margin-bottom: 15px;  "><b class="text-primary"> Habitat : </b> <b class="fs-5"><?php echo $row['nom_habitat']; ?></b> </h3>
                         <h3 style=" margin-bottom:15px;  "><b class="text-warning">Nourriture : </b><b class="fs-5"><?php echo $row['nourriture_animal']; ?></b></h3>
-                        <h3 style=" margin-bottom: 20px;  "><b class="text-primary"> Quantité nourriture : </b> <b class="fs-5"><?php echo $row['quantité_nourriture']; ?></b> </h3>
+                        <h3 style=" margin-bottom: 15px;  "><b class="text-primary"> Quantité nourriture : </b> <b class="fs-5"><?php echo $row['quantité_nourriture']; ?></b> </h3>
                         <p>Laisser un commentaire!</p>
                         <form action="touslesanimaux.php<?php echo $queryString ?>" method="POST">
                             <p>Nickname
@@ -289,6 +286,9 @@
                             <button type="submit" class="btn btn-outline-success"> Sauvegarder</button>
                         </form>
 
+                        <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal_commentaires_<?php echo $row['id_animal']; ?>">
+                             lire les commentaires...
+                        </button>
                         <h3 class=" mt-2 fs-5 text-1" style="margin-right: 250px; margin-bottom: 30px;  "><b class="text-primary"> Nombre de visite :</b> </h3>
                     </div>
 
