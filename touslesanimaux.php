@@ -149,7 +149,7 @@
 
                 <!--debut des cards 1-->
 
-                <div class="card m-auto border border-light border-5 mt-5 mx-5 " id="card_card" style="min-width: 30rem;height:1000px;box-shadow:5px 5px 14px 14px <?php echo $habitat_color ?>;">
+                <div class="card m-auto border border-light border-5 mt-5 mx-5 " id="card_card" style="min-width: 30rem;height:1020px;box-shadow:5px 5px 14px 14px <?php echo $habitat_color ?>;">
                     <img style="width:; max-height:17rem;margin:auto;" src="<?php echo $row['images_animal']  ?>" id="img_modal" class="card-img-top " alt="...">
 
                     <div class="card-body " id="card_body" style="border: 2px solid rgb(134, 241, 157); background: -webkit-linear-gradient(to right, lightcyan, #aff803);background: linear-gradient(to right, lightcyan, #04f18f);max-width: 40rem;max-height: 7rem;">
@@ -276,9 +276,9 @@
                         <h3 style=" margin-bottom: 20px;margin-top:20px "><b class="text-success">Etat animal : </b> <b class="fs-5"><?php echo $row['etat_animal']; ?></b></h3>
 
                         </h4>
-                        <h3 style=" margin-bottom: 30px;  "><b class="text-primary"> Habitat : </b> <b class="fs-5"><?php echo $row['nom_habitat']; ?></b> </h3>
-                        <h3 style=" margin-bottom:20px;  "><b class="text-warning">Nourriture : </b><b class="fs-5"><?php echo $row['nourriture_animal']; ?></b></h3>
-                        <h3 style=" margin-bottom: 30px;  "><b class="text-primary"> Quantité nourriture : </b> <b class="fs-5"><?php echo $row['quantité_nourriture']; ?></b> </h3>
+                        <h3 style=" margin-bottom: 20px;  "><b class="text-primary"> Habitat : </b> <b class="fs-5"><?php echo $row['nom_habitat']; ?></b> </h3>
+                        <h3 style=" margin-bottom:15px;  "><b class="text-warning">Nourriture : </b><b class="fs-5"><?php echo $row['nourriture_animal']; ?></b></h3>
+                        <h3 style=" margin-bottom: 20px;  "><b class="text-primary"> Quantité nourriture : </b> <b class="fs-5"><?php echo $row['quantité_nourriture']; ?></b> </h3>
                         <p>Laisser un commentaire!</p>
                         <form action="touslesanimaux.php<?php echo $queryString ?>" method="POST">
                             <p>Nickname
