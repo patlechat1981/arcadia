@@ -14,22 +14,13 @@
 $bdd2 =include('config/connect_db.php'); */
     $bdd = include('config/db_connection.php');
     $config = include('config/config.php');
+    $user = include('config/user.php');
 
     $requette = $bdd->query('SELECT * FROM useradmin');
     $requete = $bdd->query('SELECT * FROM tous_les_animaux');
     $service = $bdd->query('SELECT * FROM service_zoo');
     $habitats = $bdd->query('SELECT * FROM zoohabitats');
-
     $requete = $bdd->query('SELECT * FROM avis');
-
-
-    $token = $_COOKIE['token'];
-    $email = openssl_decrypt($token, 'aes-256-ctr', $config['secret']);
-
-    $requete = $bdd->prepare('SELECT * FROM useradmin WHERE email = ? limit 1');
-    $requete->execute(array($email));
-
-    $user = $requete->fetchAll()[0];
 
 
     if (
@@ -293,18 +284,18 @@ $bdd2 =include('config/connect_db.php'); */
             echo $user['email'];
             echo $user['role'];
             
-            include('templates/animaux_employe.php');
-            include('templates/admin_serviceSites.php');
             include('templates/services_employe.php');
-            include('templates/veterinaire_animaux.php');
-         
+            include('templates/animaux_employe.php');
+
+            include('templates/admin_serviceSites.php');
+            
+            if ($user['role'] == 'veterinaire') {
+                include('templates/veterinaire_animaux.php');
+                include('templates/veterinaire_habitats.php'); 
+            }
             ?>
             
         </div>
-<?php
-
-   include('templates/veterinaire_habitats.php'); 
-?>
     
 
 

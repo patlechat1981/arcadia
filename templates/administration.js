@@ -62,54 +62,45 @@ let AfficheAdminServices = document.getElementById("afficheAdminServices");
 
 
  */
-   function adminServices() {
-    let AfficheAdminServices = document.getElementById('afficheAdminServices');
-    if(AfficheAdminServices.style.display != '') {
-        AfficheAdminServices.style.display = '';
-    } else {
-        AfficheAdminServices.style.display = 'none';
-        
-    }
 
-    
+  function hideAll() {
+    document.getElementById('afficheAdminServices').style.display = 'none';
+    document.getElementById('afficheEmpAnimaux').style.display = 'none';
+    document.getElementById('afficheServEmploye').style.display = 'none';
+    document.getElementById('afficheVetAnimaux').style.display = 'none';
+    document.getElementById('afficheVetHabitats').style.display = 'none';
+  }
+
+   function adminServices() {
+    hideAll();
+    let AfficheEmployeServices = document.getElementById('afficheAdminServices');
+    AfficheEmployeServices.style.display = 'block';
   }
  
    function employeLesAnimaux() {
+    hideAll();
     let AfficheEmployeAnimaux = document.getElementById('afficheEmpAnimaux');
-    if(AfficheEmployeAnimaux.style.display != '') {
-        AfficheEmployeAnimaux.style.display = '';
-    } else {
-        AfficheEmployeAnimaux.style.display = 'none';
-    }
+    AfficheEmployeAnimaux.style.display = 'block';
   }
 
   
   function employeLeServices() {
+    hideAll();
     let AfficheEmployeServices = document.getElementById('afficheServEmploye');
-    if(AfficheEmployeServices.style.display != '') {
-        AfficheEmployeServices.style.display = '';
-    } else {
-        AfficheEmployeServices.style.display = 'none';
-    }
+    AfficheEmployeServices.style.display = 'block';
   }
 
   
   function veterinaireAnimaux() {
-    let AfficheVeteAnimaux  = document.getElementById('afficheVetAnimaux');
-    if(AfficheVeteAnimaux.style.display != '') {
-        AfficheVeteAnimaux.style.display = '';
-    } else {
-        AfficheVeteAnimaux.style.display = 'none';
-    }
+    hideAll();
+    let AfficheEmployeServices = document.getElementById('afficheVetAnimaux');
+    AfficheEmployeServices.style.display = 'block';
   }
 
   function veterinaireHabitats() {
-    let AfficheVetHabitat = document.getElementById('afficheVetHabitats');
-    if(AfficheVetHabitat.style.display != '') {
-        AfficheVetHabitat.style.display = '';
-    } else {
-        AfficheVetHabitat.style.display = 'none';
-    }
+    hideAll();
+    let AfficheEmployeServices = document.getElementById('afficheVetHabitats');
+    AfficheEmployeServices.style.display = 'block';
   }
  
 
