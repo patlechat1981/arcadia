@@ -12,7 +12,8 @@ body {
   background: -webkit-linear-gradient(to right, #6da594, #b6c90c);
   background: linear-gradient(to right, #8d8a7b, #b0d314);
   height: 100%;
-  min-width: 500px;
+   min-width: 500px; 
+
 }
 
 /* link de la navbar */
@@ -41,19 +42,19 @@ body {
   background-color: rgba(252, 252, 243, 0.911);
   border: 2px solid chartreuse;
   box-shadow: 10px 5px 5px 10px;
-  height: 90PX;
+  height: 110PX;
 }
 
-#video_carousel1 {
+ #video_carousel1 {
   width: 100%;
   height: 50%;
   box-shadow: 10px 5px 100px 100px;
 }
-
+ 
 
 /* photo image de ma carousel */
 
-.img {
+/* .img {
   width: 800px;
   height: 400px;
   margin: auto;
@@ -62,16 +63,16 @@ body {
   box-shadow: 10px 5px 100px 100px;
   border: 1px solid lightcyan;
 
-}
+} */
 
 
 
 /*  */
 
 .section_main {
-  display: flex;
+   display: flex;
   justify-content: center;
-
+  
   height: 700px;
   width: 100%;
   background-color: aliceblue;
@@ -79,7 +80,7 @@ body {
   background: -webkit-linear-gradient(to right, lightcyan, #aee6f0);
   background: linear-gradient(to right, lightcyan, #53a4e7);
 
-}
+} 
 
 #card_card {
   height: 400px;
@@ -102,7 +103,7 @@ body {
 }
 
 #img_modal {
-  height: 280px;
+  height: 200px;
 
 }
 
@@ -151,3 +152,10 @@ body {
   box-shadow: 10px 5px 50px 50px rgb(215, 253, 158);
 
 }
+
+
+ /*------------------------------------------- TOUS LES ANIMAUX------------------------------------------------------------------- */
+
+/*  */
+
+ /*-------------------------------------------FIN  TOUS LES ANIMAUX------------------------------------------------------------------- */

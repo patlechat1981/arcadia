@@ -28,13 +28,13 @@
                         <h6 class="text-uppercase fw-bold">Découvrir</h6>
                         <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 90px; background-color: #327dc4; height: 4px" />
                         <p>
-                            <a href="http://localhost/ZOOARCARDIA/touslesanimaux?id=1" class="text-warning text-decoration-none">Animaux de la savane</a>
+                            <a href="/ZOOARCARDIA2/touslesanimaux?id=1" class="text-warning text-decoration-none">Animaux de la savane</a>
                         </p>
                         <p>
-                            <a href="http://localhost/ZOOARCARDIA/touslesanimaux?id=2" class="text-success text-decoration-none">Animaux de la jungle</a>
+                            <a href="/ZOOARCARDIA2/touslesanimaux?id=2" class="text-success text-decoration-none">Animaux de la jungle</a>
                         </p>
                         <p>
-                            <a href="http://localhost/ZOOARCARDIA/touslesanimaux?id=3" class="text-secondary text-decoration-none">Animaux de marais</a>
+                            <a href="/ZOOARCARDIA2/touslesanimaux?id=3" class="text-secondary text-decoration-none">Animaux de marais</a>
                         </p>
 
                     </div>
@@ -46,14 +46,12 @@
                         <h6 class="text-uppercase fw-bold">Lien</h6>
                         <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 40px; background-color: #d442a4; height: 4px" />
 
+                        
                         <p>
-                            <a href="#!" class="text-success text-decoration-none">• Visite •</a>
-                        </p>
-                        <p>
-                            <a href="/ZOOARCARDIA/spectacle.php?id=1" class="text-success text-decoration-none">• Les maitres des Airs •</a>
+                            <a href="/ZOOARCARDIA2/spectacle.php?id=1" class="text-success text-decoration-none">• Les maitres des Airs •</a>
                         </p>
                             <p>
-                            <a href="/ZOOARCARDIA/spectacle.php?id=3" class="text-success text-decoration-none">• Activités Ludiques •</a>
+                            <a href="/ZOOARCARDIA2/spectacle.php?id=3" class="text-success text-decoration-none">• Activités Ludiques •</a>
                         </p>
                         <p>
                             <a href="./PAGES/veterinaire.html" class="text-success text-decoration-none">• Veterinaire •</a>

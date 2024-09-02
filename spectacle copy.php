@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse link_navbar " id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
                     <li style="margin-left: 90px;">
-                        <a href="/ZOOARCARDIA2/index.php" class=" nav-link text-info mx-5 fw-bold btn-outline-light btn ">Accueil</a>
+                        <a href="/ZOOARCARDIA2/index" class=" nav-link text-info mx-5 fw-bold btn-outline-light btn ">Accueil</a>
                     </li>
                     <li class="nav-item dropdown  mx-4">
                         <a class=" fw-bold nav-link dropdown-toggle btn btn-outline-success border border-1 border-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

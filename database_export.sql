@@ -59,11 +59,11 @@ INSERT INTO `avis` (`id_avis`, `id_animal`, `visiteur_nickname`, `avis_commentai
 (16, '7', 'sir', 'prente'),
 (17, '16', 'trump', 'hi donald');
 
--- --------------------------------------------------------
 
---
+
+
 -- Struttura della tabella `employé_zoo`
---
+
 
 DROP TABLE IF EXISTS `employé_zoo`;
 CREATE TABLE IF NOT EXISTS `employé_zoo` (

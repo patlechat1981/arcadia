@@ -1,0 +1,34 @@
+
+
+.section_mainAnimaux{
+
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*  height: 100%;  */
+    width: 100%;
+   /*  background-color: aliceblue; */
+  /* 
+    background: -webkit-linear-gradient(to right, lightcyan, #aee6f0);
+    background: linear-gradient(to right, lightcyan, #53a4e7);
+   */
+  }
+  
+  #cardTouslesAnimaux{
+    
+    min-width: 15rem;height:980px;box-shadow:5px 5px 15px 15px 
+  
+  
+  }
+  
+  .card-bodynomAnimaux{
+  
+    border: 2px solid rgb(134, 241, 157); background: -webkit-linear-gradient(to right, lightcyan, #aff803);background: linear-gradient(to right, lightcyan, #03ac6b);max-width: 40rem;max-height: 18rem;
+  text-align: center;
+  }
+  
+  
+  

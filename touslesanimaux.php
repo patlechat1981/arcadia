@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tous_les_animaux</title>
-    <!--  <link rel="stylesheet" href="./assets/CSS/style.css"> -->
+    <!--   <link rel="stylesheet" href="./assets/CSS/style.css"> -->
+    <link rel="stylesheet" href="./assets/CSS/touslesanimaux.css">
     <link rel="stylesheet" href="./assets/CSS/bootstrap.min.css">
 
     <?php
@@ -62,7 +63,7 @@
 
 <body>
 
-    <header class="text-center mx-0 postion:fixed" style="background-image: url(<?php echo $image_habitat ?>) ; ">
+    <header class="text-center mx-0 postion:fixed">
         <!-- <img src="./assets/IMAGES/images animaux/suspension-bridge-959853_1280 (1).jpg" class="img_head "
              style="width: 100%;height: 100px; " alt="logo" /> -->
         <!--ceci est ma navbar-->
@@ -79,25 +80,20 @@
                 <div class="collapse navbar-collapse link_navbar " id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
                         <li style="margin-left: 90px;">
-                            <a href="http://localhost/ZOOARCARDIA/" class=" nav-link text-info mx-5 fw-bold ">Accueil</a>
+                            <a href="/ZOOARCARDIA2/index.php" class=" nav-link text-info mx-5 fw-bold ">Accueil</a>
                         </li>
                         <li class="nav-item dropdown  mx-4">
                             <a class=" fw-bold nav-link dropdown-toggle btn btn-outline-success border border-1 border-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Services
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-warning" href="http://localhost/ZOOARCARDIA/spectacle.php?id=1"> les Maitres des Airs</a></li>
-                                <li><a class="dropdown-item text-warning" href="http://localhost/ZOOARCARDIA/spectacle.php?id=1"> les Acivités Ludiques pour enfants</a></li>
-
-
-
+                                <li><a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=1"> les Maitres des Airs</a></li>
+                                <li><a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=1"> les Acivités Ludiques pour enfants</a></li>
                         </li>
-
                     </ul>
                     </li>
-
                     <li>
-                        <a href="http://localhost/ZOOARCARDIA/PAGES/contact" class="text-primary nav-link mx-4 fw-bold ">Contactez-nous</a>
+                        <a href="/ZOOARCARDIA2/PAGES/contact" class="text-primary nav-link mx-4 fw-bold ">Contactez-nous</a>
                     </li>
 
                     <li class="nav-item dropdown mx-3  ">
@@ -109,211 +105,146 @@
                             foreach ($habitats as $habitat) {
                             ?>
                                 <li>
-                                    <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>" href="http://localhost/ZOOARCARDIA/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
+                                    <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>" href="/ZOOARCARDIA2/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
                                         <?php echo $habitat['nom_habitat'] ?>
                                     </a>
                                 </li>
                             <?php   } ?>
-
-
                         </ul>
                     </li>
-
-
-
-
-
                 </div>
-
             </div>
         </nav>
+    </header>
+
+    <main class="section_mainAnimaux text-center mx-0 postion:fixed" style="background-image: url(<?php echo $image_habitat ?>) ; ">
+        <?php
+        foreach ($animaux as $row) {
+        ?>
+
+            <div class="card m-auto border border-light border-5 mt-5 mb-5 mx-5 " id="cardTouslesAnimaux" style=" min-width: 18rem;height:680px;box-shadow:5px 5px 15px 15px  <?php echo $habitat_color ?>;">
+                <img style="width:30rem; max-height:13rem;margin:auto;" src="<?php echo $row['images_animal']  ?>" id="img_modal" class="card-img-top " alt="...">
+
+                <div class="card-bodynomAnimaux">
+                    <h4 class="card-title">
+                        <b class="text-light fs-5">
+                            <?php
+                            echo $row['nom_animal'];
+                            ?>
+                        </b>
+                    </h4>
+
+                </div>
+                <ul class="list-group list-group-flush " id="list_modal">
 
 
 
 
+                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modal_animaux_<?php echo $row['id_animal']; ?>">
+                        En Savoir plus <span class="text-warning fw-bold"><?php echo $row['race_animal']; ?></span> ....
+                    </button>
 
+                    <!-- Modal -->
 
-
-
-
-        <!-- fin de la barre ecrit Animaux du mois -->
-        <section class="section_main " style="  font-family: cursive;display:flex;flex-direction: row;flex-wrap: wrap">
-            <?php
-            foreach ($animaux as $row) {
-            ?>
-
-                <!--debut des cards 1-->
-
-                <div class="card m-auto border border-light border-5 mt-5 mx-5 " id="card_card" style="min-width: 30rem;height:1020px;box-shadow:5px 5px 14px 14px <?php echo $habitat_color ?>;">
-                    <img style="width:; max-height:17rem;margin:auto;" src="<?php echo $row['images_animal']  ?>" id="img_modal" class="card-img-top " alt="...">
-
-                    <div class="card-body " id="card_body" style="border: 2px solid rgb(134, 241, 157); background: -webkit-linear-gradient(to right, lightcyan, #aff803);background: linear-gradient(to right, lightcyan, #04f18f);max-width: 40rem;max-height: 7rem;">
-                        <h4 class="card-title">
-                            <b class="text-light fs-1">
-                                <?php
-                                echo $row['nom_animal'];
-                                ?>
-                            </b>
-                        </h4>
-
-                    </div>
-                    <ul class="list-group list-group-flush " id="list_modal">
-
-
-
-
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_animaux_<?php echo $row['id_animal']; ?>">
-                            En Savoir plus <span class="text-warning fw-bold"><?php echo $row['race_animal']; ?></span> ....
-                        </button>
-
-                        <!-- Modal -->
-
-                        <!--  debut Modal 1 -->
-                        <div class="modal fade" id="modal_animaux_<?php echo $row['id_animal']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="modal_animaux_
+                    <!--  debut Modal 1 -->
+                    <div class="modal fade" id="modal_animaux_<?php echo $row['id_animal']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="modal_animaux_
                                     <?php
                                     echo $row['id_animal'];
                                     ?>
                                     "><b class="text-success">
-                                                <?php
-                                                echo $row['nom_animal'];
-                                                ?>
+                                            <?php
+                                            echo $row['nom_animal'];
+                                            ?>
 
-                                            </b></h1>
-                                        <!-- <iframe src="" frameborder="0"></iframe> -->
-                                        <?php echo $row['video_galleries']; ?>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body text-light fs-4 bg-info" style=" font-family: cursive;">
+                                        </b></h1>
+                                    <!-- <iframe src="" frameborder="0"></iframe> -->
+                                    <?php echo $row['video_galleries']; ?>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-light fs-4 bg-info" style=" font-family: cursive;">
 
-                                        <?php
-                                        echo $row['description_animal'];
-                                        ?>"
+                                    <?php
+                                    echo $row['description_animal'];
+                                    ?>"
 
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
 
-                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
-                    </ul>
-
-
-                    <!--   bouton commentaire -->
-
-                    <ul class="list-group list-group-flush " id="list_modal">
-
-
-
-
-
-                        <!-- Modal -->
-
-                        <!--  debut Modal 2 -->
-                        <div class="modal fade" id="modal_commentaires_<?php echo $row['id_animal']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body text-light fs-4 bg-info" style=" font-family: cursive;">
-                                        <?php
-                                        foreach ($commentaires as $comment) {
-                                            if ($comment['id_animal'] == $row['id_animal']) {
-                                        ?>
-                                                <p>
-                                                    <b>
-                                                        <?php
-                                                        echo $comment['visiteur_nickname'];
-                                                        ?>
-                                                    </b>
-                                                    <br />
-                                                    <?php
-                                                    echo $comment['avis_commentaire'];
-                                                    ?>
-                                                </p>
-                                                <hr />
-                                        <?php
-                                            }
-                                        }
-                                        ?>
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </ul>
-                    <!--     fin bouton commentaire -->
-
-                    <!--    debut de la partie report -->
-
-
-                    <div class="mx-0" style="background: -webkit-linear-gradient(to right, lightcyan, #ddf3a9);
-  background: linear-gradient(to right, lightcyan, #6be795);
-">
-                        <h3 style=" margin-bottom: 20px;margin-top:20px "><b class="text-success">Etat animal : </b> <b class="fs-5"><?php echo $row['etat_animal']; ?></b></h3>
-
-                        </h4>
-                        <h3 style=" margin-bottom: 15px;  "><b class="text-primary"> Habitat : </b> <b class="fs-5"><?php echo $row['nom_habitat']; ?></b> </h3>
-                        <h3 style=" margin-bottom:15px;  "><b class="text-warning">Nourriture : </b><b class="fs-5"><?php echo $row['nourriture_animal']; ?></b></h3>
-                        <h3 style=" margin-bottom: 15px;  "><b class="text-primary"> Quantité nourriture : </b> <b class="fs-5"><?php echo $row['quantité_nourriture']; ?></b> </h3>
-                        <p>Laisser un commentaire!</p>
-                        <form action="touslesanimaux.php<?php echo $queryString ?>" method="POST">
-                            <p>Nickname
-                                <input type="text" name="nickname">
-                            </p>
-                            <textarea name="commentaire" id="" cols="40" rows="5" class="rounded-2"></textarea><br>
-                            <input type="hidden" name="id_animal" value="<?php echo $row['id_animal'] ?>">
-                            <button type="submit" class="btn btn-outline-success"> Sauvegarder</button>
-                        </form>
-
-                        <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal_commentaires_<?php echo $row['id_animal']; ?>">
-                             lire les commentaires...
-                        </button>
-                        <h3 class=" mt-2 fs-5 text-1" style="margin-right: 250px; margin-bottom: 30px;  "><b class="text-primary"> Nombre de visite :</b> </h3>
                     </div>
 
-                    <!--   fin de la partie report -->
+
+                </ul>
+
+                <!--   fin modal -->
+                <!--  debut partie description animaux -->
+
+
+
+
+                <div class="mx-0" style="background: -webkit-linear-gradient(to right, lightcyan, #ddf3a9);
+  background: linear-gradient(to right, lightcyan, #6be795);
+">
+                    <h5 style=" margin-bottom: 4px;margin-top:6px "><b class="text-success">Etat animal : </b> <b class=""><?php echo $row['etat_animal']; ?></b></h5>
+
+                    </h4>
+                    <h5 style=" margin-bottom: 6px;  "><b class="text-primary"> Habitat : </b> <b class=""><?php echo $row['nom_habitat']; ?></b> </h5>
+                    <h5 style=" margin-bottom:6px;  "><b class="text-warning">Nourriture : </b><b class=""><?php echo $row['nourriture_animal']; ?></b></h5>
+                    <h5 style=" margin-bottom: 6px;  "><b class="text-primary"> Quantité nourriture : </b> <b class=""><?php echo $row['quantité_nourriture']; ?></b> </h5>
+                   <!--  <p class="text-danger">Laisser un commentaire!</p> -->
+                    <form action="touslesanimaux.php<?php echo $queryString ?>" method="POST">
+                        <p>
+                         Laisser un commentaire ! <br>  
+                        Nickname
+                            <input type="text" name="nickname">
+                        </p>
+                        <textarea name="commentaire" id="" cols="40" rows="3" class="rounded-2"></textarea><br>
+                        <input type="hidden" name="id_animal" value="<?php echo $row['id_animal'] ?>">
+                        <button type="submit" class="btn btn-outline-success"> Sauvegarder</button>
+                        <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modal_commentaires_<?php echo $row['id_animal']; ?>">
+                            lire les commentaires...
+                        </button>
+                      
+                    </form>
+
+
+                    <h3 class=" mt-3 fs-5 text-1 " style="margin-right: 250px; margin-bottom: 20px;  "><b class="text-primary"> Nombre de visite :</b> </h3>
                 </div>
-            <?php
-            }
-            ?>
-            <br>
-            <br>
-        </section>
 
-
-
-
-
-
-        <!--    <img  src="./assets/IMAGES/images habitats/veterinaire/giraffe.webp" alt="" class="w-100 mx-0"> -->
-
-        <!--DEBUT DU FOOTER-->
-
-
-        </div>
-        <div class="container-fluid mt-5" style="background-color: rgb(238, 236, 234); "><img src="./assets/IMAGES/logo_nav/istockphoto-1017250670-612x612.jpg" alt="" style="font-size: 25px; "></div>
-        <!-- Remove the container if you want to extend the Footer to full width. -->
-        
+                <!--   fin de la partie report -->
+            </div>
         <?php
-            include('templates/footer.php');
-            include('templates/scripts.php');
+        }
         ?>
+        <br>
+        <br>
+    </main>
+
+
+
+
+
+
+    <!--    <img  src="./assets/IMAGES/images habitats/veterinaire/giraffe.webp" alt="" class="w-100 mx-0"> -->
+
+    <!--DEBUT DU FOOTER-->
+
+
+    </div>
+    <div class="container-fluid mt-5" style="background-color: rgb(238, 236, 234); "><img src="./assets/IMAGES/logo_nav/istockphoto-1017250670-612x612.jpg" alt="" style="font-size: 25px; "></div>
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+
+    <?php
+    include('templates/footer.php');
+    include('templates/scripts.php');
+    ?>
 </body>
 
 </html>

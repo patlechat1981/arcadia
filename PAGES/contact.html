@@ -9,13 +9,15 @@
     <title>Tous_les_animaux</title>
    <!--  <link rel="stylesheet" href="./assets/CSS/style.css"> -->
    <link rel="stylesheet" href="../assets/CSS/bootstrap.min.css">
+   <link rel="stylesheet" href="../assets/CSS/contact.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   
   
 </head> 
 
 <body  >
 
-    <header class="text-center mx-0 postion:fixed"   >
+    <header class="  text-center mx-0 postion:fixed"   >
          <!-- <img src="./assets/IMAGES/images animaux/suspension-bridge-959853_1280 (1).jpg" class="img_head "
              style="width: 100%;height: 100px; " alt="logo" /> -->
         <!--ceci est ma navbar-->
@@ -37,7 +39,7 @@
                 <div class="collapse navbar-collapse link_navbar " id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
                         <li style="margin-left: 90px;">
-                            <a href="http://localhost/ZOOARCARDIA/" class=" nav-link text-info mx-5 fw-bold " >Accueil</a>
+                            <a href="/ZOOARCARDIA2/index" class=" nav-link text-info mx-5 fw-bold " >Accueil</a>
                         </li>
                         <li class="nav-item dropdown  mx-4">
                             <a class=" fw-bold nav-link dropdown-toggle btn btn-outline-success border border-1 border-success"
@@ -45,8 +47,8 @@
                                 Services
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-warning" href="http://localhost/ZOOARCARDIA/spectacle.php?id=1"> Maitres des Airs</a></li>
-                                <li><a class="dropdown-item text-warning" href="http://localhost/ZOOARCARDIA/spectacle.php?id=3"> Activités Ludiques pour enfants</a></li>  
+                                <li><a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=1"> Maitres des Airs</a></li>
+                                <li><a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=3"> Activités Ludiques pour enfants</a></li>  
 
 
                         </li>
@@ -58,115 +60,141 @@
             </div>
         </nav>
       
+          <h1 class="mb-5">
+            Conntactez nous et decrivez vos suggections et nous vous reponderons
+          </h1>
+
+          <div class="cardformulaire mx-auto">
+    <header>ENVOYER UN MESSAGE</header>
+    <form action="../config/envoi_mail.php" method="POST">
+      <div class="dbl-field">
+        <div class="field">
+          <input type="text" name="name" placeholder="Entrer votre name">
+          <i class='fas fa-user'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="email" placeholder="Entrer votre  email">
+          <i class='fas fa-envelope'></i>
+        </div>
+      </div>
+    <!--   <div class="dbl-field">
+        <div class="field">
+          <input type="text" name="phone" placeholder="Enter your phone">
+          <i class='fas fa-phone-alt'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="website" placeholder="Enter your website">
+          <i class='fas fa-globe'></i>
+        </div>
+      </div> -->
+      <div class="message">
+        <textarea placeholder="Ecriver votre message" name="message"></textarea>
+        <i class="material-icons">message</i>
+      </div>
+      <div class="button-area">
+        <button type="submit">Envoyer votre Message</button>
+        <span></span>
+      </div>
+    </form>
+  </div>
+  <script src="script.js"></script>
+
 
 
             <!--    <img  src="./assets/IMAGES/images habitats/veterinaire/giraffe.webp" alt="" class="w-100 mx-0"> -->
+<!-- Footer -->
+<div class="container-fluid   " style="background-color:#21D192 ; ">
+    <footer class="text-center text-lg-start text-dark  " style="background-color: #ECEFF1; margin: 0;">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-between  p-4 text-white" style="background-color: #21D192 ;max-width: 100%;">
+        </section>
+        <!-- Section: Social media -->
 
-           <!--DEBUT DU FOOTER-->
-
-        <div class="container-fluid " style="background-color: rgb(238, 236, 234); "><img src="./assets/IMAGES/logo_nav/istockphoto-1017250670-612x612.jpg" alt="" style="font-size: 25px; "></div>
-        <!-- Remove the container if you want to extend the Footer to full width. -->
-        <div class="container-fluid   " style="background-color:#7d45aa ; ">
-            <!-- Footer -->
-            <footer class="text-center text-lg-start text-dark  " style="background-color: #ECEFF1; margin: 0;">
-                <!-- Section: Social media -->
-                <section class="d-flex justify-content-between  p-4 text-white" style="background-color: #9921d1 ;max-width: 100%;">
-
-
-
-
-                  
-                </section>
-                <!-- Section: Social media -->
-
-                <!-- Section: Links  -->
-                <section class="mb-0">
-                    <div class="container text-center text-md-start mt-5">
-                        <!-- Grid row -->
-                        <div class="row mt-3">
-                            <!-- Grid column -->
-                            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                                <!-- Content -->
-                                <h6 class="text-uppercase fw-bold text-success">ZOO ARCADIA</h6>
-                                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #5bbe85; height: 4px" />
-                                <p>
-                                    Arcadia est un zoo situé en France près de la forêt de Brocéliande, en bretagne depuis 1960. Ils possèdent tout un panel d’animaux, réparti par habitat (savane, jungle, marais) et font extrêmement attention à leurs santés.
-                                </p>
-                            </div>
-                            <!-- Grid column -->
-
-                            <!-- Grid column -->
-                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                                <!-- Links -->
-                                <h6 class="text-uppercase fw-bold">Découvrir</h6>
-                                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 90px; background-color: #327dc4; height: 4px" />
-                               <p>
-                                    <a href="http://localhost/ZOOARCARDIA/touslesanimaux?id=1" class="text-warning text-decoration-none">Animaux de la savane</a>
-                                </p>
-                                <p>
-                                    <a href="http://localhost/ZOOARCARDIA/touslesanimaux?id=2" class="text-success text-decoration-none">Animaux de la jungle</a>
-                                </p>
-                                <p>
-                                    <a href="http://localhost/ZOOARCARDIA/touslesanimaux?id=3" class="text-secondary text-decoration-none">Animaux de marais</a>
-                                </p>
-
-                            </div>
-                            <!-- Grid column -->
-
-                            <!-- Grid column -->
-                            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                                <!-- Links -->
-                                <h6 class="text-uppercase fw-bold">Lien</h6>
-                                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 40px; background-color: #d442a4; height: 4px" />
-
-                                <p>
-                                    <a href="#!" class="text-success text-decoration-none">• Visite •</a>
-                                </p>
-                                <p>
-                                    <a href="http://localhost/ZOOARCARDIA/spectacle.php?id=1" class="text-success text-decoration-none">• Les maitres des Airs •</a>
-                                </p>
-                                 <p>
-                                    <a href="http://localhost/ZOOARCARDIA/spectacle.php?id=3" class="text-success text-decoration-none">• Activités Ludiques •</a>
-                                </p>
-                                <p>
-                                    <a href="./PAGES/veterinaire.html" class="text-success text-decoration-none">• Veterinaire •</a>
-                                </p>
-                            </div>
-                            <!-- Grid column -->
-
-                            <!-- Grid column -->
-                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                                <!-- Links -->
-                                <h6 class="text-uppercase fw-bold">Contact</h6>
-                                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 70px; background-color: #7c4dff; height: 4px" />
-                                <p><i class="fas fa-home mr-3"></i> bretagne, alpes 06251, fr</p>
-                                <p><i class="fas fa-envelope mr-3"></i> info@zooarccardia.com</p>
-                                <p><i class="fas fa-phone mr-3"></i> + 06 234 567 88</p>
-                                <p><i class="fas fa-print mr-3"></i> + 06 254 982 24</p>
-                            </div>
-                            <!-- Grid column -->
-                        </div>
-                        <!-- Grid row -->
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold text-success">ZOO ARCADIA</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #5bbe85; height: 4px" />
+                        <p>
+                            Arcadia est un zoo situé en France près de la forêt de Brocéliande, en bretagne depuis 1960. Ils possèdent tout un panel d’animaux, réparti par habitat (savane, jungle, marais) et font extrêmement attention à leurs santés.
+                        </p>
                     </div>
-                </section>
-                <!-- Section: Links  -->
+                    <!-- Grid column -->
 
-                <!-- Copyright -->
-                <div class="text-center p-5" style="background-color: rgba(0, 0, 0, 0.2)">
-                    © 2024 Copyright:
-                    <a class="text-success fw-bold text-decoration-none" href="https://mdbootstrap.com/">Zoo Arcadia</a>
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Découvrir</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 90px; background-color: #327dc4; height: 4px" />
+                        <p>
+                            <a href="/ZOOARCARDIA2/touslesanimaux?id=1" class="text-warning text-decoration-none">Animaux de la savane</a>
+                        </p>
+                        <p>
+                            <a href="/ZOOARCARDIA2/touslesanimaux?id=2" class="text-success text-decoration-none">Animaux de la jungle</a>
+                        </p>
+                        <p>
+                            <a href="/ZOOARCARDIA2/touslesanimaux?id=3" class="text-secondary text-decoration-none">Animaux de marais</a>
+                        </p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Lien</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 40px; background-color: #d442a4; height: 4px" />
+
+                        
+                        <p>
+                            <a href="/ZOOARCARDIA2/spectacle.php?id=1" class="text-success text-decoration-none">• Les maitres des Airs •</a>
+                        </p>
+                            <p>
+                            <a href="/ZOOARCARDIA2/spectacle.php?id=3" class="text-success text-decoration-none">• Activités Ludiques •</a>
+                        </p>
+                        <p>
+                            <a href="./PAGES/veterinaire.html" class="text-success text-decoration-none">• Veterinaire •</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Contact</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 70px; background-color: #7c4dff; height: 4px" />
+                        <p><i class="fas fa-home mr-3"></i> bretagne, alpes 06251, fr</p>
+                        <p><i class="fas fa-envelope mr-3"></i> info@zooarccardia.com</p>
+                        <p><i class="fas fa-phone mr-3"></i> + 06 234 567 88</p>
+                        <p><i class="fas fa-print mr-3"></i> + 06 254 982 24</p>
+                    </div>
+                    <!-- Grid column -->
                 </div>
-                <!-- Copyright -->
-            </footer>
-            <!-- FIN DU FOOTER-->
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2024 Copyright:
+            <a class="text-success fw-bold text-decoration-none" href="https://mdbootstrap.com/">Zoo Arcadia</a>
         </div>
-        <!-- End of .container -->
-
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+        <!-- Copyright -->
+    </footer>
+</div>
+<script src="script.js"></script>    
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+         
+                         
 </body>
 
 </html>
