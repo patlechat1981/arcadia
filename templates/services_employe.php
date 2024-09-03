@@ -1,6 +1,5 @@
 
 
-
 <main class="section_mainAnimaux text-center mx-0 border border-3 border-danger " id="afficheServEmploye" style="display:none ;">
 <form class="d-flex mt-3  text-center" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -8,6 +7,8 @@
        
       </form>
     <?php
+
+    $animaux->execute();
 
     foreach ($animaux as $row) {
     ?>

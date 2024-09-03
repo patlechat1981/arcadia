@@ -132,7 +132,7 @@
 
                                 <?php
                                /*  echo $row['description_animal']; */
-                                ?>"
+                                ?>
 
                             </div>
                             <div class="modal-footer">

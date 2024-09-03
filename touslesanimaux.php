@@ -23,8 +23,8 @@
         $com = $_POST['commentaire'];
         $animal = $_POST['id_animal'];
 
-        $requete = $bdd->prepare('INSERT INTO avis(visiteur_nickname,avis_commentaire,id_animal)VALUES(?,?,?) ') or die(print_r($bdd->errorInfo()));
-        $requete->execute(array($nick, $com, $animal));
+        $requete = $bdd->prepare('INSERT INTO avis(visiteur_nickname,avis_commentaire,id_animal, etat)VALUES(?,?,?,?) ') or die(print_r($bdd->errorInfo()));
+        $requete->execute(array($nick, $com, $animal, 'pending'));
 
         if (empty($_GET['id'])) {
             header('Location: ' . $_SERVER['SCRIPT_NAME']);
@@ -138,8 +138,6 @@
                 <ul class="list-group list-group-flush " id="list_modal">
 
 
-
-
                     <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modal_animaux_<?php echo $row['id_animal']; ?>">
                         En Savoir plus <span class="text-warning fw-bold"><?php echo $row['race_animal']; ?></span> ....
                     </button>
@@ -187,8 +185,6 @@
                 <!--  debut partie description animaux -->
 
 
-
-
                 <div class="mx-0" style="background: -webkit-linear-gradient(to right, lightcyan, #ddf3a9);
   background: linear-gradient(to right, lightcyan, #6be795);
 ">
@@ -216,6 +212,47 @@
 
 
                     <h3 class=" mt-3 fs-5 text-1 " style="margin-right: 250px; margin-bottom: 20px;  "><b class="text-primary"> Nombre de visite :</b> </h3>
+                </div>
+
+                <!-- Modal -->
+
+                <!--  debut Modal 2 -->
+                <div class="modal fade" id="modal_commentaires_<?php echo $row['id_animal']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-light fs-4 bg-info" style=" font-family: cursive;">
+                                <?php
+                                foreach ($commentaires as $comment) {
+                                    if ($comment['id_animal'] == $row['id_animal'] && $comment['etat'] == 'approved') {
+                                ?>
+                                        <p>
+                                            <b>
+                                                <?php
+                                                echo $comment['visiteur_nickname'];
+                                                ?>
+                                            </b>
+                                            <br />
+                                            <?php
+                                            echo $comment['avis_commentaire'];
+                                            ?>
+                                        </p>
+                                        <hr />
+                                <?php
+                                    }
+                                }
+                                ?>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!--   fin de la partie report -->

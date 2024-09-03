@@ -17,10 +17,8 @@ $bdd2 =include('config/connect_db.php'); */
     $user = include('config/user.php');
 
     $requette = $bdd->query('SELECT * FROM useradmin');
-    $requete = $bdd->query('SELECT * FROM tous_les_animaux');
     $service = $bdd->query('SELECT * FROM service_zoo');
     $habitats = $bdd->query('SELECT * FROM zoohabitats');
-    $requete = $bdd->query('SELECT * FROM avis');
 
 
     if (
@@ -55,11 +53,9 @@ $bdd2 =include('config/connect_db.php'); */
         $queryString = "?id=" . $_GET["id"];
         $id_habitat = intval($_GET["id"]);
 
-        $requete = $bdd->prepare('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat WHERE zoo.id_habitat = :id_habitat');
-        $requete->bindParam(':id_habitat', $id_habitat, PDO::PARAM_INT);
-        $requete->execute();
+        $animaux = $bdd->prepare('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat WHERE zoo.id_habitat = :id_habitat');
+        $animaux->bindParam(':id_habitat', $id_habitat, PDO::PARAM_INT);
 
-        $animaux = $requete->fetchAll();
         $image_habitat = $animaux[0]['images_habitat'];
         $habitat_color = $animaux[0]['color'];
     }
@@ -96,55 +92,54 @@ $bdd2 =include('config/connect_db.php'); */
                         <!-- debut form******************************************* -->
 
                         <form action="" style="display: flex;">
-                        <?php  
-                        
-                            if($user['role'] == 'administrateur') {
-                        
-                        ?>
-                            <li class="nav-item dropdown  mx-4">
+                            <?php
 
-                                <a class="nav-link dropdown-toggle btn btn-outline-success border border-1 border-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Espace Administrateur
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <?php
-                                    /* foreach ($service as $serv) { */
-                                    ?>
-                                    <!--  <li>
+                            if ($user['role'] == 'administrateur') {
+
+                            ?>
+                                <li class="nav-item dropdown  mx-4">
+
+                                    <a class="nav-link dropdown-toggle btn btn-outline-success border border-1 border-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Espace Administrateur
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <?php
+                                        /* foreach ($service as $serv) { */
+                                        ?>
+                                        <!--  <li>
                                         <a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=<?php echo $serv['id_service']; ?>">
                                //             <?php /* echo $serv['nom_service'] */ ?></a>
                                     </li> -->
-                                    <?php
-                                    /*  } */
-                                    ?>
-                                    <li class="mx-2 ">
-                                       <!--  <input type="text" name="page" value="adminServices"> -->
-                                        <a class="btn  text-light bg-info  border border-2 border-primary dropdown-item text-success " onclick="adminServices()" id="adminServices">
-                                            services administrateur
-                                        </a>
-                                    </li><br>
-                                    <li class="mx-2">
-                                        <!-- <input type="text" name="page" value=""> -->
-                                        <a class="text-light bg-success border border-2 border-warning dropdown-item text-success" href="./config/enregistrement_staff.php">
-                                            Enregistrement nouveaux menbres
-                                        </a>
-                                    </li><br>
-                                    <li class="mx-2">
-                                      <!--   <input type="text" name="page" value=""> -->
-                                        <a class="text-light bg-warning border border-2 border-dark dropdown-item text-success" href="/ZOOARCARDIA2/spectacle.php">
-                                            Ajouts d'un Animal
-                                        </a>
-                                    </li>
-                            </li>
+                                        <?php
+                                        /*  } */
+                                        ?>
+                                        <li class="mx-2 ">
+                                            <!--  <input type="text" name="page" value="adminServices"> -->
+                                            <a class="btn  text-light bg-info  border border-2 border-primary dropdown-item text-success " onclick="adminServices()" id="adminServices">
+                                                services administrateur
+                                            </a>
+                                        </li><br>
+                                        <li class="mx-2">
+                                            <!-- <input type="text" name="page" value=""> -->
+                                            <a class="text-light bg-success border border-2 border-warning dropdown-item text-success" href="./config/enregistrement_staff.php">
+                                                Enregistrement nouveaux menbres
+                                            </a>
+                                        </li><br>
+                                        <li class="mx-2">
+                                            <!--   <input type="text" name="page" value=""> -->
+                                            <a class="text-light bg-warning border border-2 border-dark dropdown-item text-success" href="/ZOOARCARDIA2/spectacle.php">
+                                                Ajouts d'un Animal
+                                            </a>
+                                        </li>
+                                </li>
                     </ul>
 
                     </li>
-<?php  
-                        
-                }
-                else if ($user['role'] == 'employe') {
-                        
-                        ?>
+                <?php
+
+                            } else if ($user['role'] == 'employe') {
+
+                ?>
 
 
                     <li class="nav-item dropdown mx-3  ">
@@ -153,7 +148,7 @@ $bdd2 =include('config/connect_db.php'); */
                         </a>
                         <ul class="dropdown-menu">
                             <?php
-                            /* foreach ($habitats as $habitat) { */
+                                /* foreach ($habitats as $habitat) { */
                             ?>
                             <!--   <li>
                                     <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>" href="/ZOOARCARDIA2/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
@@ -163,13 +158,13 @@ $bdd2 =include('config/connect_db.php'); */
                             <?php   /* } */ ?>
 
                             <li class="mx-2 ">
-                               <!--  <input type="text" name="page" value="employeLesAnimaux"> -->
+                                <!--  <input type="text" name="page" value="employeLesAnimaux"> -->
                                 <a class="btn  text-dark  bg-info  border border-2 border-dark dropdown-item text-success " onclick="employeLesAnimaux()" id="employeLesAnimaux">
                                     Gestion aninmaux
                                 </a>
                             </li><br>
                             <li class="mx-2">
-                              <!--   <input type="text" name="page" value="employeLeServices"> -->
+                                <!--   <input type="text" name="page" value="employeLeServices"> -->
                                 <a class="btn text-dark bg-success border border-2 border-danger dropdown-item text-success" onclick="employeLeServices()" id="employeLeServices">
                                     Gestion Habitat
                                 </a>
@@ -183,12 +178,11 @@ $bdd2 =include('config/connect_db.php'); */
                         </ul>
                     </li>
 
-                    <?php  
-                        
-                }
-                else if ($user['role'] == 'veterinaire') {
-                        
-                        ?>
+                <?php
+
+                            } else if ($user['role'] == 'veterinaire') {
+
+                ?>
 
                     <li class="nav-item dropdown mx-3  ">
                         <a class=" nav-link dropdown-toggle btn btn-outline-warning border border-1 border-warning" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -196,7 +190,7 @@ $bdd2 =include('config/connect_db.php'); */
                         </a>
                         <ul class="dropdown-menu">
                             <?php
-                            /*  foreach ($habitats as $habitat) { */
+                                /*  foreach ($habitats as $habitat) { */
                             ?>
                             <!--  <li>
                                     <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>" href="/ZOOARCARDIA2/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
@@ -226,19 +220,19 @@ $bdd2 =include('config/connect_db.php'); */
 
                         </ul>
                     </li>
-                    <?php  
-                        
-                    }
-                 
-                    ?>
+                <?php
 
-                    </form>
+                            }
 
-                    <!-- fin debut form******************************************* -->
+                ?>
+
+                </form>
+
+                <!-- fin debut form******************************************* -->
 
 
 
-                    </ul>
+                </ul>
 
 
                 </div>
@@ -256,8 +250,7 @@ $bdd2 =include('config/connect_db.php'); */
 
 
 
-
-                            echo '<h2 class="display-5 text-warning fst-bolder">Bonjour </h2>';
+                            echo '<h4 class= text-info> Bonjour ' . $user['pseudo'] . '</h4>' . '"' . $user['role'] . '"';
                             echo '<p id="success" class="text-success"> Vous êtes maintenant connecté.</p>';
                         }
                     }
@@ -270,46 +263,47 @@ $bdd2 =include('config/connect_db.php'); */
 
                     <a href="config/disconnection.php" class="  text-danger border border-2 btn btn-outline-light rounded text-decoration-none p-1">Déconnexion</a>
                 </p>
-            </div>
+            </div><br><br>
+
             <!--fin de ma navbar-->
             <!-- Carousel wrapper -->
-            
-            
+
         </nav>
         <!-- Inner -->
         <div class=" main carousel-inner" style="background-image: url(https://www.glmv.com/wp-content/uploads/2022/06/Living-Desert-Rhinos-Savanna-scaled.jpg); height:750px;text-align:center ">
-           <?php
+            <?php
 
-            echo $user['pseudo'];
-            echo $user['email'];
-            echo $user['role'];
-            
-            include('templates/services_employe.php');
-            include('templates/animaux_employe.php');
 
-            include('templates/admin_serviceSites.php');
-            
-            if ($user['role'] == 'veterinaire') {
+         if($user['role']=='employe'){
+                include('templates/animaux_employe.php');
+                include('templates/services_employe.php');
+
+            }elseif($user['role']=='administrateur'){
+
+                include('templates/admin_serviceSites.php');
+
+            }elseif($user['role']=='veterinaire'){
+
                 include('templates/veterinaire_animaux.php');
-                include('templates/veterinaire_habitats.php'); 
+                include('templates/veterinaire_habitats.php');
             }
             ?>
-            
+
         </div>
-    
 
 
-                <br>
 
-                <!--DEBUT DU FOOTER-->
+        <br>
 
-                <div class="container-fluid " style="background-color: rgb(238, 236, 234); "><img src="./assets/IMAGES/logo_nav/istockphoto-1017250670-612x612.jpg" alt="" style="font-size: 25px; "></div>
+        <!--DEBUT DU FOOTER-->
 
-                <?php
-                include('templates/footer.php');
-                include('templates/scripts.php');
-                ?>
-                <script src="./templates/employe.js"></script>
+        <div class="container-fluid " style="background-color: rgb(238, 236, 234); "><img src="./assets/IMAGES/logo_nav/istockphoto-1017250670-612x612.jpg" alt="" style="font-size: 25px; "></div>
+
+        <?php
+        include('templates/footer.php');
+        include('templates/scripts.php');
+        ?>
+        <script src="./templates/employe.js"></script>
 </body>
 
 </html>
