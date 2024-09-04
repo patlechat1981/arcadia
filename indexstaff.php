@@ -275,8 +275,8 @@ $bdd2 =include('config/connect_db.php'); */
 
 
          if($user['role']=='employe'){
-                include('templates/animaux_employe.php');
-                include('templates/services_employe.php');
+                include('templates/employe_animaux.php');
+                include('templates/employe_services.php');
 
             }elseif($user['role']=='administrateur'){
 
