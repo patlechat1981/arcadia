@@ -8,19 +8,18 @@ $user = include('config/user.php');
 
 
 if (
-    isset($_POST['nourriture_animal']) && isset($_POST['quantité_nourriture'])
+    isset($_POST['nourriture_animal']) && isset($_POST['quantité_nourriture']) && isset($_POST['id_animal'])
 ) {
-
+    $idanimal = $_POST['id_animal'];
     $nourrit = $_POST['nourriture_animal'];
     $Qnourriture = $_POST['quantité_nourriture'];
 
-    $nourrir = $bdd->query('SELECT * FROM tous_les_animaux');
-    $req = $bdd->prepare("UPDATE tous_les_animaux SET nourriture_animal= ?  , quantité_nourriture = ?
-     WHERE id_animal = '1' ") or die(print_r($bdd->errorInfo()));
-    $req->execute(array($nourrit,  $Qnourriture));
+   
+    $req = $bdd->prepare("UPDATE tous_les_animaux SET  nourriture_animal= ?  , quantité_nourriture = ? 
+     WHERE id_animal= ?") or die(print_r($bdd->errorInfo()));
+    $req->execute(array( $nourrit, $Qnourriture,$idanimal));
 }
-echo $nourrit;
-echo  $Qnourriture;
+
 
 
 
@@ -60,12 +59,18 @@ if (
         <!-- 
         <button class="btn btn-outline-success border-3 mt-3 " style="width: 190px;">Animaux</button>
         <button class="btn btn-outline-warning border-3 mt-3 " style="width: 190px;">Habitat</button> -->
-        <div class="cardemploye m-auto border border-light border-5 mt-3 mb-5 mx-5 " id="cardTouslesAnimaux" style=" width:400px; ;height:424px;box-shadow:5px 5px 15px 15px  <?php echo $habitat_color ?>;">
+        <div 
+            class="cardanimal m-auto border border-light border-5 mt-3 mb-5 mx-5 " 
+            style=" width:400px; ;height:424px;box-shadow:5px 5px 15px 15px  <?php echo $habitat_color ?>;"
+            search_name=" <?php
+                        echo $emplAnimaux['nom_animal'];
+                 ?>"
+        >
 
             <img style="width:388px; max-height:13rem;margin:auto;" src="<?php echo $emplAnimaux['images_animal']  ?>" id="img_modal" class="card-img-top " alt="...">
 
             <div class="card-bodynomAnimaux">
-                <h4 class="card-title">
+                <h4 class="card-title" >
                     <b class="text-light fs-5">
                         <?php
                         echo $emplAnimaux['nom_animal'];
@@ -115,8 +120,10 @@ if (
                                 <?php
                                 /*  foreach($nourriture as $nou){ */
                                 ?>
-
+                                  
+                            
                                 <form class="text-center" method="POST" action="indexstaff.php">
+                                    <input type="hidden" name="id_animal" value="<?php echo $emplAnimaux['id_animal']?>">
                                     <table>
                                         <!--  <tr class="mb-3">
                                             <td class="">date</td>

@@ -31,3 +31,13 @@
     hide('afficheVetAnimaux');
   }
  
+  function search(idCard) {
+    const cardList = [...document.querySelectorAll(idCard)];
+    cardList.forEach((card) => {
+      console.log(card.getAttribute('search_name'));
+      // todo
+    })
+  }
+
+  //example 
+  search(".cardanimal")
