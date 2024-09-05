@@ -30,14 +30,20 @@
     show('afficheVetHabitats');
     hide('afficheVetAnimaux');
   }
+
+
+  function search(element, idCard) {
+
+    const value = element.value;
+    console.log('valeur: ', element.value);
  
-  function search(idCard) {
     const cardList = [...document.querySelectorAll(idCard)];
     cardList.forEach((card) => {
-      console.log(card.getAttribute('search_name'));
-      // todo
+      const  name = card.getAttribute('search_name');
+      if(name.toLowerCase().indexOf(value.toLowerCase()) === -1) {
+        card.style.display = "none";
+      } else {
+        card.style.display = "block";
+      }
     })
   }
-
-  //example 
-  search(".cardanimal")

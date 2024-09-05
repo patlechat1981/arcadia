@@ -160,4 +160,3 @@
     <br>
     <br>
 </main>
-<script src="./templates/administration.js"></script>

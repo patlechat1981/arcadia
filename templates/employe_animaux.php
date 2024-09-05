@@ -1,12 +1,7 @@
 <?php
-$bdd = include('config/db_connection.php');
-$config = include('config/config.php');
-$user = include('config/user.php');
 
 
-/* $nourriture = $bdd->query('SELECT * FROM tous_les_animaux');  */
-
-
+// form update nourriture_animal && quantité_nourriture
 if (
     isset($_POST['nourriture_animal']) && isset($_POST['quantité_nourriture']) && isset($_POST['id_animal'])
 ) {
@@ -14,12 +9,11 @@ if (
     $nourrit = $_POST['nourriture_animal'];
     $Qnourriture = $_POST['quantité_nourriture'];
 
-   
+
     $req = $bdd->prepare("UPDATE tous_les_animaux SET  nourriture_animal= ?  , quantité_nourriture = ? 
      WHERE id_animal= ?") or die(print_r($bdd->errorInfo()));
-    $req->execute(array( $nourrit, $Qnourriture,$idanimal));
+    $req->execute(array($nourrit, $Qnourriture, $idanimal));
 }
-
 
 
 
@@ -31,6 +25,7 @@ if (
 
 $avis = $bdd->query('SELECT * FROM avis');
 
+// form update etat
 if (
     isset($_POST['id_avis']) && isset($_POST['etat'])
 ) {
@@ -43,13 +38,24 @@ if (
 }  ?>
 
 
-<div class="section_mainAnimaux text-center mx-0  " id="afficheEmpAnimaux" style="display: none;height:358px;">
 
-    <form class="d-flex mt-3  text-center" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+
+
+
+
+
+<div class="section_mainAnimaux text-center mx-0" id="afficheEmpAnimaux" style="display:none; height:358px;">
+
+    <form class=" mt-3  text-center" role="search">
+        <input
+         class="form-control me-2 " 
+         id="search-input" 
+         type="search" 
+         placeholder="Search..." 
+         aria-label="Search" 
+         onkeyup="search(this, '.cardanimal')">
+ 
     </form>
-
 
     <?php
 
@@ -59,18 +65,15 @@ if (
         <!-- 
         <button class="btn btn-outline-success border-3 mt-3 " style="width: 190px;">Animaux</button>
         <button class="btn btn-outline-warning border-3 mt-3 " style="width: 190px;">Habitat</button> -->
-        <div 
-            class="cardanimal m-auto border border-light border-5 mt-3 mb-5 mx-5 " 
+        <div
+            class="cardanimal m-auto border border-light border-5 mt-3 mb-5 mx-5 "
             style=" width:400px; ;height:424px;box-shadow:5px 5px 15px 15px  <?php echo $habitat_color ?>;"
-            search_name=" <?php
-                        echo $emplAnimaux['nom_animal'];
-                 ?>"
-        >
+            search_name="<?php echo $emplAnimaux['nom_animal']; ?>">
 
             <img style="width:388px; max-height:13rem;margin:auto;" src="<?php echo $emplAnimaux['images_animal']  ?>" id="img_modal" class="card-img-top " alt="...">
 
             <div class="card-bodynomAnimaux">
-                <h4 class="card-title" >
+                <h4 class="card-title">
                     <b class="text-light fs-5">
                         <?php
                         echo $emplAnimaux['nom_animal'];
@@ -120,10 +123,10 @@ if (
                                 <?php
                                 /*  foreach($nourriture as $nou){ */
                                 ?>
-                                  
-                            
+
+
                                 <form class="text-center" method="POST" action="indexstaff.php">
-                                    <input type="hidden" name="id_animal" value="<?php echo $emplAnimaux['id_animal']?>">
+                                    <input type="hidden" name="id_animal" value="<?php echo $emplAnimaux['id_animal'] ?>">
                                     <table>
                                         <!--  <tr class="mb-3">
                                             <td class="">date</td>
@@ -296,4 +299,3 @@ if (
     <br>
     <br>
 </div>
-<script src="./templates/administration.js"></script>

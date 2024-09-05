@@ -17,7 +17,6 @@ $bdd2 =include('config/connect_db.php'); */
     $user = include('config/user.php');
 
     $requette = $bdd->query('SELECT * FROM useradmin');
-    $service = $bdd->query('SELECT * FROM service_zoo');
     $habitats = $bdd->query('SELECT * FROM zoohabitats');
 
 
@@ -159,14 +158,14 @@ $bdd2 =include('config/connect_db.php'); */
 
                             <li class="mx-2 ">
                                 <!--  <input type="text" name="page" value="employeLesAnimaux"> -->
-                                <a class="btn  text-dark  bg-info  border border-2 border-dark dropdown-item text-success " onclick="employeLesAnimaux()" id="employeLesAnimaux">
+                                <a class="btn  text-dark  bg-info  border border-2 border-dark dropdown-item text-success " onclick="employeLesAnimaux()" id="employeLeServices">
                                     Gestion aninmaux
                                 </a>
                             </li><br>
                             <li class="mx-2">
                                 <!--   <input type="text" name="page" value="employeLeServices"> -->
                                 <a class="btn text-dark bg-success border border-2 border-danger dropdown-item text-success" onclick="employeLeServices()" id="employeLeServices">
-                                    Gestion Habitat
+                                    Gestion services
                                 </a>
                             </li><br>
 
@@ -303,7 +302,10 @@ $bdd2 =include('config/connect_db.php'); */
         include('templates/footer.php');
         include('templates/scripts.php');
         ?>
-        <script src="./templates/employe.js"></script>
+
+
+        <script src="./templates/administration.js"></script>
+
 </body>
 
 </html>

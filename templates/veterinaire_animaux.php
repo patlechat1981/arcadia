@@ -161,4 +161,3 @@
     <br>
     <br>
 </div>
-<script src="./templates/administration.js"></script>
