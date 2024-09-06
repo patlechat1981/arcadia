@@ -298,7 +298,16 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="m-auto" style="margin:auto">
-                                            <div class="m-auto"><?php echo $row['video_galleries']; ?></div>
+                                            <div class="m-auto">
+                                        <iframe 
+                                            title="YouTube video player"
+                                            width="560" height="315" 
+                                            src="<?php echo $row['video_galleries']; ?>"
+                                            frameborder="0" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                            referrerpolicy="strict-origin-when-cross-origin" 
+                                            allowfullscreen>
+                                        </iframe>
                                         </div>
                                         <div class="modal-body ">
                                             <!--   <iframe width="560" class="w-100" height="315"

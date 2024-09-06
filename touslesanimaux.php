@@ -160,7 +160,15 @@
 
                                         </b></h1>
                                     <!-- <iframe src="" frameborder="0"></iframe> -->
-                                    <?php echo $row['video_galleries']; ?>
+                                    <iframe 
+                                            title="YouTube video player"
+                                            width="560" height="315" 
+                                            src="<?php echo $row['video_galleries']; ?>"
+                                            frameborder="0" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                            referrerpolicy="strict-origin-when-cross-origin" 
+                                            allowfullscreen>
+                                        </iframe>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body text-light fs-4 bg-info" style=" font-family: cursive;">
