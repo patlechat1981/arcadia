@@ -48,13 +48,13 @@ if (
 
     <form class=" mt-3  text-center" role="search">
         <input
-         class="form-control me-2 " 
-         id="search-input" 
-         type="search" 
-         placeholder="Search..." 
-         aria-label="Search" 
-         onkeyup="search(this, '.cardanimal')">
- 
+            class="form-control me-2 "
+            id="search-input"
+            type="search"
+            placeholder="Search..."
+            aria-label="Search"
+            onkeyup="search(this, '.cardanimal')">
+
     </form>
 
     <?php
@@ -87,7 +87,7 @@ if (
                 <!-------------- Modal sante et repas animal-------------------------------------------------->
 
                 <!--  debut Modal 1 -->
-                <div class="modal fade" id="modal_animaux_<?php echo $emplAnimaux['id_animal']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
+                <div class="modal fade" style="font-family: cursive;" id="modal_animaux_<?php echo $emplAnimaux['id_animal']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -100,21 +100,37 @@ if (
                                         echo $emplAnimaux['nom_animal'];
                                         ?>
 
-                                    </b></h1><br><br>
-                                <hr>
+                            </div> </b></h1>
+                         
+                    
+                            <div class="text-center bg-warning mb-3"  >
+                                <caption class="fw-bold">Note du veterinaire </caption>
+                                <h5 style=" margin-bottom: 3px;  "><b class="text-primary"> Information veterinaire : <br></b> <b class=""><?php echo $emplAnimaux['vet_gestionHabitat']; ?></b> </h5>
 
-                                <div class="text-center">
-                                    <h5 style=" margin-bottom: 8px;margin-top:8px "><b class="text-success">Date : </b> <b class=""><?php echo $emplAnimaux['date']; ?></b></h5>
-
-                                    <h5 style=" margin-bottom: 8px;margin-top:8px "><b class="text-success">nourriture : </b> <b class=""><?php echo $emplAnimaux['nourriture_animal']; ?></b></h5>
-                                    <h5 style=" margin-bottom: 8px;  "><b class="text-primary"> Quantité nourriture : </b> <b class=""><?php echo $emplAnimaux['quantité_nourriture']; ?></b> </h5>
-
-
-                                </div>
-                                <p> <button type="button" class="btn-close border bg-danger  text-light" data-bs-dismiss="modal" aria-label="Close"></button></p>
-                                <?php /* echo $row['video_galleries']; */ ?>
 
                             </div>
+
+                            <div class="text-center">
+                                <h5 style=" margin-bottom:3px;margin-top:3px ">
+                                    <b class="text-success">Date : </b> 
+                                    <b class=""><?php echo $emplAnimaux['date']; ?></b>
+                                </h5>
+
+                                <h5 style="margin-bottom: 3px;margin-top:3px ">
+                                    <b class="text-success">Nourriture : </b> 
+                                    <b><?php echo $emplAnimaux['nourriture_animal']; ?></b>
+                                </h5>
+                                <h5 style="margin-bottom:3px;  ">
+                                    <b class="text-primary">Quantité nourriture : </b> 
+                                    <b><?php echo $emplAnimaux['quantité_nourriture']; ?></b> 
+                                </h5>
+
+
+                            </div>
+                           
+                            <?php /* echo $row['video_galleries']; */ ?>
+
+
                             <div class="modal-body text-light bg-info" style=" font-family: cursive;">
 
                                 <?php
@@ -134,7 +150,7 @@ if (
                                         </tr><br>
                                         <tr> --> <?php   /* echo $nourrit['nourriture_animal']   */ ?>
                                         <td>Nourriture</td><br>
-                                        <td><input class="mx-2" type="text" name="nourriture_animal" placeholder="" required></td>
+                                        <td><input class="mx-2 mb-2" type="text" name="nourriture_animal" placeholder="" required></td>
                                         </tr>
                                         <tr><?php   /* echo $Qnourriture['quantité_nourriture'] */   ?>
                                             <td>Quantité nourriture</td><br>
@@ -143,7 +159,7 @@ if (
 
                                     </table><br><br>
                                     <div id="button" class="text-center">
-                                        <button type='submit' class=" border border-3 border-dark btn btn-oultine-success text-light">Inscription</button>
+                                        <button type='submit' class=" border border-3 border-dark btn btn-oultine-success text-light">modifier</button>
                                     </div>
                                 </form><br><br>
 

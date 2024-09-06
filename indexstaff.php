@@ -206,13 +206,13 @@ $bdd2 =include('config/connect_db.php'); */
                             <li class="mx-2">
                                 <!-- <input type="text" name="page" value="veterinaireAnimaux"> -->
                                 <a class=" btn text-dark bg-success border border-2 border-danger dropdown-item text-success" onclick="veterinaireAnimaux()" id="veterinaireAnimaux">
-                                    soins Animaux
+                                  Sante et Habitats des animaux
                                 </a>
                             </li><br>
                             <li class="mx-2">
                                 <!-- <input type="text" name="page" value="veterinaireHabitats"> -->
                                 <a class=" btn text-dark bg-info border border-2 border-danger dropdown-item text-success" onclick="veterinaireHabitats()" id="veterinaireHabitats">
-                                    Gestions habitats
+                                   ajouter un Animal
                                 </a>
                             </li><br>
 
@@ -284,7 +284,7 @@ $bdd2 =include('config/connect_db.php'); */
             }elseif($user['role']=='veterinaire'){
 
                 include('templates/veterinaire_animaux.php');
-                include('templates/veterinaire_habitats.php');
+                include('templates/veterinaire_ajouts.php');
             }
             ?>
 

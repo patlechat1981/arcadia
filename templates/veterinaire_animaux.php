@@ -1,69 +1,261 @@
+<?php
 
-<div class="section_mainAnimaux text-center mx-0 border border-3 border-warning" id="afficheVetAnimaux" style="display:none ;">
+
+// form update nourriture_animal && quantité_nourriture
+if (
+    isset($_POST['vet_nourriture_quantite']) && isset($_POST['id_animal'])
+    && isset($_POST['etat_animal']) && isset($_POST['vet_habitatAnimaux']) )
+ {
+    $idanimal = $_POST['id_animal'];
+    $vet_nourriture_quantite = $_POST['vet_nourriture_quantite'];
+    $etat_animal = $_POST['etat_animal'];
+    $vet_habitatAnimaux = $_POST['vet_habitatAnimaux'];
+  
+
+    $req = $bdd->prepare("UPDATE tous_les_animaux SET  	vet_nourriture_quantite = ? ,
+     etat_animal =?, vet_habitatAnimaux = ?  WHERE id_animal= ?") or  die(print_r($bdd->errorInfo()));
+    $req->execute(array(
+        $vet_nourriture_quantite,
+        $etat_animal,
+        $vet_habitatAnimaux,
+     
+        $idanimal
+    ));
+}
+
+if (
+    isset($_POST['vet_gestionHabitat']) && isset($_POST['id_animall'])
     
-    <form class="d-flex mt-3  text-center" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-          
-          
-          <?php
-          
-    foreach ($animaux as $row) {
-        ?>
+) {
+    $idanimall = $_POST['id_animall']; 
+    $vet_gestionHabitat = $_POST['vet_gestionHabitat'];
 
-<button class="btn btn-outline-success border-3 mt-3 " style="width: 190px;">Animaux</button> 
-<button class="btn btn-outline-warning border-3 mt-3 "  style="width: 190px;" >Habitat</button> 
-        <div class="cardemploye m-auto border border-light border-5 mt-3 mb-5 mx-5 " id="cardTouslesAnimaux" style=" width:400px; ;height:558px;box-shadow:5px 5px 15px 15px  <?php echo $habitat_color ?>;">
-            
-            <img style="width:388px; max-height:13rem;margin:auto;" src="<?php echo $row['images_animal']  ?>" id="img_modal" class="card-img-top " alt="...">
 
-            <div class="card-bodynomAnimaux">
+    $req = $bdd->prepare("UPDATE tous_les_animaux SET  
+  vet_gestionHabitat = ?  WHERE id_animal= ?") or  die(print_r($bdd->errorInfo()));
+    $req->execute(array(  
+        $vet_gestionHabitat,
+        $idanimall
+    ));
+}
+
+
+
+
+
+
+
+
+
+$avis = $bdd->query('SELECT * FROM avis');
+
+// form update etat
+if (
+    isset($_POST['id_avis']) && isset($_POST['etat'])
+) {
+
+    $id_avis = $_POST['id_avis'];
+    $etat = $_POST['etat'];
+
+    $avis_insert = $bdd->prepare('UPDATE avis set etat = ? where id_avis = ?') or die(print_r($bdd->errorInfo()));
+    $avis_insert->execute(array($etat, $id_avis));
+}  ?>
+
+
+
+
+
+
+
+
+<div class="section_mainAnimaux text-center mx-0" id="afficheVetAnimaux" style="display:none; height:358px;">
+
+    <form class=" mt-3  text-center" role="search">
+        <input
+            class="form-control me-2 "
+            id="search-input"
+            type="search"
+            placeholder="Search..."
+            aria-label="Search"
+            onkeyup="search(this, '.cardanimal')">
+
+    </form>
+
+    <?php
+
+    $animaux->execute();
+    foreach ($animaux as $emplAnimaux) {
+    ?>
+        <!-- 
+        <button class="btn btn-outline-success border-3 mt-3 " style="width: 190px;">Animaux</button>
+        <button class="btn btn-outline-warning border-3 mt-3 " style="width: 190px;">Habitat</button> -->
+        <div
+            class="cardanimal m-auto border border-light border-5 mt-3 mb-5 mx-5 "
+            style=" width:400px; ;height:400px;box-shadow:5px 5px 15px 15px  <?php echo $habitat_color ?>;"
+            search_name="<?php echo $emplAnimaux['nom_animal']; ?>">
+
+            <img style="width:388px; max-height:13rem;margin:auto;" src="<?php echo $emplAnimaux['images_animal']  ?>" id="img_modal" class="card-img-top " alt="...">
+
+            <div class="card-bodynomAnimaux bg-success">
                 <h4 class="card-title">
                     <b class="text-light fs-5">
                         <?php
-                        echo $row['nom_animal'];
+                        echo $emplAnimaux['nom_animal'];
                         ?>
                     </b>
                 </h4>
 
             </div>
-            <ul class="list-group list-group-flush " id="list_modal"  >
+            <ul class="list-group list-group-flush " id="list_modal">
 
-
-
-<!-- 
-                <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modal_animaux_<?php echo $row['id_animal']; ?>">
-                    En Savoir plus <span class="text-warning fw-bold"><?php echo $row['race_animal']; ?></span> ....
-                </button> -->
-
-                <!-- Modal -->
+                <!-------------- Modal sante et repas animal-------------------------------------------------->
 
                 <!--  debut Modal 1 -->
-                <div class="modal fade" id="modal_animaux_<?php echo $row['id_animal']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
+                <div class="modal fade" style=" font-family: cursive;height:770px; " id="modal_animaux_<?php echo $emplAnimaux['id_animal']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <div class="modal-header bg-info text-center">
+                                <h1 class="modal-title fs-5" id="modal_animaux_
+                                    <?php
+                                    echo $emplAnimaux['id_animal'];
+                                    ?>
+                                    "><b class="text-dark">
+                                        <?php
+                                        echo $emplAnimaux['nom_animal'];
+                                        ?>
+                                    </b>
+                                </h1>
+                                <button type="button" class="btn-close border bg-danger  text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div class="text-center mb-2  " style=" font-family: cursive;">
+                                <h4 class="text-success fw-bold ">Report de l'émployé</h4><br>
+                                <h5 style=" margin-bottom: 3px; "><b class="text-success">Date : </b> <b class=""><?php echo $emplAnimaux['date']; ?></b></h5>
+
+                                <h5 style=" margin-bottom: 3px;margin-top:3px "><b class="text-success">nourriture : </b> <b class=""><?php echo $emplAnimaux['nourriture_animal']; ?></b></h5>
+                                <h5 style=" margin-bottom: 3px;  "><b class="text-primary"> Quantité nourriture : </b> <b class=""><?php echo $emplAnimaux['quantité_nourriture']; ?></b> </h5>
+
+                            </div>
+                            <div class="text-center fw-bold border border-2 info-warning">
+                                <h4 class="text-danger mt-2 fw-boldfw-bold"> Veterinaire</h4><br>
+                                <h5 style=" margin-bottom: 3px; "><b class="text-success">Date : </b> <b class=""><?php echo $emplAnimaux['date']; ?></b></h5>
+                                <h5 style=" margin-bottom: 3px;margin-top:3px "><b class="text-success"> Soins santé : </b> <b class=""><?php echo $emplAnimaux['etat_animal']; ?></b></h5>
+                                <h5 style=" margin-bottom: 3px;  "><b class="text-primary">Soins habitats : </b> <b class=""><?php echo $emplAnimaux['vet_habitatAnimaux']; ?></b> </h5>
+                                <h5 style=" margin-bottom: 3px;margin-top:3px "><b class="text-success">nourriture : </b> <b class=""><?php echo $emplAnimaux['vet_nourriture_quantite']; ?></b></h5>
+
+
+                            </div>
+                            <!--         <p> <button type="button" class="btn-close border bg-danger  text-light" data-bs-dismiss="modal" aria-label="Close"></button></p>
+                            <?php /* echo $row['video_galleries']; */ ?>
+
+ -->
+                            <!--   <div class="modal-body text-light bg-info" style=" font-family: cursive;"> -->
+
+
+
+
+                            <form class="text-center bg-info" method="POST" action="indexstaff.php">
+                                <input type="hidden" name="id_animal" value="<?php echo $emplAnimaux['id_animal'] ?>">
+                                <table>
+                                    <tr>
+                                        <td class=" ">Soin et Santé animaux</td><br>
+                                        <td><input class="mx-2 mb-2" type="text" name="etat_animal" placeholder="" required></td>
+                                    </tr><br>
+                                    <tr>
+                                        <td class=" "> habitat animal</td><br>
+                                        <td><input class="mx-2 mb-2" type="text" name="vet_habitatAnimaux" placeholder="" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nourriture et quantité proposés </td><br>
+                                        <td><input class="mx-2" type="text" name="vet_nourriture_quantite" placeholder="" required></td>
+                                    </tr>
+
+
+                                </table><br><br>
+
+                                <button type='submit' class="text-center border border-3 border-dark btn btn-oultine-success text-light w-50">Inscription</button>
+
+
+                                <div class="modal-footer bg-info">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+
+                                </div>
+
+                            </form><br><br>
+
+
+
+                        </div>
+                        <!--  </div> -->
+                    </div>
+                </div>
+
+
+            </ul>
+
+            <!-----------------------------   fin modal sante et repas animaux-------------------------------------------------------->
+
+            <!-----------------------------  debut modal gestion commentaires------------------------------------------------------>
+
+            <ul class="list-group list-group-flush " id="list_modal">
+
+
+
+
+                <div class="modal fade" id="modal_commentaires_<?php echo $emplAnimaux['id_animal']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="modal_animaux_
-                                    <?php
-                                    echo $row['id_animal'];
-                                    ?>
-                                    "><b class="text-success">
+                                <h1 class="modal-title fs-5" id="modal_commentaires_
+                    <?php
+                    echo $emplAnimaux['id_animal'];
+                    ?>
+                    "><b class="text-dark">
                                         <?php
-                                        echo $row['nom_animal'];
+                                        echo $emplAnimaux['nom_animal'];
                                         ?>
 
-                                    </b></h1>
-                               
-                                <?php echo $row['video_galleries']; ?>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </b></h1><br><br>
+                                <hr>
+
+                                <div class="text-center">
+
+                                    <h2 style=" margin-bottom: 8px;margin-top:8px "><b class="text-success">Gestions commentaires </b> <b class=""></b></h2>
+
+
+
+                                </div>
+                                <p> <button type="button" class="btn-close border bg-danger  text-light" data-bs-dismiss="modal" aria-label="Close"></button></p>
+                                <?php /* echo $row['video_galleries']; */ ?>
+
                             </div>
-                            <div class="modal-body text-light fs-4 bg-info" style=" font-family: cursive;">
+                            <div class="modal-body text-light bg-info" style=" font-family: cursive;">
 
                                 <?php
-                                echo $row['description_animal'];
-                                ?>"
+                                /*    $animaux->execute();
+                                foreach ($animaux as $row) { */
 
+                                ?>
+                                <form action="indexstaff.php" method="POST">
+                                    <input type="hidden" name="id_animall" value="<?php echo $emplAnimaux['id_animal'] ?>">
+
+                                    <h3>Entretien de son habitat</h3>
+
+                                    <table>
+
+                                        <tr>
+                                            <textarea name="vet_gestionHabitat" rows="5" cols="35" id=""></textarea>
+                                        </tr>
+
+                                    </table>
+
+                                    <button type="submit" class="btn btn-outline-success">Sauvegarder</button>
+                                </form>
+                                <?php
+
+                                /*   } */
+                                ?>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -76,8 +268,9 @@
 
             </ul>
 
-            <!--   fin modal -->
-            <!--  debut partie description animaux -->
+            <!------------------------- fin lodal gestions commentaires ------------------------------------------------------>
+
+
 
 
 
@@ -85,71 +278,35 @@
             <div class="mx-0" style="background: -webkit-linear-gradient(to right, lightcyan, #ddf3a9);
   background: linear-gradient(to right, lightcyan, #6be795);
 "><br>
-                <h5 style=" margin-bottom: 8px;margin-top:8px "><b class="text-success">Etat animal : </b> <b class=""><?php echo $row['etat_animal']; ?></b></h5>              
-                <h5 style=" margin-bottom: 8px;  "><b class="text-primary"> Habitat : </b> <b class=""><?php echo $row['nom_habitat']; ?></b> </h5>
-                <h5 style=" margin-bottom:8px;  "><b class="text-warning">Nourriture : </b><b class=""><?php echo $row['nourriture_animal']; ?></b></h5>
-                <h5 style=" margin-bottom: 8px;  "><b class="text-primary"> Quantité nourriture : </b> <b class=""><?php echo $row['quantité_nourriture']; ?></b> </h5>
-                <!--  <p class="text-danger">Laisser un commentaire!</p> -->
-                  <br>
-                <form action="touslesanimaux.php<?php echo $queryString ?>" method="POST">                
-                    
-                    <button type="submit" class="btn btn-outline-success borber borber-2  border-success w-50 mb-2"> Ajouter l'etat santé</button><br>
-                    <button type="button" class="btn btn-primary w-50 mb-2 borber borber-2 border-warning " data-bs-toggle="modal" data-bs-target="#modal_commentaires_<?php echo $row['id_animal']; ?>">
-                        repas animal
+
+                <br>
+                <form action="touslesanimaux.php" method="POST">
+
+                    <br>
+                    <button type="button" class="btn btn-primary w-50 mb-2 borber borber-2 border-warning " data-bs-toggle="modal" data-bs-target="#modal_commentaires_<?php echo $emplAnimaux['id_animal']; ?>">
+                        Gestion de l'habitat
                     </button><br>
 
-                    <button type="button" class="btn btn-outline-success borber borber-2  border-success w-50 mb-2 " data-bs-toggle="modal" data-bs-target="#modal_animaux_<?php echo $row['id_animal']; ?>">
-                    Ajouter l'etat santé
+                    <button type="button" class="btn btn-outline-success borber borber-2  border-success w-50 mb-2 " data-bs-toggle="modal" data-bs-target="#modal_animaux_<?php echo $emplAnimaux['id_animal']; ?>">
+                        Santé et habitats
                     </button>
-                    <ul class="list-group list-group-flush " id="list_modal"  >
+                    <ul class="list-group list-group-flush " id="list_modal">
 
 
 
 
 
-                <!-- Modal -->
-
-                <!--  debut Modal 1 -->
-                <div class="modal fade" id="modal_animaux_<?php echo $row['id_animal']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="modal_animaux_
-                                    <?php
-                                    echo $row['id_animal'];
-                                    ?>
-                                    "><b class="text-success">
-                                        <?php
-                                        echo $row['nom_animal'];
-                                        ?>
-
-                                    </b></h1>
-                               
-                                <?php echo $row['video_galleries']; ?>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-light fs-4 bg-info" style=" font-family: cursive;">
-
-                                <?php
-                               /*  echo $row['description_animal']; */
-                                ?>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <!-- Modal -->
 
 
-            </ul>
-                   <!--  <button type="submit" class="btn btn-outline-warning w-50 mb-1 borber border-2 border-danger " > Ajouter l'etat santé</button><br> -->
+
+
+                    </ul>
+                    <!--  <button type="submit" class="btn btn-outline-warning w-50 mb-1 borber border-2 border-danger " > Ajouter l'etat santé</button><br> -->
 
                 </form>
 
-<!-- 
+                <!-- 
                 <h3 class=" mt-3 fs-5 text-1 " style="margin-right: 250px; margin-bottom: 20px;  "><b class="text-primary"> Nombre de visite :</b> </h3><br><br> -->
             </div><br><br>
 
