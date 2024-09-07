@@ -102,32 +102,18 @@ $bdd2 =include('config/connect_db.php'); */
                                         Espace Administrateur
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <?php
-                                        /* foreach ($service as $serv) { */
-                                        ?>
-                                        <!--  <li>
-                                        <a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=<?php echo $serv['id_service']; ?>">
-                               //             <?php /* echo $serv['nom_service'] */ ?></a>
-                                    </li> -->
-                                        <?php
-                                        /*  } */
-                                        ?>
                                         <li class="mx-2 ">
                                             <!--  <input type="text" name="page" value="adminServices"> -->
-                                            <a class="btn  text-light bg-info  border border-2 border-primary dropdown-item text-success " onclick="adminServices()" id="adminServices">
-                                                services administrateur
+                                            <a class="btn  text-light bg-info  border border-2 border-primary dropdown-item text-success "
+                                            onclick="administrateurService()">
+                                                Services administrateur
                                             </a>
                                         </li><br>
                                         <li class="mx-2">
                                             <!-- <input type="text" name="page" value=""> -->
-                                            <a class="text-light bg-success border border-2 border-warning dropdown-item text-success" href="./config/enregistrement_staff.php">
-                                                Enregistrement nouveaux menbres
-                                            </a>
-                                        </li><br>
-                                        <li class="mx-2">
-                                            <!--   <input type="text" name="page" value=""> -->
-                                            <a class="text-light bg-warning border border-2 border-dark dropdown-item text-success" href="/ZOOARCARDIA2/spectacle.php">
-                                                Ajouts d'un Animal
+                                            <a class="text-light bg-success border border-2 border-warning dropdown-item text-success"
+                                            onclick="administrateurMembers()">
+                                                Management membres
                                             </a>
                                         </li>
                                 </li>
@@ -158,13 +144,15 @@ $bdd2 =include('config/connect_db.php'); */
 
                             <li class="mx-2 ">
                                 <!--  <input type="text" name="page" value="employeLesAnimaux"> -->
-                                <a class="btn  text-dark  bg-info  border border-2 border-dark dropdown-item text-success " onclick="employeLesAnimaux()" id="employeLeServices">
+                                <a class="btn  text-dark  bg-info  border border-2 border-dark dropdown-item text-success " 
+                                onclick="employeLesAnimaux()" id="employeLeServices">
                                     Gestion aninmaux
                                 </a>
                             </li><br>
                             <li class="mx-2">
                                 <!--   <input type="text" name="page" value="employeLeServices"> -->
-                                <a class="btn text-dark bg-success border border-2 border-danger dropdown-item text-success" onclick="employeLeServices()" id="employeLeServices">
+                                <a class="btn text-dark bg-success border border-2 border-danger dropdown-item text-success" 
+                                onclick="employeLeServices()" id="employeLeServices">
                                     Gestion services
                                 </a>
                             </li><br>
@@ -280,6 +268,7 @@ $bdd2 =include('config/connect_db.php'); */
             }elseif($user['role']=='administrateur'){
 
                 include('templates/admin_serviceSites.php');
+                include('templateS/admin_members.php');
 
             }elseif($user['role']=='veterinaire'){
 
