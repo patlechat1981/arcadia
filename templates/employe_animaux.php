@@ -105,7 +105,9 @@ if (
                     
                             <div class="text-center bg-warning mb-3"  >
                                 <caption class="fw-bold">Note du veterinaire </caption>
-                                <h5 style=" margin-bottom: 3px;  "><b class="text-primary"> Information veterinaire : <br></b> <b class=""><?php echo $emplAnimaux['vet_gestionHabitat']; ?></b> </h5>
+                                <h5 style=" margin-bottom: 3px;  "><b class="text-primary"> Information habitat : <br></b> <b class=""><?php echo $emplAnimaux['vet_gestionHabitat']; ?></b> </h5>
+                                <h5 style=" margin-bottom: 3px;  "><b class="text-primary"> Information sante : <br></b> <b class=""><?php echo $emplAnimaux['etat_animal']; ?></b> </h5>
+                                <h5 style=" margin-bottom: 3px;  "><b class="text-primary"> Information nourriture : <br></b> <b class=""><?php echo $emplAnimaux['vet_nourriture_quantite']; ?></b> </h5>
 
 
                             </div>
