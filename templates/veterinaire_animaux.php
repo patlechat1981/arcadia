@@ -92,7 +92,7 @@ if (
         <div
             class="cardanimal m-auto border border-light border-5 mt-3 mb-5 mx-5 "
             style=" width:400px; ;height:400px;box-shadow:5px 5px 15px 15px  <?php echo $habitat_color ?>;"
-            search_name="<?php echo $emplAnimaux['nom_animal']; ?>">
+            search_name="<?php echo $emplAnimaux['nom_animal'].$emplAnimaux['race_animal']; ?>">
 
             <img style="width:388px; max-height:13rem;margin:auto;" src="<?php echo $emplAnimaux['images_animal']  ?>" id="img_modal" class="card-img-top " alt="...">
 
