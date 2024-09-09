@@ -43,7 +43,7 @@ if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['role']
 	$password = "aq1" . sha1($password . "1254") . "25";
 
 	// ENVOI DE LA REQUETE
-	$requete = $bdd->query('SELECT * FROM useradmin');
+
 	$req = $bdd->prepare("INSERT INTO useradmin(pseudo, email,role, password, secret) VALUES(?,?,?,?,?)");
 	$value = $req->execute(array($pseudo, $email,$role, $password, $secret));
 
@@ -72,8 +72,8 @@ if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['role']
 		<?php
 		if (!isset($_SESSION['connect'])) { ?>
 
-			<!-- <p class="text-center" id="info">Reserver au Staff du Zoo Arcadia, inscrivez-vous.<br> Sinon, <a href="./config/indexstaff.php">Connectez-vous.</a></p>
- -->
+			 <p class="text-center" id="info">Reserver au Staff du Zoo Arcadia, inscrivez-vous.<br> Sinon, <a href="./config/indexstaff.php">Connectez-vous.</a></p>
+ 
 
 			<?php
 

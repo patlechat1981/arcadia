@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zoo Arcadia</title>
-    <link rel="stylesheet" href="./assets/CSS/style.css">
-    <link rel="stylesheet" href="./assets/CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/CSS/employe.css">
 
     <?php
+ /*     session_start(); */
+
     /* 
 $bdd2 =include('config/connect_db.php'); */
     $bdd = include('config/db_connection.php');
@@ -67,6 +60,20 @@ $bdd2 =include('config/connect_db.php'); */
 
     ?>
 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoo Arcadia</title>
+    <link rel="stylesheet" href="./assets/CSS/style.css">
+    <link rel="stylesheet" href="./assets/CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/CSS/employe.css">
+
 </head>
 
 <body>
@@ -105,14 +112,14 @@ $bdd2 =include('config/connect_db.php'); */
                                         <li class="mx-2 ">
                                             <!--  <input type="text" name="page" value="adminServices"> -->
                                             <a class="btn  text-light bg-info  border border-2 border-primary dropdown-item text-success "
-                                            onclick="administrateurService()">
+                                                onclick="administrateurService()">
                                                 Services administrateur
                                             </a>
                                         </li><br>
                                         <li class="mx-2">
                                             <!-- <input type="text" name="page" value=""> -->
                                             <a class="text-light bg-success border border-2 border-warning dropdown-item text-success"
-                                            onclick="administrateurMembers()">
+                                                onclick="administrateurMembers()">
                                                 Management membres
                                             </a>
                                         </li>
@@ -144,15 +151,15 @@ $bdd2 =include('config/connect_db.php'); */
 
                             <li class="mx-2 ">
                                 <!--  <input type="text" name="page" value="employeLesAnimaux"> -->
-                                <a class="btn  text-dark  bg-info  border border-2 border-dark dropdown-item text-success " 
-                                onclick="employeLesAnimaux()" id="employeLeServices">
+                                <a class="btn  text-dark  bg-info  border border-2 border-dark dropdown-item text-success "
+                                    onclick="employeLesAnimaux()" id="employeLeServices">
                                     Gestion aninmaux
                                 </a>
                             </li><br>
                             <li class="mx-2">
                                 <!--   <input type="text" name="page" value="employeLeServices"> -->
-                                <a class="btn text-dark bg-success border border-2 border-danger dropdown-item text-success" 
-                                onclick="employeLeServices()" id="employeLeServices">
+                                <a class="btn text-dark bg-success border border-2 border-danger dropdown-item text-success"
+                                    onclick="employeLeServices()" id="employeLeServices">
                                     Gestion services
                                 </a>
                             </li><br>
@@ -194,18 +201,19 @@ $bdd2 =include('config/connect_db.php'); */
                             <li class="mx-2">
                                 <!-- <input type="text" name="page" value="veterinaireAnimaux"> -->
                                 <a class=" btn text-dark bg-success border border-2 border-danger dropdown-item text-success" onclick="veterinaireAnimaux()" id="veterinaireAnimaux">
-                                  Sante et Habitats des animaux
+                                    Sante et Habitats des animaux
                                 </a>
                             </li><br>
                             <li class="mx-2">
                                 <!-- <input type="text" name="page" value="veterinaireHabitats"> -->
                                 <a class=" btn text-dark bg-info border border-2 border-danger dropdown-item text-success" onclick="veterinaireHabitats()" id="veterinaireHabitats">
-                                   ajouter un Animal
+                                    ajouter un Animal
                                 </a>
                             </li><br>
 
 
                         </ul>
+                        
                     </li>
                 <?php
 
@@ -257,28 +265,31 @@ $bdd2 =include('config/connect_db.php'); */
 
         </nav>
         <!-- Inner -->
-        <div class=" main carousel-inner" style="background-image: url(https://www.glmv.com/wp-content/uploads/2022/06/Living-Desert-Rhinos-Savanna-scaled.jpg); height:750px;text-align:center ">
-            <?php
 
 
-         if($user['role']=='employe'){
-                include('templates/employe_animaux.php');
-                include('templates/employe_services.php');
+     
 
-            }elseif($user['role']=='administrateur'){
+            <div id="info" class=" main carousel-inner" style="background-image: url(https://www.glmv.com/wp-content/uploads/2022/06/Living-Desert-Rhinos-Savanna-scaled.jpg); height:750px;text-align:center; ">
+                <?php
 
-                include('templates/admin_serviceSites.php');
-                include('templateS/admin_members.php');
 
-            }elseif($user['role']=='veterinaire'){
+                if ($user['role'] == 'employe') {
+                    include('templates/employe_animaux.php');
+                    include('templates/employe_services.php');
+                } elseif ($user['role'] == 'administrateur') {
 
-                include('templates/veterinaire_animaux.php');
-                include('templates/veterinaire_ajouts.php');
-            }
-            ?>
+                    include('templates/admin_serviceSites.php');
+                    include('templates/admin_members.php');
+                } elseif ($user['role'] == 'veterinaire') {
 
-        </div>
+                    include('templates/veterinaire_animaux.php');
+                    include('templates/veterinaire_ajouts.php');
+                }
+                ?>
 
+            </div>
+
+     
 
 
         <br>
