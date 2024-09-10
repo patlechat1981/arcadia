@@ -39,7 +39,7 @@
                     </li>
                     <li class="nav-item dropdown  mx-4">
                         <a class=" fw-bold nav-link dropdown-toggle btn btn-outline-success border border-1 border-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Services
+                          Spectacles
                         </a>
                         <ul class="dropdown-menu">
 

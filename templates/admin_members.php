@@ -1,10 +1,10 @@
 
-
 <!-- debut Card -->
 
 <main id="afficheAdminMembers" style="display: none; font-family:cursive; " class="mt-5 ">
-
-<?php
+  
+  <?php
+ /*  session_start();  */
 
 $users = $bdd->query('SELECT * FROM `useradmin`');
 ?>
@@ -66,10 +66,6 @@ if (
     header('Location: indexstaff.php?error=1&pass=1');
 
   
-  /*   error_reporting(E_ALL);
-    ini_set("diasplay_errors",1); */
-
- /*    set_error_handler("var_dump"); */
     exit();
   }
 
@@ -79,9 +75,14 @@ if (
 
   while ($email_verification = $req->fetch()) {
     if ($email_verification['numberEmail'] != 0) {
-    /*   header('location: indexstaff.php?error=1&email=1'); */
-    exit();
-   /*  echo "<script>location.href=indexstaff.php?error=1&email=1; </script>" ; */
+     /*  echo "<script>location.href='indexstaff.php?error=1&pass=1';</script>"; */
+      
+      exit();
+      /*  header('location: indexstaff.php?error=1&email=1');  */
+    /*   error_reporting(E_ALL);
+    ini_set("diasplay_errors",1); */
+
+ /*    set_error_handler("var_dump"); */
     }
   }
 
@@ -96,7 +97,7 @@ if (
 }
 
 ?>
-
+<!-- <script><?php /* echo ("location.href='indexstaff.php?error=1&pass=1'") */ ?></script> -->
   <div id="form" class="text-light fst-bolt bg-info border border-3 border-light"
     style=" width:450px; margin-bottom: 80px;height:560px;">
 
@@ -118,6 +119,8 @@ if (
       ?>
     <?php }  ?>
 
+  
+
     <!-- debut enregistrement operateur -->
 
     <h3 class="mb-2 p-3 bg-primary">Enregistrer un nouvel operateur </h3>
@@ -132,10 +135,10 @@ if (
           <td class="text-dark">Email</td><br>
           <td><input class="mb-2" type="email" name="email" placeholder="Ex : example@google.com" required></td>
         </tr>
-        <!-- <tr>
+         <tr>
           <td class="text-dark">Role</td><br>
           <td><input class="mb-2" type="text" name="role" placeholder="Ex : veterinaire" required></td>
-        </tr> -->
+        </tr> 
         <tr>
           <td class="text-dark">Photo operateur</td><br>
           <td><input class="mb-2" type="text" name="images_operateur" placeholder="Ex : url" required></td>
@@ -192,3 +195,11 @@ if (
       ?>
     </div>
 </main>
+
+
+
+
+<!--  /*   error_reporting(E_ALL);
+    ini_set("diasplay_errors",1); */
+
+ /*    set_error_handler("var_dump"); */ -->

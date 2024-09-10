@@ -219,7 +219,7 @@
                     </form>
 
 
-                    <h3 class=" mt-3 fs-5 text-1 " style="margin-right: 250px; margin-bottom: 20px;  "><b class="text-primary"> Nombre de visite :</b> </h3>
+                    <h3 class=" mt-3 fs-5 text-1 " style="margin-right: 250px; margin-bottom: 20px;font-family:cursive;  "><b class="text-primary">  Bonne visite.....</b> </h3>
                 </div>
 
                 <!-- Modal -->

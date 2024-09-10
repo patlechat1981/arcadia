@@ -45,6 +45,7 @@
 
                             <li><a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=1"> Maitres des Airs</a></li>
                             <li><a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=3"> Activités Ludiques pour enfants</a></li>
+                            <li><a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=5"> la Mappe du Zoo</a></li>
                     </li>
 
                 </ul>

@@ -47,7 +47,7 @@
 
                             <a style="margin-left: 120px" ; class="nav-link dropdown-toggle btn btn-outline-success border border-1 
                             border-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Services
+                               Spectacles
                             </a>
                             <ul class="dropdown-menu">
                                 <?php
@@ -115,7 +115,7 @@
                     <li class="nav-item dropdown" style="margin-left: 310px; font-family:cursive">
                         <a class="nav-link dropdown-toggle btn btn-outline-success border border-1 border-success"
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Access membres
+                             Reservé aux membres du Zoo
                         </a>
                         <ul class="dropdown-menu  text-center border border-3 border-success ">
                             <form style="width: 420px;height: 400px; margin-left:20px;" class="text-center " method="POST" action="connection.php"><br>
@@ -123,7 +123,7 @@
                                 <!--  debut form relier a la connexion -->
 
                               
-                                  <p><h3 class="text-warning mb-3 fw-bold ">Accès reservé aux membres du Zoo</h3></p>  <
+                                  <p><h3 class="text-warning mb-3 fw-bold border border-2 bg-success rounded rounde-5">Acceder a votre account</h3></p>  <
                               
 
                                 <div class="container text-center">
@@ -139,10 +139,10 @@
                                                     <td class="text-success ">Email</td>
                                                     <td><input class="mb-2"  type="email" name="email" id="email" placeholder="Inserer votre email..." required></td>
                                                 </tr>
-                                               <!--  <tr>
+                                                <!-- <tr>
                                                     <td class="text-success ">Role</td>
                                                     <td><input class="mb-2"  type="text" name="role" id="role" placeholder=" votre role..." required></td>
-                                                </tr> -->
+                                                </tr>  -->
                                                 <tr>
                                                     <td class="text-success ">Mot de passe</td>
                                                     <td><input class="mb-2"  type="password" name="password" placeholder="Inserer votre password ..." required></td>
