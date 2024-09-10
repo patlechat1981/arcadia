@@ -105,7 +105,13 @@
                             </ul>
                         </li>
                        <!--  <a href="/ZOOARCARDIA2/PAGES/contact" class="text-primary nav-link mx-4 ">Contactez-nous</a> -->
+              
+                       <?php      if (isset($_GET['error'])) {
+                            echo '<p id="error">Nous ne pouvons pas vous authentifier.</p>';};?>
 
+
+
+                   
                     <li class="nav-item dropdown" style="margin-left: 310px; font-family:cursive">
                         <a class="nav-link dropdown-toggle btn btn-outline-success border border-1 border-success"
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -133,10 +139,10 @@
                                                     <td class="text-success ">Email</td>
                                                     <td><input class="mb-2"  type="email" name="email" id="email" placeholder="Inserer votre email..." required></td>
                                                 </tr>
-                                                <tr>
+                                               <!--  <tr>
                                                     <td class="text-success ">Role</td>
                                                     <td><input class="mb-2"  type="text" name="role" id="role" placeholder=" votre role..." required></td>
-                                                </tr>
+                                                </tr> -->
                                                 <tr>
                                                     <td class="text-success ">Mot de passe</td>
                                                     <td><input class="mb-2"  type="password" name="password" placeholder="Inserer votre password ..." required></td>
@@ -370,7 +376,7 @@
                 <div class="card-body">
                     <h4 class="card-title text-success">des spectacles unique !</h4>
 
-                    <a href="/ZOOARCARDIA/spectacle?id=1" class="btn btn-primary">En savoir plus...</a>
+                    <a href="/ZOOARCARDIA2/spectacle?id=1" class="btn btn-primary">En savoir plus...</a>
                 </div>
             </div>
             <!-- fin Card spectacle-->

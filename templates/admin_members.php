@@ -21,7 +21,7 @@ if (isset($_POST['deleteOP'])) {
   $id = $_POST['id'];
 
   /*  $req = $sbdd->exec("DELETE FROM useradmin WHERE id = '$id' ") */
-  $req = $bdd->prepare("DELETE FROM useradmin WHERE id =   ? ");
+  $req = $bdd->prepare("DELETE FROM useradmin WHERE id = ? ");
   $req->execute(array($id));
   /* 
   if($req)
@@ -32,8 +32,20 @@ if (isset($_POST['deleteOP'])) {
   {     
     echo ' un probleme est survenu !!!';
   }  */
+
+
 }
+
+
+
+
+
 /* ----------------------aggiungere operatore-------------------------- */
+
+
+
+
+
 
 if (
   isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['role'])
@@ -52,6 +64,12 @@ if (
 
   if ($password != $pass_confirm) {
     header('Location: indexstaff.php?error=1&pass=1');
+
+  
+  /*   error_reporting(E_ALL);
+    ini_set("diasplay_errors",1); */
+
+ /*    set_error_handler("var_dump"); */
     exit();
   }
 
@@ -61,9 +79,9 @@ if (
 
   while ($email_verification = $req->fetch()) {
     if ($email_verification['numberEmail'] != 0) {
-      header('location: indexstaff.php?error=1&email=1');
-
-      exit();
+    /*   header('location: indexstaff.php?error=1&email=1'); */
+    exit();
+   /*  echo "<script>location.href=indexstaff.php?error=1&email=1; </script>" ; */
     }
   }
 
@@ -78,7 +96,6 @@ if (
 }
 
 ?>
-
 
   <div id="form" class="text-light fst-bolt bg-info border border-3 border-light"
     style=" width:450px; margin-bottom: 80px;height:560px;">
@@ -103,8 +120,8 @@ if (
 
     <!-- debut enregistrement operateur -->
 
-    <h3 class="mb-2 p-4 bg-primary">Enregistrer un nouvel operateur </h3>
-    <form class="text-center mx-3 " method="POST" action="indexstaff.php">
+    <h3 class="mb-2 p-3 bg-primary">Enregistrer un nouvel operateur </h3>
+    <form class="text-center mx-3 " method="POST" action="">
       <input type="hidden" name="id_for_insert" value="<?php $user['id'] ?>">
       <table>
         <tr class="mb-3">
@@ -115,10 +132,10 @@ if (
           <td class="text-dark">Email</td><br>
           <td><input class="mb-2" type="email" name="email" placeholder="Ex : example@google.com" required></td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td class="text-dark">Role</td><br>
           <td><input class="mb-2" type="text" name="role" placeholder="Ex : veterinaire" required></td>
-        </tr>
+        </tr> -->
         <tr>
           <td class="text-dark">Photo operateur</td><br>
           <td><input class="mb-2" type="text" name="images_operateur" placeholder="Ex : url" required></td>
@@ -147,23 +164,23 @@ if (
       <?php
       foreach ($users as $user) {
       ?>
-        <div style=" border: 3px solid white; margin-bottom: 10px; width:350px;height:480px;" class=" bg-success mx-2">
+        <div style=" border: 3px solid white; margin-bottom: 10px; width:350px;height:460px;" class=" bg-success mx-2">
 
-          <form method="POST" action="indexstaff.php">
+          <form method="POST" action="">
 
 
 
 
             <img style="width:300px;height:200px; " class="mt-3" src="<?php echo $user['images_operateur']; ?>" alt="">
 
-            <p class="mb-2 mt-3 text-warning"> <span class="fw-bold text-light">Pseudo :</span><?php echo ' ' . $user['pseudo']; ?></p>
+            <p class="mb-2 mt-1 text-warning"> <span class="fw-bold text-light">Pseudo :</span><?php echo ' ' . $user['pseudo']; ?></p>
             <p class="mb-2 text-warning"> <span class="fw-bold text-light">Role :</span><?php echo ' ' . $user['role']; ?></p>
             <p class="mb-2 text-warning"><span class="fw-bold text-light">Email :</span><?php echo ' ' . $user['email']; ?></p>
             <p class="mb-2 text-warning"><span class="fw-bold text-light">
                 vous pouvez utiliser cette ID pour supprimer cette operateur : </span><?php echo ' ' . $user['id']; ?></p>
 
             <input type="text" name="id">
-            <button type="submit" name="deleteOP" class="mb-5 btn border border-2 bg-light border-warning">Elimina utente</button>
+            <button type="submit" name="deleteOP" class="mb-5 mt-2 btn border border-2 bg-light border-warning">Elimina utente</button>
 
           </form>
 

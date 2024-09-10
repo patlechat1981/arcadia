@@ -150,7 +150,7 @@ $commentaires = $bdd->query('SELECT * FROM `avis`')->fetchAll();
 
 
                 <h3 class="p-3 bg-success">Listes des operateurs du Zoo</h3>
-                <div style="">
+                <div style="display:flex;">
                     <?php
                     foreach ($users as $user) {
                     ?>

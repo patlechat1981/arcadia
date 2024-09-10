@@ -1,64 +1,62 @@
+<?php
+/*     session_start(); */
 
-
-    <?php
- /*     session_start(); */
-
-    /* 
+/* 
 $bdd2 =include('config/connect_db.php'); */
-    $bdd = include('config/db_connection.php');
-    $config = include('config/config.php');
-    $user = include('config/user.php');
+$bdd = include('config/db_connection.php');
+$config = include('config/config.php');
+$user = include('config/user.php');
 
-    $requette = $bdd->query('SELECT * FROM useradmin');
-    $habitats = $bdd->query('SELECT * FROM zoohabitats');
-
-
-    if (
-        isset($_POST['nickname']) && isset($_POST['commentaire'])
-    ) {
-
-        $nick = $_POST['nickname'];
-        $com = $_POST['commentaire'];
-        $animal = $_POST['id_animal'];
-
-        $requete = $bdd->prepare('INSERT INTO avis(visiteur_nickname,avis_commentaire,id_animal)VALUES(?,?,?) ') or die(print_r($bdd->errorInfo()));
-        $requete->execute(array($nick, $com, $animal));
-
-        if (empty($_GET['id'])) {
-            header('Location: ' . $_SERVER['SCRIPT_NAME']);
-        } else {
-            header('Location: ' . $_SERVER['SCRIPT_NAME'] .  "?id=" . $_GET['id']);
-        }
-        die();
-    }
+$requette = $bdd->query('SELECT * FROM useradmin');
+$habitats = $bdd->query('SELECT * FROM zoohabitats');
 
 
+if (
+    isset($_POST['nickname']) && isset($_POST['commentaire'])
+) {
 
-    $habitat_color = 'gray';
+    $nick = $_POST['nickname'];
+    $com = $_POST['commentaire'];
+    $animal = $_POST['id_animal'];
 
-    $habitats = $bdd->query('SELECT * FROM zoohabitats');
-    $queryString = '';
+    $requete = $bdd->prepare('INSERT INTO avis(visiteur_nickname,avis_commentaire,id_animal)VALUES(?,?,?) ') or die(print_r($bdd->errorInfo()));
+    $requete->execute(array($nick, $com, $animal));
 
     if (empty($_GET['id'])) {
-        $animaux = $bdd->query('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat');
+        header('Location: ' . $_SERVER['SCRIPT_NAME']);
     } else {
-        $queryString = "?id=" . $_GET["id"];
-        $id_habitat = intval($_GET["id"]);
-
-        $animaux = $bdd->prepare('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat WHERE zoo.id_habitat = :id_habitat');
-        $animaux->bindParam(':id_habitat', $id_habitat, PDO::PARAM_INT);
-
-        $image_habitat = $animaux[0]['images_habitat'];
-        $habitat_color = $animaux[0]['color'];
+        header('Location: ' . $_SERVER['SCRIPT_NAME'] .  "?id=" . $_GET['id']);
     }
-
-    $commentaires = $bdd->query('SELECT * FROM `avis`')->fetchAll();
-
-
+    die();
+}
 
 
 
-    ?>
+$habitat_color = 'gray';
+
+$habitats = $bdd->query('SELECT * FROM zoohabitats');
+$queryString = '';
+
+if (empty($_GET['id'])) {
+    $animaux = $bdd->query('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat');
+} else {
+    $queryString = "?id=" . $_GET["id"];
+    $id_habitat = intval($_GET["id"]);
+
+    $animaux = $bdd->prepare('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat WHERE zoo.id_habitat = :id_habitat');
+    $animaux->bindParam(':id_habitat', $id_habitat, PDO::PARAM_INT);
+
+    $image_habitat = $animaux[0]['images_habitat'];
+    $habitat_color = $animaux[0]['color'];
+}
+
+$commentaires = $bdd->query('SELECT * FROM `avis`')->fetchAll();
+
+
+
+
+
+?>
 
 
 
@@ -118,7 +116,7 @@ $bdd2 =include('config/connect_db.php'); */
                                         </li><br>
                                         <li class="mx-2">
                                             <!-- <input type="text" name="page" value=""> -->
-                                            <a class="text-light bg-success border border-2 border-warning dropdown-item text-success"
+                                            <a  class="text-light bg-success border border-2 border-warning dropdown-item text-success" 
                                                 onclick="administrateurMembers()">
                                                 Management membres
                                             </a>
@@ -213,7 +211,7 @@ $bdd2 =include('config/connect_db.php'); */
 
 
                         </ul>
-                        
+
                     </li>
                 <?php
 
@@ -231,7 +229,7 @@ $bdd2 =include('config/connect_db.php'); */
 
 
                 </div>
-                <div class="container">
+                <div class="container" style="font-family: cursive;"   >
 
                     <?php
                     if (!isset($_SESSION['connect'])) { ?>
@@ -239,13 +237,9 @@ $bdd2 =include('config/connect_db.php'); */
 
                     <?php
 
-                        if (isset($_GET['error'])) {
-                            echo '<p id="error">Nous ne pouvons pas vous authentifier.</p>';
-                        } else if (isset($_GET['success'])) {
-
-
-
-                            echo '<h4 class= text-info> Bonjour ' . $user['pseudo'] . '</h4>' . '"' . $user['role'] . '"';
+                        if (isset($_GET['success'])) {
+                       
+                            echo '<h4 class= text-info ; > Bonjour ' . $user['pseudo'] . '</h4>' . '"' . $user['role'] . '"';
                             echo '<p id="success" class="text-success"> Vous êtes maintenant connecté.</p>';
                         }
                     }
@@ -254,7 +248,7 @@ $bdd2 =include('config/connect_db.php'); */
                 </div>
 
 
-                <p id="info">
+                <p id="info" >
 
                     <a href="config/disconnection.php" class="  text-danger border border-2 btn btn-outline-light rounded text-decoration-none p-1">Déconnexion</a>
                 </p>
@@ -267,29 +261,29 @@ $bdd2 =include('config/connect_db.php'); */
         <!-- Inner -->
 
 
-     
-
-            <div id="info" class=" main carousel-inner" style="background-image: url(https://www.glmv.com/wp-content/uploads/2022/06/Living-Desert-Rhinos-Savanna-scaled.jpg); height:750px;text-align:center; ">
-                <?php
 
 
-                if ($user['role'] == 'employe') {
-                    include('templates/employe_animaux.php');
-                    include('templates/employe_services.php');
-                } elseif ($user['role'] == 'administrateur') {
+        <div id="info" class=" main carousel-inner" style="background-image: url(https://www.glmv.com/wp-content/uploads/2022/06/Living-Desert-Rhinos-Savanna-scaled.jpg); height:750px;text-align:center; ">
+            <?php
 
-                    include('templates/admin_serviceSites.php');
-                    include('templates/admin_members.php');
-                } elseif ($user['role'] == 'veterinaire') {
 
-                    include('templates/veterinaire_animaux.php');
-                    include('templates/veterinaire_ajouts.php');
-                }
-                ?>
+            if ($user['role'] == 'employe') {
+                include('templates/employe_animaux.php');
+                include('templates/employe_services.php');
+            } elseif ($user['role'] == 'administrateur') {
 
-            </div>
+                include('templates/admin_serviceSites.php');
+                include('templates/admin_members.php'); 
+            } elseif ($user['role'] == 'veterinaire') {
 
-     
+                include('templates/veterinaire_animaux.php');
+                include('templates/veterinaire_ajouts.php');
+            }
+            ?>
+
+        </div>
+
+
 
 
         <br>
