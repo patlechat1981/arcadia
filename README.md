@@ -7,11 +7,11 @@ Github: https://github.com/patlechat1981/arcadia
 
 ## requis 
 - installation de Wamp
-- configura la variabile password dentro il file config.php con la password impostata sul database
 
 ## installer le database:
-- utilisé en Mysql admin  le file 'database_export.sql' pour creer le database
-- http://localhost/phpmyadmin/index.php
+- run sql file 'database_init.sql' to create the database in mysqlAdmin
+- set a database password of the user "root"
+- set the same password in the file config.php inside the variable $config['dbPassword'] = ...
 
 ## installer le ZOOARCARDIA:
 mettez ce project a l'interieur du fichier  wamp/www/ZOOARCARDIA/
