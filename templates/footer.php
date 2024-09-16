@@ -54,7 +54,7 @@
                             <a href="/ZOOARCARDIA2/spectacle.php?id=3" class="text-success text-decoration-none">• Activités Ludiques •</a>
                         </p>
                         <p>
-                            <a href="./PAGES/veterinaire.html" class="text-success text-decoration-none">• Veterinaire •</a>
+                            <a href="/ZOOARCARDIA2/spectacle.php?id=5" class="text-success text-decoration-none">• Mappe du Zoo •</a>
                         </p>
                     </div>
                     <!-- Grid column -->

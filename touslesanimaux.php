@@ -23,7 +23,8 @@
         $com = $_POST['commentaire'];
         $animal = $_POST['id_animal'];
 
-        $requete = $bdd->prepare('INSERT INTO avis(visiteur_nickname,avis_commentaire,id_animal, etat)VALUES(?,?,?,?) ') or die(print_r($bdd->errorInfo()));
+        $requete = $bdd->prepare('INSERT INTO avis(visiteur_nickname,avis_commentaire,id_animal, etat)
+        VALUES(?,?,?,?) ') or die(print_r($bdd->errorInfo()));
         $requete->execute(array($nick, $com, $animal, 'pending'));
 
         if (empty($_GET['id'])) {
@@ -63,11 +64,11 @@
 
 <body>
 
-    <header class="text-center mx-0 postion:fixed">
+    <header class="text-center mx-0 ">
         <!-- <img src="./assets/IMAGES/images animaux/suspension-bridge-959853_1280 (1).jpg" class="img_head "
              style="width: 100%;height: 100px; " alt="logo" /> -->
         <!--ceci est ma navbar-->
-        <nav class="navbar navbar-expand-lg navbar-light  couleur_nav m-0  " style="background-color: rgba(252, 252, 243, 0.911);font-family: cursive;">
+        <nav class="navbar navbar-expand-lg navbar-light  couleur_nav m-0 postion-fixed " style="background-color: rgba(252, 252, 243, 0.911);font-family: cursive;">
             <div class="container-fluid ">
 
                 <a class="navbar-brand bg-light" href="">

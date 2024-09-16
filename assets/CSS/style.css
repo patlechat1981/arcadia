@@ -73,7 +73,7 @@ body {
    display: flex;
   justify-content: center;
   
-  height: 700px;
+ /*  height: 700px; */
   width: 100%;
   background-color: aliceblue;
 
@@ -117,8 +117,9 @@ body {
   display: flex;
   justify-content: center;
 
-
-  height: 800px;
+max-height: auto;
+min-height: auto;
+  /* height: 800px; */
   width: 100%;
   background-color: rgb(229, 253, 229);
 

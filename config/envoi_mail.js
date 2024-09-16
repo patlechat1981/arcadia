@@ -15,7 +15,8 @@ form.onsubmit = (e)=>{
   xhr.onload = ()=>{
     if(xhr.readyState == 4 && xhr.status == 200){
       let response = xhr.response;
-      if(response.indexOf("required") != -1 || response.indexOf("valid") != -1 || response.indexOf("failed") != -1){
+      if(response.indexOf("required") != -1 || response.indexOf("valid")
+         != -1 || response.indexOf("failed") != -1){
         statusTxt.style.color = "red";
       }else{
         form.reset();

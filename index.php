@@ -47,7 +47,7 @@
 
                             <a style="margin-left: 120px" ; class="nav-link dropdown-toggle btn btn-outline-success border border-1 
                             border-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                               Spectacles
+                                Spectacles
                             </a>
                             <ul class="dropdown-menu">
                                 <?php
@@ -78,13 +78,6 @@
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Nos animaux
                         </a>
-
-
-
-
-
-
-
                         <ul class="dropdown-menu">
                             <?php
                             foreach ($habitats as $habitat) {
@@ -101,30 +94,27 @@
                             </li>
                             <li><a class="dropdown-item " href="/ZOOARCARDIA2/touslesanimaux">Tous les animaux</a></li>
                             <li>
-                                </li>
-                            </ul>
-                        </li>
-                       <!--  <a href="/ZOOARCARDIA2/PAGES/contact" class="text-primary nav-link mx-4 ">Contactez-nous</a> -->
-              
-                       <?php      if (isset($_GET['error'])) {
-                            echo '<p id="error">Nous ne pouvons pas vous authentifier.</p>';};?>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--  <a href="/ZOOARCARDIA2/PAGES/contact" class="text-primary nav-link mx-4 ">Contactez-nous</a> -->
 
+                    <?php if (isset($_GET['error'])) {
+                        echo '<p id="error">Nous ne pouvons pas vous authentifier.</p>';
+                    }; ?>
 
-
-                   
                     <li class="nav-item dropdown" style="margin-left: 310px; font-family:cursive">
                         <a class="nav-link dropdown-toggle btn btn-outline-success border border-1 border-success"
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                             Reservé aux membres du Zoo
+                            Reservé aux membres du Zoo
                         </a>
                         <ul class="dropdown-menu  text-center border border-3 border-success ">
                             <form style="width: 420px;height: 400px; margin-left:20px;" class="text-center " method="POST" action="connection.php"><br>
 
                                 <!--  debut form relier a la connexion -->
-
-                              
-                                  <p><h3 class="text-warning mb-3 fw-bold border border-2 bg-success rounded rounde-5">Acceder a votre account</h3></p>  <
-                              
+                                <p>
+                                <h3 class="text-warning mb-3 fw-bold border border-2 bg-success rounded rounde-5">Acceder a votre account</h3>
+                                </p>
 
                                 <div class="container text-center">
 
@@ -137,7 +127,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="text-success ">Email</td>
-                                                    <td><input class="mb-2"  type="email" name="email" id="email" placeholder="Inserer votre email..." required></td>
+                                                    <td><input class="mb-2" type="email" name="email" id="email" placeholder="Inserer votre email..." required></td>
                                                 </tr>
                                                 <!-- <tr>
                                                     <td class="text-success ">Role</td>
@@ -145,7 +135,7 @@
                                                 </tr>  -->
                                                 <tr>
                                                     <td class="text-success ">Mot de passe</td>
-                                                    <td><input class="mb-2"  type="password" name="password" placeholder="Inserer votre password ..." required></td>
+                                                    <td><input class="mb-2" type="password" name="password" placeholder="Inserer votre password ..." required></td>
                                                 </tr>
                                             </table>
                                             <p><label><input type="checkbox" name="connect" checked>Connexion automatique</label></p>
@@ -180,7 +170,7 @@
         <!--fin de ma navbar-->
 
         <!-- video carousel-->
-        <div class="carousel-inner text-center" style="background-image: 
+        <div class="carousel-inner text-center container-fluid" style="background-image: 
         url(https://www.zoo-amiens.fr/fileadmin/_processed_/c/9/csm_zoo-biodiversite3_e6e4daf18a.jpg);">
 
 
@@ -194,12 +184,12 @@
         </div>
     </header>
 
-    <main style="text-align: center;">
+    <main style="text-align: center; " class="">
         <!-- Carousel wrapper -->
         <br>
 
         <!-- debut mon mon article ecrit en blanc -->
-        <div>
+        <div class="container ">
             <article class="article ">
                 <p class="fs-3 text-light m-auto w-75 mt--0" style="font-family: 'Times New Roman', Times, serif;">
 
@@ -215,190 +205,191 @@
             </article>
         </div>
         <!-- fin d mon mon article ecrit en blanc -->
+    </main>
+    <!-- debut de la barre ecrit Animaux du mois -->
+    <section class="bg-secondary mt-2 p-3 text-center" id="barre_horizontale1">
+        <div>
+            <h1 class="m-0 " style="font-family:cursive; color: gold;">les nouveaux arrivés </h1>
+        </div>
+    </section>
 
-        <!-- debut de la barre ecrit Animaux du mois -->
-        <section class="bg-secondary mt-2 p-3" id="barre_horizontale1">
-            <div>
-                <h1 class="m-0 " style="font-family:cursive; color: gold;">les nouveaux arrivés </h1>
-            </div>
-        </section>
+    <!-- fin de la barre ecrit Animaux du mois -->
+    <section class="section_main  row  mx-0  text-center " style="min-height:auto;max-height:auto;">
+        <?php
+        $i = 0;
+        foreach ($requete as $row) {
+            if ($i < 4) {
+                $i++;
 
-        <!-- fin de la barre ecrit Animaux du mois -->
-        <section class="section_main " style="height: 550px;">
-            <?php
-            $i = 0;
-            foreach ($requete as $row) {
-                if ($i < 4) {
-                    $i++;
+        ?>
 
-            ?>
+                <!--debut des cards 1-->
 
-                    <!--debut des cards 1-->
+                <div class="card m-3 bg-success borber border-5 border-light  mt-5 col-lg-3 col-md-6  " id="card_card" style="width: 21rem; height: 450px;">
+                    <img src="<?php echo $row['images_animal']  ?>" id="img_modal" class="card-img-top mx-0 " alt="...">
+                    <div class="card-body" id="card_body" style="border: 2px solid rgb(134, 241, 157);height: 15px;  ">
+                        <h2 class="card-title">
+                            <b class="text-warning">
+                                <?php
+                                echo $row['nom_animal'];
+                                ?>
+                            </b>
+                        </h2>
 
-                    <div class="card m-3 border border-light border-5 mt-5  " id="card_card" style="width: 35rem; height: 450px;">
-                        <img src="<?php echo $row['images_animal']  ?>" id="img_modal" class="card-img-top " alt="...">
-                        <div class="card-body"  id="card_body" style="border: 2px solid rgb(134, 241, 157);height: 15px;  ">
-                            <h2 class="card-title" >
-                                <b class="text-warning">
-                                    <?php
-                                    echo $row['nom_animal'];
-                                    ?>
-                                </b>
-                            </h2>
+                    </div>
+                    <ul class="list-group list-group-flush" id="list_modal">
+                        <li class="list-group-item" id="list_modal">
+                            <b>Moyenne d'Age :</b>
+                            <?php echo $row['moyenne_age']; ?>
+                            <br><b>Poids Moyen:</b>
+                            <?php echo $row['poids_moyen']; ?>
+                        </li>
 
-                        </div>
-                        <ul class="list-group list-group-flush" id="list_modal">
-                            <li class="list-group-item" id="list_modal">
-                                <b>Moyenne d'Age :</b>
-                                <?php echo $row['moyenne_age']; ?>
-                                <br><b>Poids Moyen:</b>
-                                <?php echo $row['poids_moyen']; ?>
-                            </li>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#modal_animal_<?php echo $row['id_animal']; ?>">
+                            Galleries video
+                        </button>
 
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#modal_animal_<?php echo $row['id_animal']; ?>">
-                                Galleries video
-                            </button>
+                        <!-- Modal -->
 
-                            <!-- Modal -->
-
-                            <!--  debut Modal 1 -->
-                            <div class="modal fade" id="modal_animal_<?php echo $row['id_animal']; ?>"
-                                data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx"
-                                aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content " style="min-width: 600px" ;>
-                                        <div class="modal-header ">
-                                            <h1 class="modal-title fs-5" id="modal_animal_
+                        <!--  debut Modal 1 -->
+                        <div class="modal fade" id="modal_animal_<?php echo $row['id_animal']; ?>"
+                            data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="xxx"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content " style="min-width: 600px" ;>
+                                    <div class="modal-header ">
+                                        <h1 class="modal-title fs-5" id="modal_animal_
                                     <?php
                                     echo $row['id_animal'];
                                     ?>
                                     "><b class="text-success">
-                                                    <?php
-                                                    echo $row['nom_animal'];
-                                                    ?>
-                                                </b></h1>
+                                                <?php
+                                                echo $row['nom_animal'];
+                                                ?>
+                                            </b></h1>
 
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="m-auto" style="margin:auto">
-                                            <div class="m-auto">
-                                                <iframe
-                                                    title="YouTube video player"
-                                                    width="560" height="315"
-                                                    src="<?php echo $row['video_galleries']; ?>"
-                                                    frameborder="0"
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="m-auto" style="margin:auto">
+                                        <div class="m-auto">
+                                            <iframe
+                                                title="YouTube video player"
+                                                width="560" height="315"
+                                                src="<?php echo $row['video_galleries']; ?>"
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
                                                     gyroscope; picture-in-picture; web-share"
-                                                    referrerpolicy="strict-origin-when-cross-origin"
-                                                    allowfullscreen>
-                                                </iframe>
-                                            </div>
-                                            <div class="modal-body ">
-                                                <!--   <iframe width="560" class="w-100" height="315"
+                                                referrerpolicy="strict-origin-when-cross-origin"
+                                                allowfullscreen>
+                                            </iframe>
+                                        </div>
+                                        <div class="modal-body ">
+                                            <!--   <iframe width="560" class="w-100" height="315"
                                         src="   <?php
                                                 echo $row['video_galleries'];
                                                 ?>"
                                         title="YouTube video player" frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                                                <button type="button" class="btn btn-primary">Enregistrer</button>
-                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                            <button type="button" class="btn btn-primary">Enregistrer</button>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#" class="card-link">En savoir plus...</a>
+                            </div>
+                            <a href="#" class="card-link">En savoir plus...</a>
 
-                        </ul>
+                    </ul>
 
-                    </div>
-            <?php
-                }
+                </div>
+        <?php
             }
-            ?>
-        </section>
+        }
+        ?>
+    </section>
 
-        <div class="row bg-secondary  p-4 m-4 mb-0" id="barre_horizontale2" style="display: flex; ">
-            <div class="  bg-secondary" style="display: flex;flex-direction: row;">
-                <h1 style="font-family:cursive;color: aquamarine;"><b>Soins de nos Animaux</b></h1>
-            </div>
+    <div class="row bg-secondary  p-4 m-4 mb-0" id="barre_horizontale2" style="display: flex; ">
+        <div class="  bg-secondary" style="display: flex;flex-direction: row;">
+            <h1 style="font-family:cursive;color: aquamarine;"><b>Soins de nos Animaux</b></h1>
+        </div>
 
-            <div class="  bg-success" style="display: flex; flex-direction: row-reverse;">
-                <h1 class="fw-bold text-light" style="font-family:cursive; color: rgb(39, 16, 243);
+        <div class="  bg-success" style="display: flex; flex-direction: row-reverse;">
+            <h1 class="fw-bold text-light" style="font-family:cursive; color: rgb(39, 16, 243);
                 justify-content: center;">Animations</h1>
-            </div>
-
         </div>
 
+    </div>
 
-        <!--SECTION SPECTACLE ET VETERINAIRE-->
 
-        <div class=" " id="section_spectacle_soins mt-0 " style="display: flex;flex-direction: row;justify-content: space-around;
-        height: 1000px; background-color: #e8f5c4; width: 100%;background-image:url(https://www.glmv.com/wp-content/uploads/2022/06/Living-Desert-Rhinos-Savanna-scaled.jpg)">
+    <!--SECTION SPECTACLE ET VETERINAIRE-->
 
-            <!--Card soins animaux-->
-            <div class="  card text-light " id="card_Spectacle" style="width: 400px;
+    <div class="row mx-0 mb-4" id="section_spectacle_soins  " style="display: flex;flex-direction: row;justify-content: space-around;
+        background-color: #e8f5c4; width: 100%;background-image:url(https://www.glmv.com/wp-content/uploads/2022/06/Living-Desert-Rhinos-Savanna-scaled.jpg)">
+
+        <!--Card soins animaux-->
+        <div class="  card text-light  mt-5 col-lg-4 col-md-6    " id="card_Spectacle" style="width: 400px;
             height: 900px;display: flex;justify-self:flex-end; font-family: cursive; margin-left: 35px;">
-                <img src="https://www.vetmed.ufl.edu/wordpress/files/2020/07/Top5.jpg"
-                    class="card-img-top  mt-2 m-auto" alt="..." style="height: 500px;width: 370px;">
-                <h2 class="mt-5 fs-4 " style="background-color: #e8f5c4; color: darkgreen;">
-                    Un vétérinaire joue un rôle important et essentiel dans un zoo que ce soit pour la prévention des maladies,
-                     le contrôle médical et les opérations, et le maintien d’un bien-être optimal de tous les animaux. Il est de 
-                     son devoir de garantir que les besoins de tous les animaux sont satisfaits et que leur santé et leur bien-être est
-                      prioritaire. ....</h2><br><br><br>
-                <div class="card-body ">
-                    <h4 class="card-title text-info">Nos animaux sont entre de bonnes mains</h4>
+            <img src="https://www.vetmed.ufl.edu/wordpress/files/2020/07/Top5.jpg"
+                class="card-img-top  mt-2 m-auto" alt="..." style="height: 500px;width: 370px;">
+            <h2 class="mt-5 fs-4 " style="background-color: #e8f5c4; color: darkgreen;">
+                Un vétérinaire joue un rôle important et essentiel dans un zoo que ce soit pour la prévention des maladies,
+                le contrôle médical et les opérations, et le maintien d’un bien-être optimal de tous les animaux. Il est de
+                son devoir de garantir que les besoins de tous les animaux sont satisfaits et que leur santé et leur bien-être est
+                prioritaire. ....</h2><br><br><br>
+            <div class="card-body ">
+                <h4 class="card-title text-info">Nos animaux sont entre de bonnes mains</h4>
 
-                    <a href="notre_equipes.php" class="btn btn-primary">En savoir plus sur toute notre équipe...</a>
-                </div>
+                <a href="notre_equipes.php" class="btn btn-primary">En savoir plus sur toute notre équipe...</a>
             </div>
-            <!-- fin Card soins animaux-->
+        </div>
+        <!-- fin Card soins animaux-->
 
-            <video class=" mx-3" id="background-video " autoplay loop muted style="height: 500px; margin-top: 100px;width: 500px; ">
+        <video class=" mx-3" id="background-video " autoplay loop muted style="height: 500px; margin-top: 100px;width: 500px; ">
 
-               <!--  <source src="./assets/IMAGES/video/103362-662525713_tiny.mp4" type="video/mp4" style="height: 400px;"> -->
+            <!--  <source src="./assets/IMAGES/video/103362-662525713_tiny.mp4" type="video/mp4" style="height: 400px;"> -->
 
-            </video>
+        </video>
 
-            <!--Card spectacle-->
-            <div class=" card text-light   " id="card_Spectacle" style="width:400px;
+        <!--Card spectacle-->
+        <div class=" card text-light  mt-5 col-lg-4 col-md-6    " id="card_Spectacle" style="width:400px;
             height: 900px;display: flex;justify-self:flex-end; font-family: cursive; margin-right: 35px;">
-                <h2 class="mb-5 fs-3 text-primary  mt-4" style="background-color: #e8f5c4; color: darkgreen;">Les Maîtres des
-                    Airs, un ballet unique au monde !
-                    Emporté par une musique orchestrale magistrale, assistez à une chorégraphie époustouflante ! Le
-                    sifflement des ailes sur l’air,
-                    la grâce du vol des oiseaux ....</h2><br>
-                <img src="./assets/IMAGES/Spectacles/images spectacles/https___s3.eu-west-3.amazonaws.com_images.zoobeauval.com_2020_05_01-maitresdesairs-header-5ed0d74c93d85.webp"
-                    class="card-img-top  mt-2 m-auto " alt="..." style="height: 300px;width: 370px;">
-                <div class="card-body">
-                    <h4 class="card-title text-success">des spectacles unique !</h4>
+            <h2 class="mb-5 fs-3 text-primary  mt-4" style="background-color: #e8f5c4; color: darkgreen;">Les Maîtres des
+                Airs, un ballet unique au monde !
+                Emporté par une musique orchestrale magistrale, assistez à une chorégraphie époustouflante ! Le
+                sifflement des ailes sur l’air,
+                la grâce du vol des oiseaux ....</h2><br>
+            <img src="./assets/IMAGES/Spectacles/images spectacles/https___s3.eu-west-3.amazonaws.com_images.zoobeauval.com_2020_05_01-maitresdesairs-header-5ed0d74c93d85.webp"
+                class="card-img-top  mt-2 m-auto " alt="..." style="height: 300px;width: 370px;">
+            <div class="card-body">
+                <h4 class="card-title text-success">des spectacles unique !</h4>
 
-                    <a href="/ZOOARCARDIA2/spectacle?id=1" class="btn btn-primary">En savoir plus...</a>
-                </div>
+                <a href="/ZOOARCARDIA2/spectacle?id=1" class="btn btn-primary">En savoir plus...</a>
             </div>
-            <!-- fin Card spectacle-->
-
-            <!--FIN SECTION SPECTACLE ET VETERINAIRE-->
-
-
-
-            <!--    <img  src="./assets/IMAGES/images habitats/veterinaire/giraffe.webp" alt="" class="w-100 mx-0"> -->
-
-            <!--DEBUT DU FOOTER-->
-
-
         </div>
-        <div class="container-fluid " style="background-color: rgb(238, 236, 234); ">
-            <img src="./assets/IMAGES/logo_nav/istockphoto-1017250670-612x612.jpg" alt="" style="font-size: 25px; ">
-        </div>
-    </main>
-    <?php
-    include('templates/footer.php');
-    include('templates/scripts.php');
-    ?>
+        <!-- fin Card spectacle-->
+
+        <!--FIN SECTION SPECTACLE ET VETERINAIRE-->
+
+
+
+        <!--    <img  src="./assets/IMAGES/images habitats/veterinaire/giraffe.webp" alt="" class="w-100 mx-0"> -->
+
+        <!--DEBUT DU FOOTER-->
+
+
+    </div>
+    <div class="container-fluid text-center " style="background-color: rgb(238, 236, 234); ">
+        <img src="./assets/IMAGES/logo_nav/istockphoto-1017250670-612x612.jpg" alt="" style="font-size: 25px; ">
+    </div>
+    <div>
+        <?php
+        include('templates/footer.php');
+        include('templates/scripts.php');
+        ?>
+    </div>
 </body>
 
 </html>
