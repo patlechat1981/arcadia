@@ -25,7 +25,7 @@ if (
 
 $avis = $bdd->query('SELECT * FROM avis');
 
-// form update etat
+// form update etat et commentaire
 if (
     isset($_POST['id_avis']) && isset($_POST['etat'])
 ) {

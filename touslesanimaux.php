@@ -18,7 +18,6 @@
     if (
         isset($_POST['nickname']) && isset($_POST['commentaire'])
     ) {
-
         $nick = $_POST['nickname'];
         $com = $_POST['commentaire'];
         $animal = $_POST['id_animal'];
@@ -34,7 +33,6 @@
         }
         die();
     }
-
 
     $image_habitat = 'https://cdn.pixabay.com/photo/2019/09/17/20/47/prague-4484517_1280.jpg';
     $habitat_color = 'gray';

@@ -17,10 +17,7 @@ if (
     $req->execute(array($nom_service, $description_service, $images_services, $id_services));
 }
 
-
 $services = $bdd->query('SELECT * FROM service_zoo');
-
-
 ?>
 
 <main class="section_mainAnimaux text-center mx-0 border border-3 border-danger " id="afficheAdminServices" style="display:none ;">
@@ -33,12 +30,10 @@ $services = $bdd->query('SELECT * FROM service_zoo');
             aria-label="Search"
             onkeyup="search(this, '.cardservice')">
     </form>
-
     <?php
 
     foreach ($services as $service) {
     ?>
-
         <div
             class="cardservice m-auto mt-3 mb-5 mx-5"
             style="background-color: white;padding:15px;"
@@ -49,13 +44,11 @@ $services = $bdd->query('SELECT * FROM service_zoo');
                 <input name="nom_service" value="<?php echo $service['nom_service'];   ?>" />
                 <br />
                 <label>Description</label>
-                <textarea name="description_service"><?php echo $service['description_service'];   ?></textarea>
+                <textarea  rows="3" cols="40" class="mt-5 nb-5" name="description_service"><?php echo $service['description_service'];   ?></textarea>
                 <br />
                 <img class="w-50 h-50" src="<?php echo $service['images_services'] ?>" alt="">
                 <label>Image</label>
                 <input name="images_services" value="<?php echo $service['images_services'];   ?>" />
-
-
                 <div>
                     <button type=" submit" class="btn btn-secondary" data-bs-dismiss="modal">modifier</button>
 

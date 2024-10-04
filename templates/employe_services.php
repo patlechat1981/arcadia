@@ -13,13 +13,12 @@ if (
     $req->execute(array($nom_service, $description_service, $images_services, $id_services));
 }
 
-
 $services = $bdd->query('SELECT * FROM service_zoo');
-
 
 ?>
 
-<main class="section_mainAnimaux text-center mx-0 border border-3 border-danger " id="afficheServEmploye" style="display:none ;">
+<main class="section_mainAnimaux text-center mx-0 border border-3 border-danger " id="afficheServEmploye"
+style="display:none ;">
     <form class=" mt-3  text-center" role="search">
         <input
             class="form-control me-2 "
@@ -50,8 +49,6 @@ $services = $bdd->query('SELECT * FROM service_zoo');
                 <img class="w-50 h-50" src="<?php echo $service['images_services'] ?>" alt="">
                 <label>Image</label>
                 <input name="images_services" value="<?php echo $service['images_services'];   ?>" />
-
-
                 <div>
                     <button type=" submit" class="btn btn-secondary" data-bs-dismiss="modal">modifier</button>
 

@@ -126,7 +126,8 @@ if (
                                         ?>
                                     </b>
                                 </h1>
-                                <button type="button" class="btn-close border bg-danger  text-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close border bg-danger  text-light" 
+                                data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
 
                             <div class="text-center mb-2  " style=" font-family: cursive;">

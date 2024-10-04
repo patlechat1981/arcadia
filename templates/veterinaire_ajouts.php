@@ -40,6 +40,7 @@
             $poids_moyen
         ));
     }
+   /*  echo '<span class="text-light display-5">card animaux ajouté avec success !!</span>'; */
 
     ?>
 
@@ -47,7 +48,7 @@
 
     <form class="form-group  border mt-5 text-center bg-info " action="indexstaff.php" method="POST">
 
-        <fieldset class="mb-3">
+        <fieldset class="mb-3 mt-2">
             <label>Race</label>
             <input name="race_animal"required>
         </fieldset class="mb-3">
