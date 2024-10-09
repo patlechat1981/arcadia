@@ -81,7 +81,7 @@
         ?>
 
 
-
+<!--  refactor---------------------------------------------------------------------- -->
             <div id="carousel_<?php echo $row['id_service']; ?>" class="carousel slide">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carousel_<?php echo $row['id_service']; ?>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -98,6 +98,7 @@
                         </div>
 
                     </div>
+                    
                     <!-- <div class="carousel-item  " >
       <img src="https://cdn-images.zoobeauval.com/e09t5n00gf8c25SMJh61DJeW_IY=/800x600/https%3A%2F%2Fs3.eu-west-3.amazonaws.com%2Fimages.zoobeauval.com%2F2024%2F03%2Factivites-maison-bn-02-65faa81fcee9c.jpg" class="d-block w-100 " alt="..." style="height:650px;" >
       <div class="carousel-caption d-none d-md-block ">

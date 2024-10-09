@@ -1,14 +1,11 @@
 <?php
-/*     session_start(); */
 
-/* 
-$bdd2 =include('config/connect_db.php'); */
 $bdd = include('config/db_connection.php');
 $config = include('config/config.php');
+/* ce user sert a verifier si l oprateur est logger */
 $user = include('config/user.php');
 
 $requette = $bdd->query('SELECT * FROM useradmin');
-$habitats = $bdd->query('SELECT * FROM zoohabitats');
 
 
 if (
@@ -29,30 +26,6 @@ if (
     }
     die();
 }
-
-
-
-$habitat_color = 'gray';
-
-$habitats = $bdd->query('SELECT * FROM zoohabitats');
-$queryString = '';
-
-if (empty($_GET['id'])) {
-    $animaux = $bdd->query('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat');
-} else {
-    $queryString = "?id=" . $_GET["id"];
-    $id_habitat = intval($_GET["id"]);
-
-    $animaux = $bdd->prepare('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat WHERE zoo.id_habitat = :id_habitat');
-    $animaux->bindParam(':id_habitat', $id_habitat, PDO::PARAM_INT);
-
-    $image_habitat = $animaux[0]['images_habitat'];
-    $habitat_color = $animaux[0]['color'];
-}
-
-$commentaires = $bdd->query('SELECT * FROM `avis`')->fetchAll();
-
-
 
 
 
@@ -263,7 +236,8 @@ $commentaires = $bdd->query('SELECT * FROM `avis`')->fetchAll();
 
 
 
-        <div id="info" class=" main carousel-inner" style="background-image: url(https://www.glmv.com/wp-content/uploads/2022/06/Living-Desert-Rhinos-Savanna-scaled.jpg); height:750px;text-align:center; ">
+        <div id="info" class=" main carousel-inner" 
+        style="background-image: url(https://www.glmv.com/wp-content/uploads/2022/06/Living-Desert-Rhinos-Savanna-scaled.jpg); height:750px;text-align:center; ">
             <?php
 
 
@@ -274,6 +248,8 @@ $commentaires = $bdd->query('SELECT * FROM `avis`')->fetchAll();
 
                 include('templates/admin_serviceSites.php');
                 include('templates/admin_members.php'); 
+                /* toues les pages sont uniquement ouvertes par la pages indexstaff et meme si un malintentionné copie le link du super admin 
+                et le colle il ne pourra pa s l utiliser et la verifocation de indexstaff est necessaire pour ouvrir la page */
             } elseif ($user['role'] == 'veterinaire') {
 
                 include('templates/veterinaire_animaux.php');

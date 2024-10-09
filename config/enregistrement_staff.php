@@ -6,7 +6,8 @@ session_start();
 /* require("connect_db.php"); */
 $bdd = include('db_connection.php'); 
 
-if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['role']) && !empty($_POST['password']) && !empty($_POST['password_confirm'])) {
+if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['role']) 
+&& !empty($_POST['password']) && !empty($_POST['password_confirm'])) {
 
 	// VARIABLE
 
@@ -22,7 +23,6 @@ if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['role']
 		header('Location: enregistrement_staff.php?error=1&pass=1');
 		exit();
 	}
-
 	// TEST SI EMAIL UTILISE
 	$req = $bdd->prepare("SELECT count(*) as numberEmail FROM useradmin WHERE email = ?");
 	$req->execute(array($email));
@@ -34,11 +34,9 @@ if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['role']
 			exit();
 		}
 	}
-
 	// HASH
 	$secret = sha1($email) . time();
-	$secret = sha1($secret) . time() . time();
-
+	/* $secret = sha1($secret) . time() . time(); */
 	// CRYPTAGE DU PASSWORD
 	$password = "aq1" . sha1($password . "1254") . "25";
 

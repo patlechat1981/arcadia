@@ -1,5 +1,5 @@
 
-
+<!-- 
 <button class="btn btn-outline-success w-50">Animaux</button> 
 <button class="btn btn-outline-warning w-50">Habitat</button> 
 <main class="section_mainAnimaux text-center mx-0 " id="employe_card">
@@ -112,4 +112,4 @@
     ?>
     <br>
     <br>
-</main>
+</main> -->

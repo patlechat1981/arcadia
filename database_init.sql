@@ -99,22 +99,14 @@ CREATE TABLE tous_les_animaux (
 
 INSERT INTO
   tous_les_animaux (
-    nom_animal,
-    race_animal,
-    images_animal,
-    video_animal,
-    description_animal,
-    id_habitat,
-    moyenne_age,
-    poids_moyen,
-    video_galleries,
-    etat_animal,
-    nourriture_animal,
-    quantité_nourriture,
+    nom_animal,race_animal,images_animal,
+    video_animal, description_animal,
+    id_habitat, moyenne_age,poids_moyen,
+    video_galleries,etat_animal,
+    nourriture_animal, quantité_nourriture,
     date,
     vet_nourriture_quantite,
-    vet_habitatAnimaux,
-    vet_gestionHabitat
+    vet_habitatAnimaux,vet_gestionHabitat
   )
 VALUES
   (

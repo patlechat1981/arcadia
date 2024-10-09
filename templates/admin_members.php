@@ -9,8 +9,8 @@
     $id = $_POST['id'];
 
     /*  $req = $sbdd->exec("DELETE FROM useradmin WHERE id = '$id' ") */
-    $req = $bdd->prepare("DELETE FROM useradmin WHERE id = ? ");
-    $req->execute(array($id));
+    $req = $bdd->prepare("DELETE FROM useradmin WHERE id = :id ");
+    $req->execute(array('id' => $id));
   }
   /* ----------------------aggiungere operatore-------------------------- */
 
@@ -28,14 +28,11 @@
     $pass_confirm = $_POST['password_confirm'];
     $images_operateur = $_POST['images_operateur'];
     // TEST SI PASSWORD = PASSWORD CONFIRM
-
-
     if ($password != $pass_confirm) {
       ?>
-      <script><?php echo ("alert('La conferma password deve essere uguale')") ?></script>
+      <script><?php echo ("alert('le mot de passe doit etre egal!!')") ?></script>
     <?php
     }
-
     // TEST SI EMAIL UTILISE
     $req = $bdd->prepare("SELECT count(*) as numberEmail FROM useradmin WHERE email = ?");
     $req->execute(array($email));
@@ -47,7 +44,6 @@
         <?php
       }
     }
-
     // CRYPTAGE DU PASSWORD
     $password = "aq1" . sha1($password . "1254") . "25";
 

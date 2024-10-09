@@ -25,6 +25,7 @@
         $requete = $bdd->prepare('INSERT INTO avis(visiteur_nickname,avis_commentaire,id_animal, etat)
         VALUES(?,?,?,?) ') or die(print_r($bdd->errorInfo()));
         $requete->execute(array($nick, $com, $animal, 'pending'));
+        /* en ajoutant pending , un visteur depuis la select ne peut pas tricher et c est vincolato */
 
         if (empty($_GET['id'])) {
             header('Location: ' . $_SERVER['SCRIPT_NAME']);

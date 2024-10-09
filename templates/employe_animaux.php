@@ -1,5 +1,21 @@
 <?php
 
+$habitat_color = 'gray';
+$queryString = '';
+
+if (empty($_GET['id'])) {
+    $animaux = $bdd->query('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat');
+} else {
+    $queryString = "?id=" . $_GET["id"];
+    $id_habitat = intval($_GET["id"]);
+
+    $animaux = $bdd->prepare('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat WHERE zoo.id_habitat = :id_habitat');
+    $animaux->bindParam(':id_habitat', $id_habitat, PDO::PARAM_INT);
+
+    $image_habitat = $animaux[0]['images_habitat'];
+    $habitat_color = $animaux[0]['color'];
+}
+
 
 // form update nourriture_animal && quantité_nourriture
 if (
