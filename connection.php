@@ -6,18 +6,13 @@ if(isset($_SESSION['connect'])){
 	exit();
 }
 
-/* require("./config/connect_db.php"); */
 $config = include('config.php');
 $bdd = include('config/db_connection.php');
 // CONNEXION
-/* $requete = $bdd->query('SELECT * FROM users '); */
-if(!empty($_POST['pseudo']) && !empty($_POST['email']) /* && !empty($_POST['role']) */  && !empty($_POST['password']) ){
-
-	// VARIABLES
+if(!empty($_POST['pseudo']) && !empty($_POST['email'])  && !empty($_POST['password']) ){
 
 	$pseudo     = $_POST['pseudo'];
 	$email 		= $_POST['email'];
-	/*  $role 		= $_POST['role'];  */
 	$password 	= $_POST['password'];
 	$error		= 1;
 
@@ -26,8 +21,8 @@ if(!empty($_POST['pseudo']) && !empty($_POST['email']) /* && !empty($_POST['role
 
 	echo $password;
 
-	$req = $bdd->prepare('SELECT * FROM useradmin WHERE pseudo = ? AND email = ?  /* AND role = ?  */  ');
-	$req->execute(array($pseudo,$email,/* $role */));
+	$req = $bdd->prepare('SELECT * FROM useradmin WHERE pseudo = ? AND email = ?');
+	$req->execute(array($pseudo,$email,));
 
 	while($user = $req->fetch()){
 
