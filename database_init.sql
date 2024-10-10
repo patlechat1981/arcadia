@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS zoohabitats (
 
 INSERT INTO
   zoohabitats (
-    nom_habitat,
+    nom_habitat,s
     images_habitat,
     description_habitat,
     color
@@ -198,5 +198,3 @@ CREATE TABLE IF NOT EXISTS avis (
   PRIMARY KEY (id_avis),
   FOREIGN KEY id_animal REFERENCES tous_les_animaux(id_animal)
 );
-
- 
