@@ -3,7 +3,6 @@
 
 session_start();
 
-/* require("connect_db.php"); */
 $bdd = include('db_connection.php'); 
 
 if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['role']) 

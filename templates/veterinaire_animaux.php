@@ -1,7 +1,7 @@
 <?php
 $habitat_color = 'gray';
 
-/* $habitats = $bdd->query('SELECT * FROM zoohabitats'); */
+
 
 
 if (empty($_GET['id'])) {
@@ -56,27 +56,7 @@ if (
     ));
 }
 
-
-
-
-
-
-
-
-
-$avis = $bdd->query('SELECT * FROM avis');
-
-// form update etat
-if (
-    isset($_POST['id_avis']) && isset($_POST['etat'])
-) {
-
-    $id_avis = $_POST['id_avis'];
-    $etat = $_POST['etat'];
-
-    $avis_insert = $bdd->prepare('UPDATE avis set etat = ? where id_avis = ?') or die(print_r($bdd->errorInfo()));
-    $avis_insert->execute(array($etat, $id_avis));
-}  ?>
+?>
 
 
 
@@ -103,9 +83,6 @@ if (
     $animaux->execute();
     foreach ($animaux as $emplAnimaux) {
     ?>
-        <!-- 
-        <button class="btn btn-outline-success border-3 mt-3 " style="width: 190px;">Animaux</button>
-        <button class="btn btn-outline-warning border-3 mt-3 " style="width: 190px;">Habitat</button> -->
         <div
             class="cardanimal m-auto border border-light border-5 mt-3 mb-5 mx-5 "
             style=" width:400px; ;height:400px;box-shadow:5px 5px 15px 15px  <?php echo $habitat_color ?>;"
@@ -245,16 +222,12 @@ if (
 
                                 </div>
                                 <p> <button type="button" class="btn-close border bg-danger  text-light" data-bs-dismiss="modal" aria-label="Close"></button></p>
-                                <?php /* echo $row['video_galleries']; */ ?>
+                                
 
                             </div>
                             <div class="modal-body text-light bg-info" style=" font-family: cursive;">
 
-                                <?php
-                                /*    $animaux->execute();
-                                foreach ($animaux as $row) { */
-
-                                ?>
+                           
                                 <form action="indexstaff.php" method="POST">
                                     <input type="hidden" name="id_animall" value="<?php echo $emplAnimaux['id_animal'] ?>">
 
@@ -272,7 +245,6 @@ if (
                                 </form>
                                 <?php
 
-                                /*   } */
                                 ?>
                             </div>
                             <div class="modal-footer">
@@ -320,14 +292,8 @@ if (
 
 
                     </ul>
-                    <!--  <button type="submit" class="btn btn-outline-warning w-50 mb-1 borber border-2 border-danger " > Ajouter l'etat santé</button><br> -->
-
                 </form>
-
-                <!-- 
-                <h3 class=" mt-3 fs-5 text-1 " style="margin-right: 250px; margin-bottom: 20px;  "><b class="text-primary"> Nombre de visite :</b> </h3><br><br> -->
             </div><br><br>
-
             <!--   fin de la partie report -->
         </div>
     <?php

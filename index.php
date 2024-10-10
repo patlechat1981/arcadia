@@ -11,10 +11,9 @@
     <?php
 
     $bdd = include('config/db_connection.php');
-    $requet = $bdd->query('SELECT * FROM useradmin');
     $requete = $bdd->query('SELECT * FROM tous_les_animaux');
     $service = $bdd->query('SELECT * FROM service_zoo ');
-    $habitats = $bdd->query('SELECT * FROM zoohabitats ');
+    /*    $habitats = $bdd->query('SELECT * FROM zoohabitats '); */
     ?>
 
 </head>
