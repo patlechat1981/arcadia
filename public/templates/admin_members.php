@@ -44,12 +44,15 @@
         <?php
       }
     }
+    ob_start();
     // CRYPTAGE DU PASSWORD
     $password = "aq1" . sha1($password . "1254") . "25";
-
+    
     // ENVOI DE LA REQUETE
     $req = $bdd->prepare("INSERT INTO useradmin(pseudo, email, role, password,images_operateur) VALUES(?,?,?,?,?)");
     $value = $req->execute(array($pseudo, $email, $role, $password, $images_operateur));
+    
+    ob_end_flush();
   }
 
   $users = $bdd->query('SELECT * FROM `useradmin`');

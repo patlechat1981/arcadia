@@ -28,15 +28,18 @@ if(!empty($_POST['pseudo']) && !empty($_POST['email'])  && !empty($_POST['passwo
 			$error = 0;
 			$_SESSION['connect'] = 1;
 			$_SESSION['pseudo']	 = $user['pseudo'];
-
+			
 			if(isset($_POST['connect'])) {
-				$token = openssl_encrypt($email, 'aes-256-ctr', $config['secret']);
 				$semaine = time() + 60 * 60 * 24 * 7;
-				setcookie('token', $token, $semaine, '/'); 
-			}
+				ob_start();
+				//$token = "mpp7XvBaEvfOp44UMfx6AUc=";
+				$token = openssl_encrypt($email, 'aes-256-ctr', $config['secret']);
 
+				setcookie('token', ''.$token, $semaine); 
+			}
+			
 			header('Location: indexstaff.php?success=1');
-			?><script><?php echo ("location.href='indexstaff.php?success=1'") ?></script><?php
+			ob_end_flush();
 			exit();
 		}
 
