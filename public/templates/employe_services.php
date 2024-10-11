@@ -1,7 +1,3 @@
-<!-- 
-<main class="section_mainAnimaux text-center mx-0 border border-3 border-dark " id="afficheAdminServices" style="display: none;">
-  <h1>Admin service</h1>
-</main> -->
 <?php
 if (
     isset($_POST['nom_service']) && isset($_POST['description_service']) &&
@@ -18,9 +14,12 @@ if (
 }
 
 $services = $bdd->query('SELECT * FROM service_zoo');
+
+
 ?>
 
-<main class="section_mainAnimaux text-center mx-0 border border-3 border-danger " id="afficheAdminServices" style="display:none ;">
+<main class="section_mainAnimaux text-center mx-0 border border-3 border-danger " id="afficheServEmploye"
+style="display:none ;">
     <form class=" mt-3  text-center" role="search">
         <input
             class="form-control me-2 "
@@ -30,10 +29,12 @@ $services = $bdd->query('SELECT * FROM service_zoo');
             aria-label="Search"
             onkeyup="search(this, '.cardservice')">
     </form>
+
     <?php
 
     foreach ($services as $service) {
     ?>
+
         <div
             class="cardservice m-auto mt-3 mb-5 mx-5"
             style="background-color: white;padding:15px;"
@@ -44,7 +45,7 @@ $services = $bdd->query('SELECT * FROM service_zoo');
                 <input name="nom_service" value="<?php echo $service['nom_service'];   ?>" />
                 <br />
                 <label>Description</label>
-                <textarea  rows="3" cols="40" class="mt-5 nb-5" name="description_service"><?php echo $service['description_service'];   ?></textarea>
+                <textarea name="description_service"><?php echo $service['description_service'];   ?></textarea>
                 <br />
                 <img class="w-50 h-50" src="<?php echo $service['images_services'] ?>" alt="">
                 <label>Image</label>

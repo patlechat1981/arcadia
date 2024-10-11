@@ -53,14 +53,14 @@
                                 foreach ($service as $serv) {
                                 ?>
                                     <li>
-                                        <a class="dropdown-item text-warning" href="/ZOOARCARDIA2/
+                                        <a class="dropdown-item text-warning" href="/
                                         spectacle.php?id=<?php echo $serv['id_service']; ?>">
                                             <?php echo $serv['nom_service'] ?></a>
                                     </li>
                                 <?php
                                 }
                                 ?>
-                                <!-- <li><a class="dropdown-item text-success" href="/ZOOARCARDIA2/PAGES/veterinaire.html">
+                                <!-- <li><a class="dropdown-item text-success" href="/PAGES/veterinaire.html">
                                         Véterinaires
                                     </a></li> -->
                         </li>
@@ -68,7 +68,7 @@
                     </li>
 
                     <li>
-                        <a href="/ZOOARCARDIA2/PAGES/contact" class="text-primary nav-link mx-4 btn 
+                        <a href="/PAGES/contact" class="text-primary nav-link mx-4 btn 
                         btn-outline-warning ">Contactez-nous</a>
                     </li>
 
@@ -83,7 +83,7 @@
                             ?>
                                 <li>
                                     <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>"
-                                        href="/ZOOARCARDIA2/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
+                                        href="/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
                                         <?php echo $habitat['nom_habitat'] ?>
                                     </a>
                                 </li>
@@ -91,12 +91,12 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item " href="/ZOOARCARDIA2/touslesanimaux">Tous les animaux</a></li>
+                            <li><a class="dropdown-item " href="/touslesanimaux">Tous les animaux</a></li>
                             <li>
                             </li>
                         </ul>
                     </li>
-                    <!--  <a href="/ZOOARCARDIA2/PAGES/contact" class="text-primary nav-link mx-4 ">Contactez-nous</a> -->
+                    <!--  <a href="/PAGES/contact" class="text-primary nav-link mx-4 ">Contactez-nous</a> -->
 
                     <?php if (isset($_GET['error'])) {
                         echo '<p id="error">Nous ne pouvons pas vous authentifier.</p>';
@@ -365,7 +365,7 @@
             <div class="card-body">
                 <h4 class="card-title text-success">des spectacles unique !</h4>
 
-                <a href="/ZOOARCARDIA2/spectacle?id=1" class="btn btn-primary">En savoir plus...</a>
+                <a href="/spectacle?id=1" class="btn btn-primary">En savoir plus...</a>
             </div>
         </div>
         <!-- fin Card spectacle-->

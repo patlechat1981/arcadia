@@ -37,12 +37,12 @@ function administrateurMembers() {
 
     /*  gestion de mon Filter Search */
 
-function search(element, idCard) {
+function search(inputElement, cssQuery) {
 
-  const value = element.value;
-  console.log('valeur: ', element.value);
+  const value = inputElement.value;
+  console.log('valeur: ', inputElement.value);
 
-  const cardList = [...document.querySelectorAll(idCard)];
+  const cardList = [...document.querySelectorAll(cssQuery)];
   cardList.forEach((card) => {
     const name = card.getAttribute('search_name');
     if (name.toLowerCase().indexOf(value.toLowerCase()) === -1) {
@@ -53,15 +53,15 @@ function search(element, idCard) {
   })
 }
 
-function checkId(el, id) {
-  if(id === parseInt(el.value)) {
+function checkId(inputElement, id) {
+  if(id === parseInt(inputElement.value)) {
     document.getElementById("delete_submit_" + id).removeAttribute("disabled");
   } else {
     document.getElementById("delete_submit_" + id).setAttribute("disabled", true);
   }
 }
 
-function checkEquals(a, idElementB, idButton) {
+function checkInputEquals(a, idElementB, idButton) {
   const b = document.getElementById(idElementB);
   const button = document.getElementById(idButton);
 

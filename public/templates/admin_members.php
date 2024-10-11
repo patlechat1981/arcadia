@@ -111,12 +111,12 @@
         <tr>
           <td class="text-dark">Mot de passe</td><br>
           <td><input id="originalPassword" class="mb-2" type="password" name="password" placeholder="Ex : ********" required
-          onkeyup="checkEquals(this, 'confirmPassword', 'insertButton')"></td>
+          onkeyup="checkInputEquals(this, 'confirmPassword', 'insertButton')"></td>
         </tr>
         <tr>
           <td class="text-dark">Retaper mot de passe</td>
           <td><input id="confirmPassword" class="mb-2" type="password" name="password_confirm" placeholder="Ex : ********" required
-          onkeyup="checkEquals(this, 'originalPassword', 'insertButton')"></td>
+          onkeyup="checkInputEquals(this, 'originalPassword', 'insertButton')"></td>
         </tr>
 
 

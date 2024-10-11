@@ -83,7 +83,7 @@ if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['role']
 				}
 			} else if (isset($_GET['success'])) {
 				echo '<p id="success">Inscription prise correctement en compte.</p>';
-				echo '<a href="/ZOOARCARDIA2/index.php" >Vous pouvez a present vous Connectez.</a>';
+				echo '<a href="/index.php" >Vous pouvez a present vous Connectez.</a>';
 			}
 
 			?>
@@ -116,7 +116,7 @@ if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['role']
 						<button type='submit' class=" border border-3 border-info btn btn-oultine-success text-light">Inscription</button>
 					</div>
 				</form><br><br>
-				<P>Retourner a la page  <a href="/ZOOARCARDIA2/index.php" class=" nav-link text-info mx-5 ">Accueil</a> </P>
+				<P>Retourner a la page  <a href="/index.php" class=" nav-link text-info mx-5 ">Accueil</a> </P>
 			</div>
 
 		<?php } else { ?>

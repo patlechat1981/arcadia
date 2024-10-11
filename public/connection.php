@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-if(isset($_SESSION['connect'])){
-	header('location: index.php');
-	exit();
-}
+//if(isset($_SESSION['connect'])){
+//	header('location: indexstaff.php');
+//	exit();
+//}
 
-$config = include('config.php');
+$config = include('config/config.php');
 $bdd = include('config/db_connection.php');
 // CONNEXION
 if(!empty($_POST['pseudo']) && !empty($_POST['email'])  && !empty($_POST['password']) ){
@@ -18,8 +18,6 @@ if(!empty($_POST['pseudo']) && !empty($_POST['email'])  && !empty($_POST['passwo
 
 	// CRYPTER LE PASSWORD
 	$password = "aq1".sha1($password."1254")."25";
-
-	echo $password;
 
 	$req = $bdd->prepare('SELECT * FROM useradmin WHERE pseudo = ? AND email = ?');
 	$req->execute(array($pseudo,$email,));
@@ -34,17 +32,18 @@ if(!empty($_POST['pseudo']) && !empty($_POST['email'])  && !empty($_POST['passwo
 			if(isset($_POST['connect'])) {
 				$token = openssl_encrypt($email, 'aes-256-ctr', $config['secret']);
 				$semaine = time() + 60 * 60 * 24 * 7;
-				setcookie('token', $token, $semaine, true); 
+				setcookie('token', $token, $semaine, '/'); 
 			}
 
-			header('location: indexstaff.php?success=1');
+			header('Location: indexstaff.php?success=1');
+			?><script><?php echo ("location.href='indexstaff.php?success=1'") ?></script><?php
 			exit();
 		}
 
 	}
 
 	if($error == 1){
-		header('location: index.php?error=1');
+		header('Location: index.php?error=1');
 		exit();
 	}
 

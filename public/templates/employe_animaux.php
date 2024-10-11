@@ -4,12 +4,15 @@ $habitat_color = 'gray';
 $queryString = '';
 
 if (empty($_GET['id'])) {
-    $animaux = $bdd->query('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat');
+    $animaux = $bdd->query('SELECT * FROM `tous_les_animaux` as anim 
+    inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat');
 } else {
     $queryString = "?id=" . $_GET["id"];
     $id_habitat = intval($_GET["id"]);
 
-    $animaux = $bdd->prepare('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat WHERE zoo.id_habitat = :id_habitat');
+    $animaux = $bdd->prepare('SELECT * FROM `tous_les_animaux` as anim 
+        inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat 
+        WHERE zoo.id_habitat = :id_habitat');
     $animaux->bindParam(':id_habitat', $id_habitat, PDO::PARAM_INT);
 
     $image_habitat = $animaux[0]['images_habitat'];
@@ -17,7 +20,7 @@ if (empty($_GET['id'])) {
 }
 
 
-// form update nourriture_animal && quantité_nourriture
+// form update nourriture_animal && quantité_nourriture pour un id animal.
 if (
     isset($_POST['nourriture_animal']) && isset($_POST['quantité_nourriture']) && isset($_POST['id_animal'])
 ) {
@@ -25,9 +28,10 @@ if (
     $nourrit = $_POST['nourriture_animal'];
     $Qnourriture = $_POST['quantité_nourriture'];
 
-
-    $req = $bdd->prepare("UPDATE tous_les_animaux SET  nourriture_animal= ?  , quantité_nourriture = ? 
-     WHERE id_animal= ?") or die(print_r($bdd->errorInfo()));
+    $req = $bdd->prepare("UPDATE tous_les_animaux 
+        SET nourriture_animal = ? , quantité_nourriture = ? 
+        WHERE id_animal = ?")
+    or die(print_r($bdd->errorInfo()));
     $req->execute(array($nourrit, $Qnourriture, $idanimal));
 }
 

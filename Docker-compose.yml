@@ -1,34 +1,32 @@
-version: "3.7"
+version: "3"
 
 services:
-  #server:
-    #build: .  #  parcours du projet
-    #stdin_open: true  #donner ok
-    #tty:  true #pour tenir le server actif
-    #ports:
-    ##  - "5500:5500" # dire a la porteur externe d entrer dans ma porte
-    #depends_on:  # elle est dependente du serrver sql arcadia
-    #  - db_arcadia 
-    #volumes:
-    #  - .:/code
 
-  nginx:
-    build: ./nginx/
+  web:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    depends_on:
+      - db_arcadia
     ports:
-      - 80:80
+      - "8080:80"
     volumes:
-      - ./php/:/var/www/html/
+      - .:/app/
+    links:
+      - php
 
   php:
-    build: ./php/
-    expose:
-      - 9000
-    volumes:
-      - ./php/:/var/www/html/
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    depends_on:
+      - db_arcadia
     environment:
       DB_PASSWORD: patrice
       DB_SECRET: ufhz56546argçrhqyqgsdnuhsb4545fqsu
-      DB_CONNECTION: mysql:host=localhost;dbname=Zoo_arcadia;charset=utf8
+      DB_CONNECTION: mysql:host=db_arcadia;dbname=Zoo_arcadia;charset=utf8
+    volumes:
+      - .:/app/
 
   db_arcadia:
     image: mysql:5.7
@@ -36,9 +34,9 @@ services:
       - '3306:3306'
     expose:
       - '3306'
+    command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - C:/wamp64/www/ZOOARCARDIA2/db:/var/lib/mysql
+      - C:/Users/temok/OneDrive/Desktop/git/ZOOARCARDIA2/db:/var/lib/mysql
     environment:
       MYSQL_DATABASE: Zoo_arcadia
-      MYSQL_PASSWORD: patrice
       MYSQL_ROOT_PASSWORD: patrice

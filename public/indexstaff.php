@@ -114,7 +114,7 @@ if (
                                 /* foreach ($habitats as $habitat) { */
                             ?>
                             <!--   <li>
-                                    <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>" href="/ZOOARCARDIA2/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
+                                    <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>" href="/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
                                         <?php echo $habitat['nom_habitat'] ?>
                                     </a>
                                 </li> -->
@@ -158,7 +158,7 @@ if (
                                 /*  foreach ($habitats as $habitat) { */
                             ?>
                             <!--  <li>
-                                    <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>" href="/ZOOARCARDIA2/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
+                                    <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>" href="/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
                                         <?php /* echo $habitat['nom_habitat'] */ ?>
                                     </a>
                                 </li> -->

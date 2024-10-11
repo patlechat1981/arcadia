@@ -1,3 +1,4 @@
+
 <?php
 if (
     isset($_POST['nom_service']) && isset($_POST['description_service']) &&
@@ -8,17 +9,18 @@ if (
     $images_services = $_POST['images_services'];
     $id_services = $_POST['id_services'];
 
-    $req = $bdd->prepare("UPDATE service_zoo SET nom_service = ?,description_service=?,images_services=?
-     WHERE id_service =? ")or die(print_r($bdd->errorInfo()));
+    $req = $bdd->prepare("UPDATE service_zoo 
+        SET nom_service = ?, description_service=?, images_services=?
+        WHERE id_service =? ")
+    or die(print_r($bdd->errorInfo()));
+
     $req->execute(array($nom_service, $description_service, $images_services, $id_services));
 }
 
 $services = $bdd->query('SELECT * FROM service_zoo');
-
 ?>
 
-<main class="section_mainAnimaux text-center mx-0 border border-3 border-danger " id="afficheServEmploye"
-style="display:none ;">
+<main class="section_mainAnimaux text-center mx-0 border border-3 border-danger " id="afficheAdminServices" style="display:none ;">
     <form class=" mt-3  text-center" role="search">
         <input
             class="form-control me-2 "
@@ -28,12 +30,10 @@ style="display:none ;">
             aria-label="Search"
             onkeyup="search(this, '.cardservice')">
     </form>
-
     <?php
 
     foreach ($services as $service) {
     ?>
-
         <div
             class="cardservice m-auto mt-3 mb-5 mx-5"
             style="background-color: white;padding:15px;"
@@ -44,7 +44,7 @@ style="display:none ;">
                 <input name="nom_service" value="<?php echo $service['nom_service'];   ?>" />
                 <br />
                 <label>Description</label>
-                <textarea name="description_service"><?php echo $service['description_service'];   ?></textarea>
+                <textarea  rows="3" cols="40" class="mt-5 nb-5" name="description_service"><?php echo $service['description_service'];   ?></textarea>
                 <br />
                 <img class="w-50 h-50" src="<?php echo $service['images_services'] ?>" alt="">
                 <label>Image</label>

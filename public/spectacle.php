@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse link_navbar " id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
                     <li style="margin-left: 90px;">
-                        <a href="/ZOOARCARDIA2/index.php" class=" nav-link text-info mx-5 fw-bold btn-outline-light btn ">Accueil</a>
+                        <a href="/index.php" class=" nav-link text-info mx-5 fw-bold btn-outline-light btn ">Accueil</a>
                     </li>
                     <li class="nav-item dropdown  mx-4">
                         <a class=" fw-bold nav-link dropdown-toggle btn btn-outline-success border border-1 border-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,16 +43,16 @@
                         </a>
                         <ul class="dropdown-menu">
 
-                            <li><a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=1"> Maitres des Airs</a></li>
-                            <li><a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=3"> Activités Ludiques pour enfants</a></li>
-                            <li><a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=5"> la Mappe du Zoo</a></li>
+                            <li><a class="dropdown-item text-warning" href="/spectacle.php?id=1"> Maitres des Airs</a></li>
+                            <li><a class="dropdown-item text-warning" href="/spectacle.php?id=3"> Activités Ludiques pour enfants</a></li>
+                            <li><a class="dropdown-item text-warning" href="/spectacle.php?id=5"> la Mappe du Zoo</a></li>
                     </li>
 
                 </ul>
                 </li>
 
                 <li>
-                    <a href="/ZOOARCARDIA2/PAGES/contact" class="text-primary nav-link mx-4 fw-bold ">Contactez-nous</a>
+                    <a href="/PAGES/contact" class="text-primary nav-link mx-4 fw-bold ">Contactez-nous</a>
                 </li>
 
             </div>

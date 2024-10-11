@@ -80,20 +80,20 @@
                 <div class="collapse navbar-collapse link_navbar " id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
                         <li style="margin-left: 90px;">
-                            <a href="/ZOOARCARDIA2/index.php" class=" nav-link text-info mx-5 fw-bold ">Accueil</a>
+                            <a href="/index.php" class=" nav-link text-info mx-5 fw-bold ">Accueil</a>
                         </li>
                         <li class="nav-item dropdown  mx-4">
                             <a class=" fw-bold nav-link dropdown-toggle btn btn-outline-success border border-1 border-success" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Services
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=1"> les Maitres des Airs</a></li>
-                                <li><a class="dropdown-item text-warning" href="/ZOOARCARDIA2/spectacle.php?id=1"> les Acivités Ludiques pour enfants</a></li>
+                                <li><a class="dropdown-item text-warning" href="/spectacle.php?id=1"> les Maitres des Airs</a></li>
+                                <li><a class="dropdown-item text-warning" href="/spectacle.php?id=1"> les Acivités Ludiques pour enfants</a></li>
                         </li>
                     </ul>
                     </li>
                     <li>
-                        <a href="/ZOOARCARDIA2/PAGES/contact" class="text-primary nav-link mx-4 fw-bold ">Contactez-nous</a>
+                        <a href="/PAGES/contact" class="text-primary nav-link mx-4 fw-bold ">Contactez-nous</a>
                     </li>
 
                     <li class="nav-item dropdown mx-3  ">
@@ -105,7 +105,7 @@
                             foreach ($habitats as $habitat) {
                             ?>
                                 <li>
-                                    <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>" href="/ZOOARCARDIA2/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
+                                    <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>" href="/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
                                         <?php echo $habitat['nom_habitat'] ?>
                                     </a>
                                 </li>
