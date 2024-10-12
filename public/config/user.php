@@ -11,8 +11,7 @@
     
         return $user;
     } else {
-        echo "qdsqs";
-        //header("Location: index.php");
+        header("Location: index.php");
         die();
         return null;
     }

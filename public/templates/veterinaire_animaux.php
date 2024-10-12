@@ -1,22 +1,19 @@
 <?php
 $habitat_color = 'gray';
 
-
-
-
 if (empty($_GET['id'])) {
-    $animaux = $bdd->query('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat');
+    $animaux = $bdd->query('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats
+     as zoo on zoo.id_habitat = anim.id_habitat');
 } else {
     $id_habitat = intval($_GET["id"]);
 
-    $animaux = $bdd->prepare('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat WHERE zoo.id_habitat = :id_habitat');
+    $animaux = $bdd->prepare('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats 
+    as zoo on zoo.id_habitat = anim.id_habitat WHERE zoo.id_habitat = :id_habitat');
     $animaux->bindParam(':id_habitat', $id_habitat, PDO::PARAM_INT);
 
     $image_habitat = $animaux[0]['images_habitat'];
     $habitat_color = $animaux[0]['color'];
 }
-
-
 
 // form update nourriture_animal && quantité_nourriture
 if (
@@ -29,13 +26,19 @@ if (
     $vet_habitatAnimaux = $_POST['vet_habitatAnimaux'];
   
 
-    $req = $bdd->prepare("UPDATE tous_les_animaux SET  	vet_nourriture_quantite = ? ,
-     etat_animal =?, vet_habitatAnimaux = ?  WHERE id_animal= ?") or  die(print_r($bdd->errorInfo()));
+    $req = $bdd->prepare("UPDATE tous_les_animaux 
+        SET 
+            vet_nourriture_quantite = ? , 
+            etat_animal = ?, 
+            vet_habitatAnimaux = ? 
+        WHERE 
+            id_animal= ?")
+    or  die(print_r($bdd->errorInfo()));
+
     $req->execute(array(
         $vet_nourriture_quantite,
         $etat_animal,
         $vet_habitatAnimaux,
-     
         $idanimal
     ));
 }
@@ -46,7 +49,6 @@ if (
 ) {
     $idanimall = $_POST['id_animall']; 
     $vet_gestionHabitat = $_POST['vet_gestionHabitat'];
-
 
     $req = $bdd->prepare("UPDATE tous_les_animaux SET  
   vet_gestionHabitat = ?  WHERE id_animal= ?") or  die(print_r($bdd->errorInfo()));

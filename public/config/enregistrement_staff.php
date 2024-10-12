@@ -1,5 +1,7 @@
 <?php
 
+// DEPRECATA DA CANCELLARE
+
 
 session_start();
 

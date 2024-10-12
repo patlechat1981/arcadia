@@ -7,8 +7,6 @@
 
   if (isset($_POST['deleteOP'])) {
     $id = $_POST['id'];
-
-    /*  $req = $sbdd->exec("DELETE FROM useradmin WHERE id = '$id' ") */
     $req = $bdd->prepare("DELETE FROM useradmin WHERE id = :id ");
     $req->execute(array('id' => $id));
   }
@@ -17,10 +15,7 @@
   if (
     isset($_POST['pseudo']) && isset($_POST['email']) && isset($_POST['role'])
     && isset($_POST['password']) && isset($_POST['password_confirm']) && isset($_POST['images_operateur'])
-  ) {
-
-    // VARIABLE
-
+  ) {  
     $pseudo       = $_POST['pseudo'];
     $email        = $_POST['email'];
     $role         = $_POST['role'];
@@ -42,7 +37,7 @@
         ?>
           <script><?php echo ("alert('L\'indirizzo email \'".$email."\' esiste già.')") ?></script>
         <?php
-      }
+      }  
     }
     ob_start();
     // CRYPTAGE DU PASSWORD
@@ -50,11 +45,10 @@
     
     // ENVOI DE LA REQUETE
     $req = $bdd->prepare("INSERT INTO useradmin(pseudo, email, role, password,images_operateur) VALUES(?,?,?,?,?)");
-    $value = $req->execute(array($pseudo, $email, $role, $password, $images_operateur));
-    
+    $req->execute(array($pseudo, $email, $role, $password, $images_operateur));  
+
     ob_end_flush();
   }
-
   $users = $bdd->query('SELECT * FROM `useradmin`');
 
   ?>

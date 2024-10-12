@@ -52,7 +52,7 @@
                 </li>
 
                 <li>
-                    <a href="/PAGES/contact" class="text-primary nav-link mx-4 fw-bold ">Contactez-nous</a>
+                    <a href="/PAGES/contact.html" class="text-primary nav-link mx-4 fw-bold ">Contactez-nous</a>
                 </li>
 
             </div>

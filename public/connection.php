@@ -8,6 +8,7 @@ session_start();
 
 $config = include('config/config.php');
 $bdd = include('config/db_connection.php');
+
 // CONNEXION
 if(!empty($_POST['pseudo']) && !empty($_POST['email'])  && !empty($_POST['password']) ){
 

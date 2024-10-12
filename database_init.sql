@@ -29,13 +29,13 @@ CREATE TABLE IF NOT EXISTS tous_les_animaux (
   moyenne_age varchar(30) NOT NULL,
   poids_moyen varchar(30) NOT NULL,
   video_galleries varchar(2000) NOT NULL,
-  etat_animal varchar(500) NOT NULL,
-  nourriture_animal varchar(500) NOT NULL,
-  quantité_nourriture text NOT NULL,
+  etat_animal varchar(500),
+  nourriture_animal varchar(500),
+  quantité_nourriture text,
   date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  vet_nourriture_quantite text NOT NULL,
-  vet_habitatAnimaux text NOT NULL,
-  vet_gestionHabitat text NOT NULL,
+  vet_nourriture_quantite text,
+  vet_habitatAnimaux text,
+  vet_gestionHabitat text,
   PRIMARY KEY (id_animal),
   FOREIGN KEY (id_habitat) REFERENCES zoohabitats(id_habitat)
 );
@@ -48,7 +48,6 @@ CREATE TABLE IF NOT EXISTS useradmin (
   role text NOT NULL,
   password text NOT NULL,
   date_de_creation datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  secret text NOT NULL,
   images_operateur text NOT NULL,
   PRIMARY KEY (id)
 );

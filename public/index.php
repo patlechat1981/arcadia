@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoo Arcadia</title>
-    <link rel="stylesheet" href="./assets/CSS/style.css">
-    <link rel="stylesheet" href="./assets/CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/CSS/style.css">
+    <link rel="stylesheet" href="/assets/CSS/bootstrap.min.css">
 
     <?php
 
     $bdd = include('config/db_connection.php');
     $requete = $bdd->query('SELECT * FROM tous_les_animaux');
     $service = $bdd->query('SELECT * FROM service_zoo ');
-    /*    $habitats = $bdd->query('SELECT * FROM zoohabitats '); */
+    $habitats = $bdd->query('SELECT * FROM zoohabitats '); 
     ?>
 
 </head>
@@ -50,25 +50,23 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <?php
-                                foreach ($service as $serv) {
+                                 foreach ($service as $serv) { 
                                 ?>
                                     <li>
-                                        <a class="dropdown-item text-warning" href="/
-                                        spectacle.php?id=<?php echo $serv['id_service']; ?>">
-                                            <?php echo $serv['nom_service'] ?></a>
+                                         <a class="dropdown-item text-warning" href="/spectacle.php?id=<?php echo $serv['id_service']; ?>">
+                                            <?php  echo $serv['nom_service']  ?>
+                                        </a> 
                                     </li>
                                 <?php
-                                }
+                               } 
                                 ?>
-                                <!-- <li><a class="dropdown-item text-success" href="/PAGES/veterinaire.html">
-                                        Véterinaires
-                                    </a></li> -->
+                        
                         </li>
                     </ul>
                     </li>
 
                     <li>
-                        <a href="/PAGES/contact" class="text-primary nav-link mx-4 btn 
+                        <a href="/PAGES/contact.html" class="text-primary nav-link mx-4 btn 
                         btn-outline-warning ">Contactez-nous</a>
                     </li>
 
@@ -83,7 +81,7 @@
                             ?>
                                 <li>
                                     <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>"
-                                        href="/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
+                                        href="/touslesanimaux.php?id=<?php echo $habitat['id_habitat']; ?>">
                                         <?php echo $habitat['nom_habitat'] ?>
                                     </a>
                                 </li>
@@ -91,13 +89,11 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item " href="/touslesanimaux">Tous les animaux</a></li>
+                            <li><a class="dropdown-item" href="/touslesanimaux.php">Tous les animaux</a></li>
                             <li>
                             </li>
                         </ul>
                     </li>
-                    <!--  <a href="/PAGES/contact" class="text-primary nav-link mx-4 ">Contactez-nous</a> -->
-
                     <?php if (isset($_GET['error'])) {
                         echo '<p id="error">Nous ne pouvons pas vous authentifier.</p>';
                     }; ?>
@@ -365,19 +361,9 @@
             <div class="card-body">
                 <h4 class="card-title text-success">des spectacles unique !</h4>
 
-                <a href="/spectacle?id=1" class="btn btn-primary">En savoir plus...</a>
+                <a href="/spectacle.php?id=1" class="btn btn-primary">En savoir plus...</a>
             </div>
         </div>
-        <!-- fin Card spectacle-->
-
-        <!--FIN SECTION SPECTACLE ET VETERINAIRE-->
-
-
-
-        <!--    <img  src="./assets/IMAGES/images habitats/veterinaire/giraffe.webp" alt="" class="w-100 mx-0"> -->
-
-        <!--DEBUT DU FOOTER-->
-
 
     </div>
     <div class="container-fluid text-center " style="background-color: rgb(238, 236, 234); ">

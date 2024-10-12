@@ -30,12 +30,9 @@
             or die(print_r($bdd->errorInfo()));
 
         $requete->execute(array(
-            $id_habitat,
-            $race_animal,
-            $nom_animal,
-            $images_animal,
-            $video_galleries,
-            $description_animal,
+            $id_habitat,$race_animal,
+            $nom_animal, $images_animal,
+            $video_galleries, $description_animal,
             $moyenne_age,
             $poids_moyen
         ));

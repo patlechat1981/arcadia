@@ -16,7 +16,8 @@ if (
     $com = $_POST['commentaire'];
     $animal = $_POST['id_animal'];
 
-    $requete = $bdd->prepare('INSERT INTO avis(visiteur_nickname,avis_commentaire,id_animal)VALUES(?,?,?) ') or die(print_r($bdd->errorInfo()));
+    $requete = $bdd->prepare('INSERT INTO avis(visiteur_nickname,avis_commentaire,id_animal)VALUES(?,?,?) ') 
+    or die(print_r($bdd->errorInfo()));
     $requete->execute(array($nick, $com, $animal));
 
     if (empty($_GET['id'])) {
@@ -248,8 +249,8 @@ if (
 
                 include('templates/admin_serviceSites.php');
                 include('templates/admin_members.php'); 
-                /* toues les pages sont uniquement ouvertes par la pages indexstaff et meme si un malintentionné copie le link du super admin 
-                et le colle il ne pourra pa s l utiliser et la verifocation de indexstaff est necessaire pour ouvrir la page */
+                /* tous les pages sont uniquement ouvertes par la pages indexstaff et meme si un malintentionné copie le link du super admin 
+                et le colle il ne pourra pa l'utiliser et la verification de indexstaff est necessaire pour ouvrir la page */
             } elseif ($user['role'] == 'veterinaire') {
 
                 include('templates/veterinaire_animaux.php');

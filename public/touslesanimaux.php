@@ -1,3 +1,54 @@
+<?php
+
+$bdd = include('config/db_connection.php');
+
+$requete = $bdd->query('SELECT * FROM avis');
+
+if (
+    isset($_POST['nickname']) && isset($_POST['commentaire'])
+) {
+    $nick = $_POST['nickname'];
+    $com = $_POST['commentaire'];
+    $animal = $_POST['id_animal'];
+
+    $requete = $bdd->prepare('INSERT INTO avis(visiteur_nickname,avis_commentaire,id_animal, etat)
+    VALUES(?,?,?,?) ') or die(print_r($bdd->errorInfo()));
+    $requete->execute(array($nick, $com, $animal, 'pending'));
+    /* en ajoutant pending , un visteur depuis la select ne peut pas tricher et c est vincolato */
+
+    if (empty($_GET['id'])) {
+        header('Location: ' . $_SERVER['SCRIPT_NAME']);
+    } else {
+        header('Location: ' . $_SERVER['SCRIPT_NAME'] .  "?id=" . $_GET['id']);
+    }
+    die();
+}
+
+$image_habitat = 'https://cdn.pixabay.com/photo/2019/09/17/20/47/prague-4484517_1280.jpg';
+$habitat_color = 'gray';
+
+$habitats = $bdd->query('SELECT * FROM zoohabitats');
+$queryString = '';
+
+if (empty($_GET['id'])) {
+    $animaux = $bdd->query('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat');
+} else {
+    $queryString = "?id=" . $_GET["id"];
+    $id_habitat = intval($_GET["id"]);
+
+    $requete = $bdd->prepare('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat WHERE zoo.id_habitat = :id_habitat');
+    $requete->bindParam(':id_habitat', $id_habitat, PDO::PARAM_INT);
+    $requete->execute();
+
+    $animaux = $requete->fetchAll();
+    $image_habitat = $animaux[0]['images_habitat'];
+    $habitat_color = $animaux[0]['color'];
+}
+
+$commentaires = $bdd->query('SELECT * FROM `avis`')->fetchAll();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,56 +60,7 @@
     <link rel="stylesheet" href="./assets/CSS/touslesanimaux.css">
     <link rel="stylesheet" href="./assets/CSS/bootstrap.min.css">
 
-    <?php
-
-    $bdd = include('config/db_connection.php');
-
-    $requete = $bdd->query('SELECT * FROM avis');
-
-    if (
-        isset($_POST['nickname']) && isset($_POST['commentaire'])
-    ) {
-        $nick = $_POST['nickname'];
-        $com = $_POST['commentaire'];
-        $animal = $_POST['id_animal'];
-
-        $requete = $bdd->prepare('INSERT INTO avis(visiteur_nickname,avis_commentaire,id_animal, etat)
-        VALUES(?,?,?,?) ') or die(print_r($bdd->errorInfo()));
-        $requete->execute(array($nick, $com, $animal, 'pending'));
-        /* en ajoutant pending , un visteur depuis la select ne peut pas tricher et c est vincolato */
-
-        if (empty($_GET['id'])) {
-            header('Location: ' . $_SERVER['SCRIPT_NAME']);
-        } else {
-            header('Location: ' . $_SERVER['SCRIPT_NAME'] .  "?id=" . $_GET['id']);
-        }
-        die();
-    }
-
-    $image_habitat = 'https://cdn.pixabay.com/photo/2019/09/17/20/47/prague-4484517_1280.jpg';
-    $habitat_color = 'gray';
-
-    $habitats = $bdd->query('SELECT * FROM zoohabitats');
-    $queryString = '';
-
-    if (empty($_GET['id'])) {
-        $animaux = $bdd->query('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat');
-    } else {
-        $queryString = "?id=" . $_GET["id"];
-        $id_habitat = intval($_GET["id"]);
-
-        $requete = $bdd->prepare('SELECT * FROM `tous_les_animaux` as anim inner JOIN zoohabitats as zoo on zoo.id_habitat = anim.id_habitat WHERE zoo.id_habitat = :id_habitat');
-        $requete->bindParam(':id_habitat', $id_habitat, PDO::PARAM_INT);
-        $requete->execute();
-
-        $animaux = $requete->fetchAll();
-        $image_habitat = $animaux[0]['images_habitat'];
-        $habitat_color = $animaux[0]['color'];
-    }
-
-    $commentaires = $bdd->query('SELECT * FROM `avis`')->fetchAll();
-    ?>
-
+   
 </head>
 
 <body>
@@ -88,12 +90,12 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item text-warning" href="/spectacle.php?id=1"> les Maitres des Airs</a></li>
-                                <li><a class="dropdown-item text-warning" href="/spectacle.php?id=1"> les Acivités Ludiques pour enfants</a></li>
+                                <li><a class="dropdown-item text-warning" href="/spectacle.php?id=2"> les Acivités Ludiques pour enfants</a></li>
                         </li>
                     </ul>
                     </li>
                     <li>
-                        <a href="/PAGES/contact" class="text-primary nav-link mx-4 fw-bold ">Contactez-nous</a>
+                        <a href="/PAGES/contact.html" class="text-primary nav-link mx-4 fw-bold ">Contactez-nous</a>
                     </li>
 
                     <li class="nav-item dropdown mx-3  ">
@@ -105,7 +107,7 @@
                             foreach ($habitats as $habitat) {
                             ?>
                                 <li>
-                                    <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>" href="/touslesanimaux?id=<?php echo $habitat['id_habitat']; ?>">
+                                    <a class="dropdown-item" style="color: <?php echo $habitat['color'] ?>" href="/touslesanimaux.php?id=<?php echo $habitat['id_habitat']; ?>">
                                         <?php echo $habitat['nom_habitat'] ?>
                                     </a>
                                 </li>

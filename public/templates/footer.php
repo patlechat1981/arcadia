@@ -28,13 +28,13 @@
                         <h6 class="text-uppercase fw-bold">Découvrir</h6>
                         <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 90px; background-color: #327dc4; height: 4px" />
                         <p>
-                            <a href="/touslesanimaux?id=1" class="text-warning text-decoration-none">Animaux de la savane</a>
+                            <a href="/touslesanimaux.php?id=1" class="text-warning text-decoration-none">Animaux de la savane</a>
                         </p>
                         <p>
-                            <a href="/touslesanimaux?id=2" class="text-success text-decoration-none">Animaux de la jungle</a>
+                            <a href="/touslesanimaux.php?id=2" class="text-success text-decoration-none">Animaux de la jungle</a>
                         </p>
                         <p>
-                            <a href="/touslesanimaux?id=3" class="text-secondary text-decoration-none">Animaux de marais</a>
+                            <a href="/touslesanimaux.php?id=3" class="text-secondary text-decoration-none">Animaux de marais</a>
                         </p>
 
                     </div>
